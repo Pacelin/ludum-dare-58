@@ -1,0 +1,18 @@
+﻿using System.Threading;
+using R3;
+using UnityEngine;
+
+namespace Scripts.Core.Lifetime
+{
+    public static class ApplicationState
+    {
+        public static CancellationToken ExitCancellationToken => Application.exitCancellationToken;
+        public static ReadOnlyReactiveProperty<bool> IsPaused => _monoProvider.IsPaused;
+        
+        private static ApplicationMonoProvider _monoProvider;
+        
+        internal static void Initialize(ApplicationMonoProvider monoProvider) => _monoProvider = monoProvider;
+        
+        public static void SetPause(bool pause) => _monoProvider.SetPause(pause);
+    }
+}

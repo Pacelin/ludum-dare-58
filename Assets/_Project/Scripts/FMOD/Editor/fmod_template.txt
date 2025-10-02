@@ -1,0 +1,283 @@
+// Auto-generated code. Reference: "Packages/com.tss.cms/Editor/CMSGenerator.cs"
+
+// ReSharper disable RedundantUsingDirective
+#pragma warning disable CS1998
+
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
+using FMODUnity;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+{{~ if tss_core 
+"using R3;\n"
+"using TSS.Core;\n"
+end ~}}
+{{~ func load_banks(banks, indent)
+for bank in banks
+indent + "RuntimeManager.LoadBank(\"" + bank + "\", true);\n"
+end
+end ~}}
+{{~ func generate_events_fields(eventsData, indent)
+for eventData in eventsData
+indent + "public static SoundEvent_" + eventData.name + " " + eventData.name + " { get; } = new();\n"
+end
+end ~}}
+{{~ func generate_parameters_ids(parameters, indent)
+for parameter in parameters
+indent + "private static readonly FMOD.Studio.PARAMETER_ID " + parameter.name + "Id = new FMOD.Studio.PARAMETER_ID() { data1 = " + parameter.id_1 + ", data2 = " + parameter.id_2 + " };\n"
+end
+if parameters.size > 0
+"\n"
+end
+end ~}}
+{{~ func generate_parameters_labels(parameters, indent)
+for parameter in parameters
+if parameter.is_labeled
+indent + "public enum ELabel_" + parameter.name + "\n"
+indent + "{\n"
+for label in parameter.labels
+indent + "\t" + label + " = " + for.index + ",\n"
+end
+indent + "}\n"
+end
+end
+end ~}}
+{{~ func generate_parameters_methods(parameters, indent)
+for parameter in parameters
+if parameter.is_discrete
+indent + "public void Set" + parameter.name + "(int value) => this.Instance.setParameterByID(" + parameter.name + "Id, value);\n"
+indent + "public int Get" + parameter.name + "()\n"
+indent + "{\n"
+indent + "\t" + "this.Instance.getParameterByID(" + parameter.name + "Id, out var value);\n"
+indent + "\t" + "return (int) value;\n"
+indent + "}\n\n"
+else if parameter.is_labeled
+indent + "public void Set" + parameter.name + "(ELabel_" + parameter.name + " value) => this.Instance.setParameterByID(" + parameter.name + "Id, (int) value);\n"
+indent + "public ELabel_" + parameter.name + " Get" + parameter.name + "()\n"
+indent + "{\n"
+indent + "\t" + "this.Instance.getParameterByID(" + parameter.name + "Id, out var value);\n"
+indent + "\t" + "return (ELabel_" + parameter.name + ") (int) value;\n"
+indent + "}\n\n"
+else
+indent + "public void Set" + parameter.name + "(float value) => this.Instance.setParameterByID(" + parameter.name + "Id, value);\n"
+indent + "public float Get" + parameter.name + "()\n"
+indent + "{\n"
+indent + "\t" + "this.Instance.getParameterByID(" + parameter.name + "Id, out var value);\n"
+indent + "\t" + "return value;\n"
+indent + "}\n\n"
+end
+end
+end ~}}
+{{~ func generate_instance(eventData, indent)
+indent + "public Instance CreateInstance() => new Instance(RuntimeManager.CreateInstance(_guid));\n"
+indent + "ISoundEventInstance ISoundEvent.CreateInstance() => CreateInstance();\n\n"
+generate_parameters_labels eventData.parameters indent
+indent + "public class Instance : SoundEventInstance\n"
+indent + "{\n"
+generate_parameters_ids eventData.parameters indent+"\t"
+indent + "\t" + "public Instance(FMOD.Studio.EventInstance eventInstance) : base(eventInstance) { }\n\n"
+generate_parameters_methods eventData.parameters indent+"\t"
+indent + "}\n"
+end ~}}
+{{~ func generate_event(eventData, indent)
+indent + "public class SoundEvent_" + eventData.name + " : ISoundEvent\n"
+indent + "{\n"
+indent + "\t" + "public bool IsOneShot => " + eventData.is_one_shot_str + ";\n"
+indent + "\t" + "public float Length => " + eventData.length_str + ";\n\n"
+indent + "\t" + "private static readonly FMOD.GUID _guid = new FMOD.GUID() { Data1 = " + eventData.guid_1 + ", Data2 = " + eventData.guid_2 + ", Data3 = " + eventData.guid_3 + ", Data4 = " + eventData.guid_4 + " };\n\n"
+indent + "\t" + "public void PlayOneShot() => RuntimeManager.PlayOneShot(_guid);\n"
+indent + "\t" + "public void PlayOneShotAttached(GameObject attachTo) => RuntimeManager.PlayOneShotAttached(_guid, attachTo);\n"
+indent + "\t" + "public void PlayOneShotInPoint(Vector3 point) => RuntimeManager.PlayOneShot(_guid, point);\n\n"
+generate_instance eventData indent+"\t"
+indent + "}\n"
+end ~}}
+{{~ func generate_events(eventDatas, indent)
+for eventData in eventDatas
+generate_event(eventData, indent)
+"\n"
+end
+end ~}}
+{{~ func generate_global_methods(parameters, indent)
+for parameter in parameters
+if parameter.is_discrete
+indent + "public static void Set" + parameter.name + "(int value) => RuntimeManager.StudioSystem.setParameterByID(" + parameter.name + "Id, value);\n"
+indent + "public static int Get" + parameter.name + "()\n"
+indent + "{\n"
+indent + "\t" + "RuntimeManager.StudioSystem.getParameterByID(" + parameter.name + "Id, out var value);\n"
+indent + "\t" + "return (int) value;\n"
+indent + "}\n\n"
+else if parameter.is_labeled
+indent + "public static void Set" + parameter.name + "(ELabel_" + parameter.name + " value) => RuntimeManager.StudioSystem.setParameterByID(" + parameter.name + "Id, (int) value);\n"
+indent + "public static ELabel_" + parameter.name + " Get" + parameter.name + "()\n"
+indent + "{\n"
+indent + "\t" + "RuntimeManager.StudioSystem.getParameterByID(" + parameter.name + "Id, out var value);\n"
+indent + "\t" + "return (ELabel_" + parameter.name + ") (int) value;\n"
+indent + "}\n\n"
+else
+indent + "public static void Set" + parameter.name + "(float value) => RuntimeManager.StudioSystem.setParameterByID(" + parameter.name + "Id, value);\n"
+indent + "public static float Get" + parameter.name + "()\n"
+indent + "{\n"
+indent + "\t" + "RuntimeManager.StudioSystem.getParameterByID(" + parameter.name + "Id, out var value);\n"
+indent + "\t" + "return value;\n"
+indent + "}\n\n"
+end
+end
+end ~}}
+{{~ func generate_global(parameters, indent)
+indent + "public static class Global\n"
+indent + "{\n"
+generate_parameters_labels parameters indent+"\t"
+generate_parameters_ids parameters indent+"\t"
+generate_global_methods parameters indent+"\t"
+indent + "}\n"
+end ~}}
+
+namespace Scripts.Audio
+{
+{{~ if tss_core ~}}
+    [UsedImplicitly]
+    [RuntimeOrder(ERuntimeOrder.SystemRegistration)]
+    public class AudioSystem : IRuntimeLoader
+    {
+	    public static class Volumes
+	    {
+		    public static float MasterVolume
+		    {
+			    get
+			    {
+				    _masterBus.getVolume(out var volume);
+				    return volume;
+			    }
+			    set
+			    {
+				    _masterBus.setVolume(value);
+				    PlayerPrefs.SetFloat("master_volume", value);
+			    }
+		    }
+
+		    public static float GetVolume(int index)
+		    {
+			    _buses[index].getVolume(out var volume);
+			    return volume;
+		    }
+
+		    public static void SetVolume(int index, float volume)
+		    {
+			    _buses[index].setVolume(volume);
+			    _buses[index].getID(out var id);
+			    PlayerPrefs.SetFloat("volume_of_" + id, volume);
+		    }
+	    }
+	    
+        {{~ generate_global parameters "\t"*2 ~}}
+
+        {{~ generate_events_fields events "\t"*2 ~}}
+    
+		private System.IDisposable _focusDisposable;
+		
+		private static FMOD.Studio.Bus _masterBus;
+		private static FMOD.Studio.Bus[] _buses;
+		
+        public async UniTask Initialize(CancellationToken cancellationToken)
+        {
+            {{~ load_banks banks "\t"*3 ~}}
+
+            await UniTask.WaitUntil(() => FMODUnity.RuntimeManager.HaveAllBanksLoaded);
+            await UniTask.WaitWhile(FMODUnity.RuntimeManager.AnySampleDataLoading);
+            
+            var volumesSettings = await Addressables.LoadAssetAsync<AudioVolumesSettings>("Audio Volumes")
+	            .ToUniTask(cancellationToken: cancellationToken);
+
+            _masterBus = FMODUnity.RuntimeManager.GetBus(volumesSettings.MasterBusPath);
+            _masterBus.setVolume(PlayerPrefs.GetFloat("master_volume", volumesSettings.DefaultMasterVolume));
+
+            _buses = new FMOD.Studio.Bus[volumesSettings.BusesPaths.Length];
+            for (int i = 0; i < _buses.Length; i++)
+            {
+	            _buses[i] = FMODUnity.RuntimeManager.GetBus(volumesSettings.BusesPaths[i]);
+	            _buses[i].getID(out var busId);
+	            _buses[i].setVolume(PlayerPrefs.GetFloat("volume_of_" + busId, volumesSettings.DefaultVolume));
+            }
+            
+            Addressables.Release(volumesSettings);
+            
+            _focusDisposable = Runtime.ObserveFocus().Subscribe(focus =>
+            {
+	            if (RuntimeManager.StudioSystem.isValid())
+	            {
+		            RuntimeManager.PauseAllEvents(!focus);
+
+		            if (!focus)
+			            RuntimeManager.CoreSystem.mixerSuspend();
+		            else
+			            RuntimeManager.CoreSystem.mixerResume();
+	            }
+            });
+        }
+
+        public void Dispose() => _focusDisposable.Dispose();
+    }
+{{~ else ~}}
+    public static class AudioSystem
+    {
+	    public static class Volumes
+	    {
+		    public static float MasterVolume
+		    {
+			    get
+			    {
+				    _masterBus.getVolume(out var volume);
+				    return volume;
+			    }
+			    set
+			    {
+				    _masterBus.setVolume(value);
+				    PlayerPrefs.SetFloat("master_volume", value);
+			    }
+		    }
+
+		    public static float GetVolume(int index)
+		    {
+			    _buses[index].getVolume(out var volume);
+			    return volume;
+		    }
+
+		    public static void SetVolume(int index, float volume)
+		    {
+			    _buses[index].setVolume(volume);
+			    _buses[index].getID(out var id);
+			    PlayerPrefs.SetFloat("volume_of_" + id, volume);
+		    }
+	    }
+	    
+        {{~ generate_global parameters "\t"*2 ~}}
+    
+        {{~ generate_events_fields events "\t"*2 ~}}
+		
+		private static FMOD.Studio.Bus _masterBus;
+		private static FMOD.Studio.Bus[] _buses;
+
+        public static async UniTask Initialize(AudioVolumes volumes, CancellationToken cancellationToken)
+        {
+            {{~ load_banks banks "\t"*3 ~}}
+
+            await UniTask.WaitUntil(() => FMODUnity.RuntimeManager.HaveAllBanksLoaded);
+            await UniTask.WaitWhile(FMODUnity.RuntimeManager.AnySampleDataLoading);
+            
+            _masterBus = FMODUnity.RuntimeManager.GetBus(volumes.MasterBusPath);
+            _masterBus.setVolume(PlayerPrefs.GetFloat("master_volume", volumes.DefaultMasterVolume));
+
+            _buses = new FMOD.Studio.Bus[volumes.BusesPaths.Length];
+            for (int i = 0; i < _buses.Length; i++)
+            {
+	            _buses[i] = FMODUnity.RuntimeManager.GetBus(volumes.BusesPaths[i]);
+	            _buses[i].getID(out var busId);
+	            _buses[i].setVolume(PlayerPrefs.GetFloat("volume_of_" + busId, volumes.DefaultVolume));
+            }
+        }
+    }
+{{~ end ~}}
+
+    {{~ generate_events events "\t" ~}}
+}
