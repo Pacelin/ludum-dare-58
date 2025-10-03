@@ -5,6 +5,7 @@ using Scripts.Core.Lifetime;
 using Scripts.Core.UnityEditorHelpers;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace Scripts.Audio
 {
@@ -21,6 +22,7 @@ namespace Scripts.Audio
 
         public override void Install(IContainerBuilder builder)
         {
+            builder.RegisterEntryPoint<FMODPauseManager>();
         }
     }
 }

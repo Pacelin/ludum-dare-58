@@ -8,7 +8,8 @@ namespace Scripts.Core.Lifetime
     {
         public static CancellationToken ExitCancellationToken => Application.exitCancellationToken;
         public static ReadOnlyReactiveProperty<bool> IsPaused => _monoProvider.IsPaused;
-        
+        public static ReadOnlyReactiveProperty<bool> IsPausedByUser => _monoProvider.IsPausedByUser;
+
         private static ApplicationMonoProvider _monoProvider;
         
         internal static void Initialize(ApplicationMonoProvider monoProvider) => _monoProvider = monoProvider;

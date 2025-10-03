@@ -7,6 +7,7 @@ namespace Scripts.Core.Lifetime
     {
         public ReadOnlyReactiveProperty<bool> IsPaused => _hasFocus.CombineLatest(_isPaused, 
             (p1, p2) => !p1 || p2).ToReadOnlyReactiveProperty();
+        public ReadOnlyReactiveProperty<bool> IsPausedByUser => _isPaused;
 
         private readonly ReactiveProperty<bool> _hasFocus = new(true);
         private readonly ReactiveProperty<bool> _isPaused = new(false);

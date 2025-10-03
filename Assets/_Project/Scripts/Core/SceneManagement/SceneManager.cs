@@ -52,8 +52,13 @@ namespace Scripts.Core.SceneManagement
             }
         }
 
-        public static UniTask LoadScene(AssetReference scene) =>
-            Addressables.LoadSceneAsync(scene)
+        public static async UniTask LoadScene(AssetReference scene)
+        {
+            await Addressables.LoadSceneAsync(scene)
                 .ToUniTask(cancellationToken: ApplicationState.ExitCancellationToken, autoReleaseWhenCanceled: true);
+            if (ApplicationState.ExitCancellationToken.IsCancellationRequested)
+                return;
+            ApplicationState.SetPause(false);
+        }
     }
 }

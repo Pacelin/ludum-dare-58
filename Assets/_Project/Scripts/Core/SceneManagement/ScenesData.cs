@@ -7,7 +7,9 @@ namespace Scripts.Core.SceneManagement
     public class ScenesData
     {
         public AssetReference MainMenu => _mainMenu;
+        public AssetReference Game => _game;
 
         [SerializeField] private AssetReference _mainMenu;
+        [SerializeField] private AssetReference _game;
     }
 }

@@ -23,6 +23,13 @@
       },
       "hash": "24d04125d68719816e24dfb79c60dd97ca396038"
     },
+    "com.mixpanel.unity": {
+      "version": "https://github.com/mixpanel/mixpanel-unity.git#master",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "aa28e6eeefe01ef98c6ca53b2551394bc6660ec2"
+    },
     "com.unity.2d.animation": {
       "version": "10.1.4",
       "depth": 1,
