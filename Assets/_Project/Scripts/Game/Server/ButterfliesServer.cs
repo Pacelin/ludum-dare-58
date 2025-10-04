@@ -20,8 +20,9 @@ namespace Scripts.Game.Server
         private static ButterflyData[] _cached;
         private static DateTime _lastUpdate;
         
-        public static async UniTask PostButterfly(ButterflyData data)
+        public static async UniTask PostButterfly(int id, float size)
         {
+            var data = new ButterflyData {id = id, size = size, username = UserDataManager.GetString("username")};
             var json = JsonUtility.ToJson(data);
             Debug.Log("Отправляемый JSON: " + json);
             
@@ -64,7 +65,7 @@ namespace Scripts.Game.Server
                     string jsonResponse = request.downloadHandler.text;
                     var result = JsonUtility.FromJson<TableData>(jsonResponse);
                     foreach (var row in result.data)
-                        Debug.Log($"ID: {row.id}, Size: {row.size}, User: {row.user}");
+                        Debug.Log($"ID: {row.id}, Size: {row.size}, User: {row.username}");
                     _cached = result.data;
                     _lastUpdate = DateTime.Now;
                     return result.data;

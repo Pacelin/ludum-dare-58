@@ -5,6 +5,6 @@
     {
         public int id;
         public float size;
-        public string user;
+        public string username;
     }
 }

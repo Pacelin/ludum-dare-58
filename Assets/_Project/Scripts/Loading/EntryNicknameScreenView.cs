@@ -46,7 +46,7 @@ namespace Scripts.Loading
 
         private void Go()
         {
-            UserDataManager.SetString("nickname", _inputField.text);
+            UserDataManager.SetString("username", _inputField.text);
             SceneManager.LoadScene(SceneManager.Database.MainMenu).Forget(); 
         }
     }

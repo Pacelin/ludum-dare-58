@@ -10,7 +10,7 @@ namespace Scripts.Loading
     {
         public void Initialize()
         {
-            if (string.IsNullOrEmpty(UserDataManager.GetString("nickname", null)))
+            if (string.IsNullOrEmpty(UserDataManager.GetString("username", null)))
                 SceneManager.LoadScene(SceneManager.Database.EnterNickname).Forget();
             else
                 SceneManager.LoadScene(SceneManager.Database.MainMenu).Forget();
