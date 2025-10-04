@@ -262,6 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3947933148916085471}
   - component: {fileID: 2095197023002476147}
+  - component: {fileID: 3487419055905414776}
+  - component: {fileID: 376688838690753372}
   m_Layer: 5
   m_Name: Template_ButtonWithTextNoBackground
   m_TagString: Untagged
@@ -334,3 +336,27 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3487419055905414776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315547475892371249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc693080167d49ba902ce98596c44399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &376688838690753372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315547475892371249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4552794a43eb4b1d8dab53b2fc14e31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -3,7 +3,7 @@ using FMODUnity;
 using UnityEngine;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
-namespace TSS.Audio
+namespace Scripts.Audio
 {
     public class SoundEventInstance : ISoundEventInstance
     {

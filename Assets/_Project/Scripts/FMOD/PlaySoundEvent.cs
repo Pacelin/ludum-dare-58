@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace TSS.Audio
+namespace Scripts.Audio
 {
     public class PlaySoundEvent : MonoBehaviour
     {

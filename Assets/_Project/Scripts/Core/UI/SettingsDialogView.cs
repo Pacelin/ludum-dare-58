@@ -23,15 +23,27 @@ namespace Scripts.Core.UI
             _settings.SoundVolume.value = AudioSystem.Volumes.GetVolume(1);
             
             _settings.MasterVolume.OnValueChangedAsObservable()
-                .Subscribe(v => AudioSystem.Volumes.MasterVolume = v)
+                .Subscribe(v =>
+                {
+                    AudioSystem.UI_Slider.PlayOneShot();
+                    AudioSystem.Volumes.MasterVolume = v;
+                })
                 .AddTo(_disposables);
             
             _settings.MusicVolume.OnValueChangedAsObservable()
-                .Subscribe(v => AudioSystem.Volumes.SetVolume(0, v))
+                .Subscribe(v =>
+                {
+                    AudioSystem.UI_Slider.PlayOneShot();
+                    AudioSystem.Volumes.SetVolume(0, v);
+                })
                 .AddTo(_disposables);
             
             _settings.SoundVolume.OnValueChangedAsObservable()
-                .Subscribe(v => AudioSystem.Volumes.SetVolume(1, v))
+                .Subscribe(v =>
+                {
+                    AudioSystem.UI_Slider.PlayOneShot();
+                    AudioSystem.Volumes.SetVolume(1, v);
+                })
                 .AddTo(_disposables);
             
             foreach (var button in _closeButtons)

@@ -6,7 +6,7 @@ using Scripts.Core.UnityEditorHelpers.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace TSS.Audio.Editor
+namespace Scripts.Audio.Editor
 {
     internal class GenerationData
     {

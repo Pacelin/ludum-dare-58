@@ -3,7 +3,7 @@ using FMODUnity;
 using UnityEditor;
 using UnityEngine;
 
-namespace TSS.Audio.Editor
+namespace Scripts.Audio.Editor
 {
     internal static class FMODUtilsInternal
     {

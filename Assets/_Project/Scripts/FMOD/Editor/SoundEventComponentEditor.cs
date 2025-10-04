@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace TSS.Audio.Editor
+namespace Scripts.Audio.Editor
 {
     [CustomEditor(typeof(SoundEventComponent))]
     internal class SoundEventComponentEditor : UnityEditor.Editor

@@ -1,4 +1,4 @@
-﻿namespace TSS.Audio
+﻿namespace Scripts.Audio
 {
     public enum ESoundState
     {

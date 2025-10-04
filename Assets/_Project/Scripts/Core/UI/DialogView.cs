@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Scripts.Audio;
 using UnityEngine;
 using VContainer;
 
@@ -26,6 +27,7 @@ namespace Scripts.Core.UI
 
         public UniTask Open(CancellationToken cancellationToken)
         {
+            AudioSystem.UI_PopupAppear.PlayOneShot();
             return DOTween.Sequence(this)
                 .Append(_canvasGroup.DOFade(1, _openCloseDuration))
                 .Join(_content.DOAnchorPos(_contentOpenPosition, _openCloseDuration))

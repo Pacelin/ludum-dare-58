@@ -2,7 +2,7 @@
 using Scripts.Core.InspectorCustomization.InternalBridge;
 using UnityEditor.UIElements;
 
-namespace TSS.Audio.Editor
+namespace Scripts.Audio.Editor
 {
     [UsedImplicitly]
     [ToolbarElement(EToolbarPosition.RightRightAlign)]

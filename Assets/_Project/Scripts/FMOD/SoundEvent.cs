@@ -2,7 +2,7 @@
 using FMODUnity;
 using UnityEngine;
 
-namespace TSS.Audio
+namespace Scripts.Audio
 {
     [System.Serializable]
     public class SoundEvent : ISoundEvent
