@@ -1,6 +1,8 @@
 ﻿using System;
 using R3;
 using Scripts.Core.Lifetime;
+using Scripts.Game.Currency;
+using Scripts.Game.Flowers;
 using VContainer.Unity;
 
 namespace Scripts.Game
@@ -8,11 +10,15 @@ namespace Scripts.Game
     public class GameScreenPresenter : IInitializable, IDisposable
     {
         private readonly GameScreenView _screen;
+        private readonly WalletPresenter _walletPresenter;
+        private readonly HotbarController _hotbarController;
         private readonly CompositeDisposable _disposables;
         
-        public GameScreenPresenter(GameScreenView screen)
+        public GameScreenPresenter(GameScreenView screen, DrawFacade drawFacade, Wallet wallet)
         {
             _screen = screen;
+            _walletPresenter = new WalletPresenter(screen.WalletView, wallet);
+            _hotbarController = new HotbarController(drawFacade, screen.Hotbar, wallet);
             _disposables = new CompositeDisposable();
         }
 
@@ -20,10 +26,14 @@ namespace Scripts.Game
         {
             _screen.PauseButton.OnClickAsObservable()
                 .Subscribe(_ => ApplicationState.SetPause(true)).AddTo(_disposables);
+            _walletPresenter.Initialize();
+            _hotbarController.Initialize();
         }
 
         public void Dispose()
         {
+            _walletPresenter.Dispose();
+            _hotbarController.Dispose();
             _disposables.Dispose();
         }
     }

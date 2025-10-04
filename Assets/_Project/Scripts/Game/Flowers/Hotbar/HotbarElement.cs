@@ -10,7 +10,8 @@ namespace Scripts.Game.Flowers
         [SerializeField] private Button _button;
         [SerializeField] private GameObject _selectedMark;
 
-        public virtual void UpdateSelection(DrawCollider drawCollider, bool selected) =>
+        public void UpdateSelection(bool selected) =>
             _selectedMark.SetActive(selected);
+        public abstract void Visit(HotbarController hotbarController);
     }
 }
