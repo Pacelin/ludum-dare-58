@@ -23,6 +23,7 @@ namespace Scripts.Core.UI
             _settings.SoundVolume.value = AudioSystem.Volumes.GetVolume(1);
             
             _settings.MasterVolume.OnValueChangedAsObservable()
+                .Skip(1)
                 .Subscribe(v =>
                 {
                     AudioSystem.UI_Slider.PlayOneShot();
@@ -31,6 +32,7 @@ namespace Scripts.Core.UI
                 .AddTo(_disposables);
             
             _settings.MusicVolume.OnValueChangedAsObservable()
+                .Skip(1)
                 .Subscribe(v =>
                 {
                     AudioSystem.UI_Slider.PlayOneShot();
@@ -39,6 +41,7 @@ namespace Scripts.Core.UI
                 .AddTo(_disposables);
             
             _settings.SoundVolume.OnValueChangedAsObservable()
+                .Skip(1)
                 .Subscribe(v =>
                 {
                     AudioSystem.UI_Slider.PlayOneShot();

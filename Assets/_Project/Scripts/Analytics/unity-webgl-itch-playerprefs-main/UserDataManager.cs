@@ -38,7 +38,7 @@ public static class UserDataManager
         #if UNITY_WEBGL && !UNITY_EDITOR
         return loadData(PrefixKey(key));
         #else
-        return PlayerPrefs.GetString(key);
+        return PlayerPrefs.GetString(key, defaultValue);
         #endif
     }
 

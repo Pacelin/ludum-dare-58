@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: SO_Installer_SceneManagement
   m_EditorClassIdentifier: 
   _scenesData:
+    _enterNickname:
+      m_AssetGUID: 1fb8b75db9ad2be499bf17680d7a5322
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
     _mainMenu:
       m_AssetGUID: f6e3539e53d8c9148a937a18a356a363
       m_SubObjectName: 
