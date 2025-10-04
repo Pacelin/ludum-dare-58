@@ -22,3 +22,7 @@ MonoBehaviour:
   - 1
   _butterflies:
   - {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+  - {fileID: 8517474739554002663, guid: 900947dcb9fd9e8499885c7a07f7dc68, type: 3}
+  - {fileID: 4582561791465638650, guid: 861db56c88537e1419d88f8e23fd8ac2, type: 3}
+  - {fileID: 8386550997903024968, guid: c43e52198c59b264fbc83febd23b7bc2, type: 3}
+  - {fileID: 8443972001449706708, guid: 2e906b63e07438f45a737f8da5779f16, type: 3}

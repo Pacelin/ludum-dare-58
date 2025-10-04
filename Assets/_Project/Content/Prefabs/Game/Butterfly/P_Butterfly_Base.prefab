@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: e45756a071b8e15429c78d0401edc9ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f525f631fa83ec144a6c80896d17e6a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 7661408853374645837}
   - component: {fileID: 5923162986756473594}
   m_Layer: 0
-  m_Name: P_Butterfly
+  m_Name: P_Butterfly_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
