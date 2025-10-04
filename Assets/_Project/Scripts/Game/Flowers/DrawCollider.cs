@@ -5,6 +5,8 @@ namespace Scripts.Game.Flowers
 {
     public class DrawCollider : MonoBehaviour
     {
+        public DrawField DrawField => _drawField;
+        
         [SerializeField] private DrawField _drawField;
         [SerializeField] private DrawableObject _selectedDrawObject;
         [SerializeField] private float _drawCooldown = 0.1f;
@@ -16,7 +18,7 @@ namespace Scripts.Game.Flowers
         
         public void SetDrawObject(DrawableObject drawableObject) =>
             _selectedDrawObject = drawableObject;
-
+        
         private void FixedUpdate()
         {
             var elapsedSeconds = Time.time - _lastDrawSeconds;

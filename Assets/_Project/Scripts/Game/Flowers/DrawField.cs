@@ -11,6 +11,18 @@ namespace Scripts.Game.Flowers
         private readonly Dictionary<Vector2, DrawableObject> _drawnObjects = new();
         private readonly Dictionary<string, Queue<DrawableObject>> _drawObjectsPool = new();
 
+        public T[] GetDrawnObjects<T>(Vector2 point, float radius)
+            where T : DrawableObject
+        {
+            var result = new List<T>();
+            var pointsInCircle = _gridContainer.SpatialGrid.GetPointsInCircle(point, radius);
+            foreach (var p in pointsInCircle)
+                if (_drawnObjects.TryGetValue(p, out var obj) && obj is T t)
+                    result.Add(t);
+            
+            return result.ToArray();
+        }
+        
         public void Draw(Vector2 position, float drawRadius, DrawableObject prefab)
         {
             var drawPoints = _gridContainer.SpatialGrid.GetPointsInCircle(position, drawRadius);
