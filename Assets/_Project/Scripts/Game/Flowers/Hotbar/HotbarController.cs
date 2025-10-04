@@ -39,7 +39,7 @@ namespace Scripts.Game.Flowers
                 .Subscribe(d => _wallet.Spend(d.DrawPrice))
                 .AddTo(_disposables);
             _drawFacade.DrawField.ObserveErase()
-                .Subscribe(d => _wallet.Earn(d.DrawPrice))
+                .Subscribe(d => _wallet.Earn(d.EraseReward))
                 .AddTo(_disposables);
             
             _wallet.Balance.Subscribe(_ => UpdateDrawState()).AddTo(_disposables);

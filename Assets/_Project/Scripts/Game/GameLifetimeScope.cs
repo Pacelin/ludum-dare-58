@@ -1,4 +1,5 @@
 ﻿using Scripts.Core.UI;
+using Scripts.Game.Butterflies;
 using Scripts.Game.Currency;
 using Scripts.Game.Flowers;
 using UnityEngine;
@@ -13,7 +14,9 @@ namespace Scripts.Game
         [SerializeField] private SettingsDialogView _settingsDialogViewPrefab;
         [SerializeField] private GameScreenView _gameScreenViewPrefab;
         [SerializeField] private DrawCollider _drawFieldPrefab;
+        [SerializeField] private ButterfliesConfig _butterfliesConfig;
         [SerializeField] private int _initialWalletAmount = 10;
+        [SerializeField] private GameTime.Config _gameTimeConfig;
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -21,10 +24,16 @@ namespace Scripts.Game
             builder.RegisterComponentInNewPrefab(_settingsDialogViewPrefab, Lifetime.Singleton);
             builder.RegisterComponentInNewPrefab(_gameScreenViewPrefab, Lifetime.Singleton);
             builder.RegisterComponentInNewPrefab(_drawFieldPrefab, Lifetime.Singleton);
+            builder.RegisterInstance<ButterfliesConfig>(_butterfliesConfig);
+            builder.RegisterInstance<GameTime.Config>(_gameTimeConfig);
             builder.Register<DrawFacade>(Lifetime.Singleton);
             builder.Register<Wallet>(Lifetime.Singleton).WithParameter(_initialWalletAmount);
             builder.RegisterEntryPoint<PauseDialogController>();
             builder.RegisterEntryPoint<GameScreenPresenter>();
+            builder.RegisterEntryPoint<ButterflyConfig>();
+            builder.RegisterEntryPoint<GameTime>().AsSelf();
+            builder.RegisterEntryPoint<ButterfliesSpawner>();
+            builder.Register<ButterfliesCatcher>(Lifetime.Singleton);
         }
     }
 }

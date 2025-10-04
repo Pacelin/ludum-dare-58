@@ -101,3 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _drawId: asd
+  _drawPrice: 0
+  _eraseReward: 0
+  _id: 0

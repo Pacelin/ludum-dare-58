@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Scripts.Game.Flowers
@@ -32,8 +33,8 @@ namespace Scripts.Game.Flowers
             var mousePosition = Input.mousePosition;
             mousePosition.z = 0;
             var point = (Vector2) _camera!.ScreenToWorldPoint(mousePosition);
-            var circle = Physics2D.OverlapCircle(point, _drawRadius, _drawLayerMask);
-            if (circle)
+            var overlaps = Physics2D.OverlapPointAll(point, _drawLayerMask);
+            if (overlaps.All(o => o.TryGetComponent<DrawCollider>(out _)))
                 Draw(point);
         }
 

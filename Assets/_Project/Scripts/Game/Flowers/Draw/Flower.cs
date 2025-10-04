@@ -4,6 +4,10 @@ namespace Scripts.Game.Flowers
 {
     public class Flower : DrawableObject
     {
+        [SerializeField] private int _id;
+
+        public virtual int GetId(GameTime time) => _id;
+        
         public override void OnDraw(Vector2 point)
         {
             gameObject.SetActive(true);

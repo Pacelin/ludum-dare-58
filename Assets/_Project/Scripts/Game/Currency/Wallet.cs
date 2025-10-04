@@ -1,5 +1,4 @@
-﻿using System;
-using R3;
+﻿using R3;
 using UnityEngine;
 
 namespace Scripts.Game.Currency
@@ -39,7 +38,7 @@ namespace Scripts.Game.Currency
                 Debug.LogError("Not enough money to spend");
                 return;
             }
-            _balance.Value = Math.Max(0, _balance.Value);
+            _balance.Value -= amount;
             _spendSubject.OnNext(amount);
         }
         

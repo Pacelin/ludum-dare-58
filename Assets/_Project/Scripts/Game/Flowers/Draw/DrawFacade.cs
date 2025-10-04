@@ -17,5 +17,6 @@ namespace Scripts.Game.Flowers
         public void SetDrawObject(DrawableObject drawableObject) => _drawCollider.SetDrawObject(drawableObject);
         public T[] GetDrawnObjects<T>(Vector2 point, float radius) where T : DrawableObject 
             => _drawCollider.DrawField.GetDrawnObjects<T>(point, radius);
+        public T GetRandomDrawnObject<T>() where T : DrawableObject => _drawCollider.DrawField.GetRandomDrawnObject<T>();
     }
 }
