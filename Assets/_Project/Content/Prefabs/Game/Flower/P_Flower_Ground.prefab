@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 334512697664528373, guid: b04c4f1a882d182438a19e5911f9dd7f, type: 3}
       propertyPath: _drawPrice
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 334512697664528373, guid: b04c4f1a882d182438a19e5911f9dd7f, type: 3}
       propertyPath: _unlockPrice
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2747747866930360678, guid: b04c4f1a882d182438a19e5911f9dd7f, type: 3}
       propertyPath: m_LocalPosition.x
