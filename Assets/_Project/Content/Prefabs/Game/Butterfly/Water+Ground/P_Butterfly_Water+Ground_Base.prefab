@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1383439140892550933, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24b5904676082fc479d555322fd5f898, type: 3}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageCost
       value: 120
