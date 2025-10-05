@@ -176,7 +176,7 @@ MonoBehaviour:
   _spawnDuration: 0.2
   _catchDuration: 0.2
   _collider: {fileID: 3000278971114454385}
-  _minColliderRadius: 0.25
+  _minColliderRadius: 0.5
   _config:
     _specialIndex: 0
     _requiredFlowers: 00000000
