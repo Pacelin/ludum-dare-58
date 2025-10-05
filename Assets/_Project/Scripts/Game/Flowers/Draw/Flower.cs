@@ -35,12 +35,12 @@ namespace Scripts.Game.Flowers
             mousePos.z = 0;
             var pos = _camera.ScreenToWorldPoint(mousePos);
             if (Vector2.Distance(pos, transform.position) < 0.5f)
-                _targetScale = 0.5f;
+                _targetScale = 0.75f;
             else 
                 _targetScale = 1f;
             
             var curScale = transform.localScale;
-            curScale.y = Mathf.Lerp(curScale.y, _targetScale, Time.deltaTime * 10);
+            curScale.y = Mathf.MoveTowards(curScale.y, _targetScale, Time.deltaTime *10);
             transform.localScale = curScale;
         }
     }

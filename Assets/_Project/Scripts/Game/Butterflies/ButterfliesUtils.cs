@@ -40,8 +40,12 @@ namespace Scripts.Game.Butterflies
         public static string GetButterflyName(ButterfliesConfig config, ButterflyView butterfly, float size)
         {
             var sizeConfig = config.GetButterflySizeConfig(butterfly.Config, size);
-            var formatString = sizeConfig.NameFormatString.GetLocalizedString();
-            return string.Format(formatString, butterfly.Config.Name.GetLocalizedString());
+            var sizeString = butterfly.Config.IsFemale ?
+                sizeConfig.SizeStringFemale.GetLocalizedString() :
+                sizeConfig.SizeString.GetLocalizedString();
+            var avgString = butterfly.Config.Prefix.GetLocalizedString();
+            var nameString = butterfly.Config.Name.GetLocalizedString();
+            return sizeString + " " + avgString + " " + nameString;
         }
 
         public static float CalculateSize(ButterfliesConfig generalConfig, ButterflyConfig config, int flowersCount)

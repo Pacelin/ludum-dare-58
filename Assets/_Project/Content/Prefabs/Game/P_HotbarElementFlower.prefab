@@ -208,7 +208,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5649553282523843028
 CanvasRenderer:
@@ -238,8 +238,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9101418879050356322, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0e65aa77a29e2b9448e126d4c1d308bd, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -684,8 +684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.5, y: -0.5}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &1400249081263390489
 CanvasRenderer:
@@ -715,8 +715,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9101418879050356322, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 0e65aa77a29e2b9448e126d4c1d308bd, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 437218ba4a4a4c042b4a613824b79331, type: 3}
+  m_Sprite: {fileID: 21300000, guid: caf2d41b60a95a042865f3babaee0985, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1365,7 +1365,7 @@ MonoBehaviour:
   _layoutGroup: {fileID: 0}
   _defaultSize: {x: 120, y: 120}
   _selectedSize: {x: 140, y: 140}
-  _flower: {fileID: 334512697664528373, guid: b04c4f1a882d182438a19e5911f9dd7f, type: 3}
+  _flower: {fileID: 945802503567610136, guid: a7a83293522aeef4d8738d400d333491, type: 3}
   _unlockButton: {fileID: 1707864604555431423}
   _whenUnlocked: {fileID: 2908479199319297884}
   _whenHavePrice: {fileID: 1663722213955682228}
