@@ -82,6 +82,7 @@ namespace Scripts.Game.Flowers
                     return;
                 obj.OnErase();
                 _drawObjectsPool[obj.DrawId].Enqueue(obj);
+                _drawnObjects.Remove(point);
                 _onErase.OnNext(obj);
             }
             

@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cb73fd5d91474881b4f3bdc1802a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _drawId: 
-  _drawPrice: 1
+  _drawId: 0
+  _drawPrice: 0
   _eraseReward: 0
   _id: 0
-  _nightId: 0
+  _nightId: 1

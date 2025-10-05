@@ -4,6 +4,9 @@ namespace Scripts.Game.Flowers
 {
     public class Flower : DrawableObject
     {
+        public int UnlockPrice => _unlockPrice;
+        
+        [SerializeField] private int _unlockPrice;
         [SerializeField] private int _id;
 
         public virtual int GetId(GameTime time) => _id;

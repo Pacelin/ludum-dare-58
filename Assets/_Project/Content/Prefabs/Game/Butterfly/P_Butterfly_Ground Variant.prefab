@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4d72610c4432f9645a93c4f978cfc8e7, type: 3}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: _config._costRange.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: _config._costRange.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: '_config._requiredFlowers.Array.data[0]'
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7840419337351046311, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

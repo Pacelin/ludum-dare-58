@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using R3;
 using Scripts.Core.Lifetime;
 using Scripts.Game.Currency;
@@ -12,7 +13,8 @@ namespace Scripts.Game.Flowers
         private readonly Hotbar _hotbar;
         private readonly Wallet _wallet;
         private readonly CompositeDisposable _disposables;
-        
+        private readonly Dictionary<FlowersHotbarElement, bool> _unlockedFlowers;
+
         private HotbarElement _selectedElement;
         private DrawableObject _selectedDrawable;
         
@@ -22,6 +24,7 @@ namespace Scripts.Game.Flowers
             _hotbar = hotbar;
             _wallet = wallet;
             _disposables = new CompositeDisposable();
+            _unlockedFlowers = new Dictionary<FlowersHotbarElement, bool>();
         }
 
         public void Initialize()
@@ -32,6 +35,24 @@ namespace Scripts.Game.Flowers
                 element.Button.OnClickAsObservable()
                     .Subscribe(_ => SelectElement(element))
                     .AddTo(_disposables);
+                if (element is FlowersHotbarElement flowerElement)
+                {
+                    _unlockedFlowers[flowerElement] = flowerElement.Flower.UnlockPrice <= 0;
+                    flowerElement.SetUnlockCoins(flowerElement.Flower.UnlockPrice);
+                    flowerElement.SetDrawCoins(flowerElement.Flower.DrawPrice);
+                    _wallet.Balance.Subscribe(_ => UpdateFlowerElement(flowerElement))
+                        .AddTo(_disposables);
+                    if (!_unlockedFlowers[flowerElement])
+                    {
+                        flowerElement.UnlockButton.OnClickAsObservable()
+                        .Subscribe(_ =>
+                        {
+                            _wallet.Spend(flowerElement.Flower.UnlockPrice);
+                            _unlockedFlowers[flowerElement] = true;
+                            UpdateFlowerElement(flowerElement);
+                        }).AddTo(_disposables);
+                    }
+                }
             }
             SelectElement(_hotbar.InitialSelectedElement);
 
@@ -64,6 +85,15 @@ namespace Scripts.Game.Flowers
             _disposables.Dispose();
         }
 
+        private void UpdateFlowerElement(FlowersHotbarElement element)
+        {
+            if (_unlockedFlowers[element])
+                element.SetState(true, true);
+            else
+                element.SetState(false, _wallet.HasEnough(element.Flower.UnlockPrice));
+            
+        }
+        
         public void Accept(EraseHotbarElement _)
         {
             _selectedDrawable = null;
