@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageCost
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageSize
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._costRange.x
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8631493423395212353, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Water Variant
+      value: P_Butterfly_Water_Base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

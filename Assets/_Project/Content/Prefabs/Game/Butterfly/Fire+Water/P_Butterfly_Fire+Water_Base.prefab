@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2170279904163137533
+--- !u!1001 &2865558564176470879
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,21 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1383439140892550933, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f525f631fa83ec144a6c80896d17e6a6, type: 3}
-    - target: {fileID: 3000278971114454385, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
-      propertyPath: m_Radius
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageCost
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageSize
-      value: 9
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: _config._requiredFlowers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: '_config._requiredFlowers.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: '_config._requiredFlowers.Array.data[1]'
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7840419337351046311, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8631493423395212353, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Base Variant
+      value: P_Butterfly_Fire+Water_Base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
