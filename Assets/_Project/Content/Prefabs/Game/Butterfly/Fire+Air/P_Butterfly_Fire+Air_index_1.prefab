@@ -10,11 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4950882338381311863, guid: 37813e2158c8418478b4a6fdef0bef4a, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Fire+Air_index_1 Variant
+      value: P_Butterfly_Fire+Air_index_1
       objectReference: {fileID: 0}
     - target: {fileID: 6426322253717378427, guid: 37813e2158c8418478b4a6fdef0bef4a, type: 3}
       propertyPath: _config._specialIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6426322253717378427, guid: 37813e2158c8418478b4a6fdef0bef4a, type: 3}
+      propertyPath: _config._prefix.m_TableEntryReference.m_KeyId
+      value: 1102759783817260
+      objectReference: {fileID: 0}
+    - target: {fileID: 6426322253717378427, guid: 37813e2158c8418478b4a6fdef0bef4a, type: 3}
+      propertyPath: _config._prefix.m_TableReference.m_TableCollectionName
+      value: GUID:1ea9012205bfad0428feabfc37064e55
       objectReference: {fileID: 0}
     - target: {fileID: 6895832437126268817, guid: 37813e2158c8418478b4a6fdef0bef4a, type: 3}
       propertyPath: m_LocalPosition.x

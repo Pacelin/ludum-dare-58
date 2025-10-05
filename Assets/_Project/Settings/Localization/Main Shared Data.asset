@@ -15,16 +15,286 @@ MonoBehaviour:
   m_TableCollectionName: Main
   m_TableCollectionNameGuidString: 1ea9012205bfad0428feabfc37064e55
   m_Entries:
-  - m_Id: 355086625660928
-    m_Key: Text
+  - m_Id: 1102759708319744
+    m_Key: TITLE.MAIN-MENU
     m_Metadata:
       m_Items: []
-  - m_Id: 1002976964501504
-    m_Key: worldrecord
+  - m_Id: 1102759779622912
+    m_Key: menu.label.nickname
     m_Metadata:
       m_Items: []
-  - m_Id: 1018836009607168
-    m_Key: ssss
+  - m_Id: 1102759779622913
+    m_Key: menu.button.confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622914
+    m_Key: menu.button.start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622915
+    m_Key: menu.button.settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622916
+    m_Key: menu.button.quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622917
+    m_Key: menu.label.nickname.invalid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622918
+    m_Key: menu.settings.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622919
+    m_Key: menu.settings.label.master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622920
+    m_Key: menu.settings.label.music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622921
+    m_Key: menu.settings.label.vfx
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622922
+    m_Key: menu.settings.button.confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817216
+    m_Key: 'TITLE.PAUSE
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817217
+    m_Key: menu.pause.button.return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817218
+    m_Key: menu.pause.button.retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817219
+    m_Key: menu.pause.button.main-menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817220
+    m_Key: menu.pause.button.settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817221
+    m_Key: TITLE.BUTTERFLY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817222
+    m_Key: butterfly.no-element
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817223
+    m_Key: butterfly.fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817224
+    m_Key: butterfly.water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817225
+    m_Key: butterfly.air
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817226
+    m_Key: butterfly.stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817227
+    m_Key: butterfly.fire-water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817228
+    m_Key: butterfly.fire-air
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817229
+    m_Key: butterfly.fire-stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817230
+    m_Key: butterfly.water-air
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817231
+    m_Key: butterfly.water-stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817232
+    m_Key: butterfly.air-stone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817233
+    m_Key: butterfly.sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817234
+    m_Key: butterfly.moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817235
+    m_Key: butterfly.fire-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817236
+    m_Key: butterfly.water-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817237
+    m_Key: butterfly.air-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817238
+    m_Key: butterfly.stone-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817239
+    m_Key: butterfly.fire-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817240
+    m_Key: butterfly.water-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817241
+    m_Key: butterfly.air-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817242
+    m_Key: butterfly.stone-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817243
+    m_Key: TITLE.JOURNAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817244
+    m_Key: journal.title.butterfly.new
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817245
+    m_Key: journal.title.butterfly.record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817246
+    m_Key: journal.title.butterfly.world-record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817247
+    m_Key: journal.button.add-butterfly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817248
+    m_Key: journal.label.high-score.self
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817249
+    m_Key: journal.label.high-score.world
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817250
+    m_Key: journal.label.name.tiny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817251
+    m_Key: journal.label.name.small
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817252
+    m_Key: journal.label.name.medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817253
+    m_Key: journal.label.name.big
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817254
+    m_Key: journal.label.name.huge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817255
+    m_Key: journal.label.name.tiny.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817256
+    m_Key: journal.label.name.small.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817257
+    m_Key: journal.label.name.medium.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817258
+    m_Key: journal.label.name.big.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817259
+    m_Key: journal.label.name.huge.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817260
+    m_Key: journal.butterfly.feature.regular
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817261
+    m_Key: journal.butterfly.feature.damaged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817262
+    m_Key: journal.butterfly.feature.petrified
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817263
+    m_Key: journal.butterfly.feature.spotted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817264
+    m_Key: journal.butterfly.feature.holographic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817265
+    m_Key: journal.butterfly.feature.heterochromic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817266
+    m_Key: journal.butterfly.feature.restored
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817267
+    m_Key: journal.butterfly.feature.regular.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817268
+    m_Key: journal.butterfly.feature.damaged.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817269
+    m_Key: journal.butterfly.feature.petrified.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817270
+    m_Key: journal.butterfly.feature.spotted.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817271
+    m_Key: journal.butterfly.feature.holographic.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817272
+    m_Key: journal.butterfly.feature.heterochromic.feminine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817273
+    m_Key: journal.butterfly.feature.restored.feminine
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -18,16 +18,284 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 355086625660928
-    m_Localized: Text
+  - m_Id: 1102759708319744
+    m_Localized: "\u0413\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
     m_Metadata:
       m_Items: []
-  - m_Id: 1002976964501504
+  - m_Id: 1102759779622912
+    m_Localized: 'Enter nickname:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622913
+    m_Localized: Confirm!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622914
+    m_Localized: Start catching
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622915
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622916
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622917
+    m_Localized: Invalid nickname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622918
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622919
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622920
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622921
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759779622922
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817216
+    m_Localized: "\u041F\u0430\u0443\u0437\u0430"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817217
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817218
+    m_Localized: Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817219
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817220
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817221
+    m_Localized: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u044F \u0431\u0430\u0431\u043E\u0447\u0435\u043A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817222
+    m_Localized: commoneria
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817223
+    m_Localized: flame-eye largewing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817224
+    m_Localized: gurglingous swallowtail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817225
+    m_Localized: cloudy longwing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817226
+    m_Localized: rhizomatous hawk moth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817227
+    m_Localized: vaporloop swallowtail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817228
+    m_Localized: round whirlwing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817229
+    m_Localized: earthcrack moth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817230
+    m_Localized: crystal longwing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817231
+    m_Localized: vine furryfly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817232
+    m_Localized: malachite woolmoth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817233
+    m_Localized: butterfly.sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817234
+    m_Localized: butterfly.moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817235
+    m_Localized: butterfly.fire-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817236
+    m_Localized: butterfly.water-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817237
+    m_Localized: butterfly.air-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817238
+    m_Localized: butterfly.stone-sun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817239
+    m_Localized: butterfly.fire-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817240
+    m_Localized: butterfly.water-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817241
+    m_Localized: butterfly.air-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817242
+    m_Localized: butterfly.stone-moon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817243
+    m_Localized: "\u0416\u0443\u0440\u043D\u0430\u043B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817244
+    m_Localized: New species found
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817245
+    m_Localized: New personal record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817246
+    m_Localized: World Record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817247
+    m_Localized: Add to the collection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817248
+    m_Localized: 'Your record:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817249
     m_Localized: 'World record ({0}):'
     m_Metadata:
       m_Items: []
-  - m_Id: 1018836009607168
-    m_Localized: '{0}'
+  - m_Id: 1102759783817250
+    m_Localized: Tiny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817251
+    m_Localized: Small
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817252
+    m_Localized: Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817253
+    m_Localized: Big
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817254
+    m_Localized: Huge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817255
+    m_Localized: Tiny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817256
+    m_Localized: Small
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817257
+    m_Localized: Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817258
+    m_Localized: Big
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817259
+    m_Localized: Huge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817260
+    m_Localized: regular
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817261
+    m_Localized: damaged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817262
+    m_Localized: petrified
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817263
+    m_Localized: spotted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817264
+    m_Localized: holographic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817265
+    m_Localized: heterochromic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817266
+    m_Localized: restored
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817267
+    m_Localized: regular
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817268
+    m_Localized: damaged
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817269
+    m_Localized: petrified
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817270
+    m_Localized: spotted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817271
+    m_Localized: holographic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817272
+    m_Localized: heterochromic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1102759783817273
+    m_Localized: restored
     m_Metadata:
       m_Items: []
   references:

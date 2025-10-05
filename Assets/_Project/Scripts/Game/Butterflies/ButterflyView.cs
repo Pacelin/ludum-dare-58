@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Scripts.Core.InspectorCustomization;
 using Scripts.Game.Butterflies.ButterfliesJournal;
 using UnityEngine;
@@ -27,6 +28,8 @@ namespace Scripts.Game.Butterflies
         private int _id;
         private ButterfliesCatcher _catcher;
         private float _size;
+        private float _lifetime;
+        private bool _destroyed;
 
         public ButterfliesJournalEntry CreateJournalEntry() => new ButterfliesJournalEntry()
         {
@@ -47,6 +50,8 @@ namespace Scripts.Game.Butterflies
             transform.DOMove(endPosition, _spawnDuration).From(startPosition);
             transform.DOScale(scale, _spawnDuration).From(0);
             _collider.radius = Mathf.Max(_minColliderRadius / scale, _collider.radius * scale);
+            _lifetime = 60;
+            _destroyed = false;
         }
 
         private void OnDisable()
@@ -56,9 +61,22 @@ namespace Scripts.Game.Butterflies
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (_destroyed) return;
+            _destroyed = true;
             transform.DOScale(0, _catchDuration)
                 .OnComplete(() => Destroy(gameObject));
             _catcher.Catch(this);
+        }
+
+        private void Update()
+        {
+            _lifetime -= Time.deltaTime;
+            if (_lifetime <= 0)
+            {
+                _destroyed = true;
+                transform.DOScale(0, _catchDuration)
+                    .OnComplete(() => Destroy(gameObject));
+            }
         }
     }
 }

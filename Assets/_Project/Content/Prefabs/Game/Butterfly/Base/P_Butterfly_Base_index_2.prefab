@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7626665217539673020, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Base_index_2 Variant
+      value: P_Butterfly_Base_index_2
       objectReference: {fileID: 0}
     - target: {fileID: 8273290405143487322, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 8380258619525804464, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: _config._specialIndex
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380258619525804464, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
+      propertyPath: _config._prefix.m_TableEntryReference.m_KeyId
+      value: 1102759783817260
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380258619525804464, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
+      propertyPath: _config._prefix.m_TableReference.m_TableCollectionName
+      value: GUID:1ea9012205bfad0428feabfc37064e55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

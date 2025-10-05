@@ -52,9 +52,17 @@ PrefabInstance:
       propertyPath: _config._specialIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7316869428802375236, guid: cf0e12816bbefac4486577968149c987, type: 3}
+      propertyPath: _config._prefix.m_TableEntryReference.m_KeyId
+      value: 1102759783817260
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316869428802375236, guid: cf0e12816bbefac4486577968149c987, type: 3}
+      propertyPath: _config._prefix.m_TableReference.m_TableCollectionName
+      value: GUID:1ea9012205bfad0428feabfc37064e55
+      objectReference: {fileID: 0}
     - target: {fileID: 8651782883240080456, guid: cf0e12816bbefac4486577968149c987, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Water+Air_index_1 Variant
+      value: P_Butterfly_Water+Air_index_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

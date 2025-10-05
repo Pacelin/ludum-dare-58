@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7544919741605560024, guid: 2e906b63e07438f45a737f8da5779f16, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Water_index_3 Variant
+      value: P_Butterfly_Water_index_3
       objectReference: {fileID: 0}
     - target: {fileID: 8337019251097671230, guid: 2e906b63e07438f45a737f8da5779f16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 8443972001449706708, guid: 2e906b63e07438f45a737f8da5779f16, type: 3}
       propertyPath: _config._specialIndex
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443972001449706708, guid: 2e906b63e07438f45a737f8da5779f16, type: 3}
+      propertyPath: _config._prefix.m_TableEntryReference.m_KeyId
+      value: 1102759783817260
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443972001449706708, guid: 2e906b63e07438f45a737f8da5779f16, type: 3}
+      propertyPath: _config._prefix.m_TableReference.m_TableCollectionName
+      value: GUID:1ea9012205bfad0428feabfc37064e55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
