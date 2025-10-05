@@ -39,16 +39,16 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         public void Open(int butterflyId)
         {
             _openSubject.OnNext(butterflyId);
-            _block.DOFade(0.8f, 0.5f).From(0);
-            _scaleRoot.DOScale(1, 0.5f)
+            _block.DOFade(0.8f, 0.2f).From(0);
+            _scaleRoot.DOScale(1, 0.2f)
                 .From(0)
                 .OnStart(() => gameObject.SetActive(true));
         }
 
         public void Close()
         {
-            _block.DOFade(0, 0.5f);
-            _scaleRoot.DOScale(0, 0.5f)
+            _block.DOFade(0, 0.2f);
+            _scaleRoot.DOScale(0, 0.2f)
                 .From(1)
                 .OnComplete(() => gameObject.SetActive(false));
         }
