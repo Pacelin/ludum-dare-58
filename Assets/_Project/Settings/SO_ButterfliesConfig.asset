@@ -122,7 +122,7 @@ MonoBehaviour:
     _averageSizeMultiplierRange: {x: 3.2, y: 3.5}
     _costMutiplier: 4.25
   _minSizeMultiplier: 0.3
-  _maxSizeMultiplier: 3.5
+  _maxSizeMultiplier: 6
   _sizeMeanMultiplier: 1
   _sizeDeviationMultiplier: 0.35
   _flowersCountRange: {x: 1, y: 200}
