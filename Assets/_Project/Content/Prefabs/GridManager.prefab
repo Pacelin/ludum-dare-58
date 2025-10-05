@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b0bcdd211f44b599a3d3541d05c2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0.35
+  _radius: 0.1
   _targetSpriteRenderer: {fileID: 0}
   _alphaThreshold: 0.1
   _spatialGrid: {fileID: 0}
   _gridOrigin: {x: -5, y: -4}
-  _cellSize: 2
+  _cellSize: 1
