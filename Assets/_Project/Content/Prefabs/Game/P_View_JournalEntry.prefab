@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _butterfly: {fileID: 2172767547093878059, guid: 22a3c2af856643a4ab11b607d5efd299, type: 3}
   _butterflyContainer: {fileID: 2385684134214971646}
-  _minButterflyContainerScale: 0.75
+  _minButterflyContainerScale: 1
   _maxButterflyContainerScale: 5
   _worldInfo: {fileID: 2320933258967122156}
   _nameText: {fileID: 7200075548950049111}
@@ -1034,7 +1034,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
     m_TableEntryReference:
-      m_KeyId: 1002976964501504
+      m_KeyId: 1102759783817249
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
