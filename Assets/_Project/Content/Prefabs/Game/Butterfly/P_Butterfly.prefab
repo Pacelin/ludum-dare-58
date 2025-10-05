@@ -174,13 +174,25 @@ MonoBehaviour:
   _endHeight: 0.6
   _spawnDuration: 0.2
   _catchDuration: 0.2
+  _collider: {fileID: 3000278971114454385}
+  _minColliderRadius: 0.25
   _config:
     _specialIndex: 0
-    _costRange: {x: 1, y: 3}
     _requiredFlowers: 00000000
-    _scaleRange: {x: 1, y: 3}
-    _scaleCoefRandomRange: {x: 0.5, y: 1}
-    _speedPow: 2
+    _name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _averageSize: 0
+    _averageCost: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &5923162986756473594
 MonoBehaviour:
   m_ObjectHideFlags: 0

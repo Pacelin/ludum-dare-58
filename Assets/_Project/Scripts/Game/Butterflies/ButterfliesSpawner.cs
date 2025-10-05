@@ -44,11 +44,11 @@ namespace Scripts.Game.Butterflies
             var randomButterfly = ButterfliesUtils.CalculateButterfly(_config, randomFlower, _drawFacade, _time, out var flowersCount);
             if (randomButterfly == null)
                 return;
-            var randomScale = ButterfliesUtils.CalculateScale(randomButterfly.Config, flowersCount);
+            var size = ButterfliesUtils.CalculateSize(_config, randomButterfly.Config, flowersCount);
 
             var id = _config.GetButterflyID(randomButterfly);
             var butterfly = Object.Instantiate(randomButterfly);
-            butterfly.Initialize(id, _catcher, randomScale, randomFlower.transform.position);
+            butterfly.Initialize(_config, id, _catcher, randomFlower.transform.position, size);
         }
         
         private void ResetCountdown()

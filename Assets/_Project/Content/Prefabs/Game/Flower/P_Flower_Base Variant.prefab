@@ -81,5 +81,6 @@ MonoBehaviour:
   _drawId: 0
   _drawPrice: 0
   _eraseReward: 0
+  _unlockPrice: 0
   _id: 0
-  _nightId: 1
+  _nightId: 0

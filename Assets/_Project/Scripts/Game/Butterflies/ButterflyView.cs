@@ -8,7 +8,7 @@ namespace Scripts.Game.Butterflies
     public class ButterflyView : MonoBehaviour, IPointerClickHandler
     {
         public int Id => _id;
-        public float Scale => _scale;
+        public float Size => _size;
         public ButterflyConfig Config => _config;
         
         [Header("Spawn")]
@@ -17,22 +17,28 @@ namespace Scripts.Game.Butterflies
         [SerializeField] private float _spawnDuration;
         [Header("Catch")]
         [SerializeField] private float _catchDuration;
+        [SerializeField] private CircleCollider2D _collider;
+        [SerializeField] private float _minColliderRadius;
         [DrawInBox(ShowLabel = true)]
         [SerializeField] private ButterflyConfig _config;
         
         private int _id;
         private ButterfliesCatcher _catcher;
-        private float _scale;
+        private float _size;
         
-        public void Initialize(int id, ButterfliesCatcher catcher, float scale, Vector2 position)
+        public void Initialize(ButterfliesConfig butterfliesConfig,
+            int id, ButterfliesCatcher catcher, Vector2 position, float size)
         {
             _id = id;
             _catcher = catcher;
-            _scale = scale;
+            _size = size;
+            var scale = butterfliesConfig.GetScale(size);
+            Debug.Log($"Butterfly {id} spawned with size {size:F}");
             var startPosition = new Vector3(position.x, position.y + _startHeight, 0);
             var endPosition = new Vector3(position.x, position.y + _endHeight, 0);
             transform.DOMove(endPosition, _spawnDuration).From(startPosition);
             transform.DOScale(scale, _spawnDuration).From(0);
+            _collider.radius = Mathf.Max(_minColliderRadius / scale, _collider.radius * scale);
         }
 
         private void OnDisable()

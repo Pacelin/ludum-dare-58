@@ -6,5 +6,6 @@
         public int id;
         public float size;
         public string username;
+        public int sizeindex;
     }
 }
