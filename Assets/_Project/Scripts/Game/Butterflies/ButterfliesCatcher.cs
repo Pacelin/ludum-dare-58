@@ -15,7 +15,7 @@ namespace Scripts.Game.Butterflies
 
         public void Catch(ButterflyView butterfly)
         {
-            _wallet.Earn(ButterfliesUtils.CalculateCost(butterfly.Config, butterfly.Scale));
+            _wallet.Earn(ButterfliesUtils.CalculateCost(_config, butterfly.Config, butterfly.Size));
         }
     }
 }

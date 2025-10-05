@@ -11,6 +11,10 @@ namespace Scripts.Game.Butterflies
         public Vector2 SpawnCooldownRange => _spawnCooldownRange;
         public float FlowersFindRadius => _flowersFindRadius;
         public float DoubleFlowerChance => _doubleFlowerChance;
+        public float SizeMeanMultiplier => _sizeMeanMultiplier;
+        public float SizeDeviationMultiplier => _sizeDeviationMultiplier;
+        public float MinSizeMultiplier => _minSizeMultiplier;
+        public float MaxSizeMultiplier => _maxSizeMultiplier;
         
         [SerializeField] private Vector2 _spawnCooldownRange;
         [SerializeField] private float _flowersFindRadius;
@@ -18,7 +22,43 @@ namespace Scripts.Game.Butterflies
         [SerializeField] private float[] _specialWeights;
         [Space]
         [SerializeField] private ButterflyView[] _butterflies;
+        [Header("Size Calculation")]
+        [SerializeField] private ButterflySizeConfig[] _sizeConfigs;
+        [SerializeField] private float _minSizeMultiplier;
+        [SerializeField] private float _maxSizeMultiplier;
+        [SerializeField] private float _sizeMeanMultiplier;
+        [SerializeField] private float _sizeDeviationMultiplier;
+        [SerializeField] private Vector2 _flowersCountRange;
+        [SerializeField] private Vector2 _flowersMeanMultiplierRange;
+        [SerializeField] private float _sizeToScaleRemap;
 
+        public float GetFlowerMeanMultiplier(int flowersCount)
+        {
+            var t = Mathf.InverseLerp(_flowersCountRange.x, _flowersCountRange.y, flowersCount);
+            return Mathf.Lerp(_flowersMeanMultiplierRange.x, _flowersMeanMultiplierRange.y, t);
+        }
+        
+        public ButterflySizeConfig GetButterflySizeConfig(ButterflyConfig butterfly, float size)
+        {
+            var averageSize = butterfly.AverageSize;
+            var averageSizeMultiplier = size / averageSize;
+            for (int i = 0; i < _sizeConfigs.Length; i++)
+            {
+                if (averageSizeMultiplier <= _sizeConfigs[i].AverageSizeMultiplierRange.x)
+                    return _sizeConfigs[i];
+                if (averageSizeMultiplier > _sizeConfigs[i].AverageSizeMultiplierRange.x &&
+                    averageSizeMultiplier <= _sizeConfigs[i].AverageSizeMultiplierRange.y)
+                    return _sizeConfigs[i];
+                if (averageSizeMultiplier > _sizeConfigs[i].AverageSizeMultiplierRange.y &&
+                    i == _sizeConfigs.Length - 1)
+                    return _sizeConfigs[i];
+            }
+            return _sizeConfigs[0];
+        }
+
+        public float GetScale(float size) => size * _sizeToScaleRemap;
+        public ButterflySizeConfig GetButterflySizeConfig(int index) => _sizeConfigs[index];
+        
         public ButterflyView GetButterfly(params int[] flowerIds)
         {
             var successButterflies = new List<ButterflyView>();

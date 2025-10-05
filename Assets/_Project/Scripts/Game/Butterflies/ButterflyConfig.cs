@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Scripts.Game.Butterflies
 {
@@ -6,17 +7,17 @@ namespace Scripts.Game.Butterflies
     public class ButterflyConfig
     {
         public int SpecialIndex => _specialIndex;
-        public Vector2Int CostRange => _costRange;
         public int[] RequiredFlowers => _requiredFlowers;
-        public Vector2 ScaleRange => _scaleRange;
-        public Vector2 ScaleCoefRandomRange => _scaleCoefRandomRange;
-        public float SpeedPow => _speedPow;
 
+        public float AverageSize => _averageSize;
+        public int AverageCost => _averageCost;
+        
+        [Header("Info")] 
         [SerializeField] private int _specialIndex;
-        [SerializeField] private Vector2Int _costRange;
         [SerializeField] private int[] _requiredFlowers;
-        [SerializeField] private Vector2 _scaleRange;
-        [SerializeField] private Vector2 _scaleCoefRandomRange;
-        [SerializeField] private float _speedPow;
+        [SerializeField] private LocalizedString _name;
+        [Header("Calculation")]
+        [SerializeField] private float _averageSize;
+        [SerializeField] private int _averageCost;
     }
 }

@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0366e8364f1b7804a82d3e3403ba1efa, type: 3}
+    - target: {fileID: 3000278971114454385, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: _config._averageCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
+      propertyPath: _config._averageSize
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._costRange.x
       value: 3

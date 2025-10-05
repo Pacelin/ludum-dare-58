@@ -36,19 +36,40 @@ namespace Scripts.Game.Butterflies
                 config.GetButterfly(firstId, secondId) :
                 config.GetButterfly(firstId);
         }
-        
-        public static float CalculateScale(ButterflyConfig config, int flowersCount)
+
+        public static float CalculateSize(ButterfliesConfig generalConfig, ButterflyConfig config, int flowersCount)
         {
-            var t = Random.Range(config.ScaleCoefRandomRange.x, config.ScaleCoefRandomRange.y) *
-                    (1 - Mathf.Pow(flowersCount + 1, config.SpeedPow));
-            var w = Mathf.Lerp(config.ScaleRange.x, config.ScaleRange.y, t);
-            return w;
+            var flowersMeanMultiplier = generalConfig.GetFlowerMeanMultiplier(flowersCount);
+            var mean = config.AverageSize * generalConfig.SizeMeanMultiplier * flowersMeanMultiplier;
+            var deviation = config.AverageSize * generalConfig.SizeDeviationMultiplier;
+            var size = Mathf.Round(NextGaussian(mean, deviation) * 100f) / 100f;
+            var minSize = generalConfig.MinSizeMultiplier * config.AverageSize;
+            var maxSize = generalConfig.MaxSizeMultiplier * config.AverageSize;
+            return Mathf.Clamp(size, minSize, maxSize);
         }
         
-        public static int CalculateCost(ButterflyConfig config, float scale)
+        public static int CalculateCost(ButterfliesConfig generalConfig, ButterflyConfig config, float size)
         {
-            var t = Mathf.Clamp01(Mathf.InverseLerp(config.ScaleRange.x, config.ScaleRange.y, scale));
-            return Mathf.CeilToInt(Mathf.Lerp(config.CostRange.x, config.CostRange.y, t));
+            var sizeConfig = generalConfig.GetButterflySizeConfig(config, size);
+            var cost = config.AverageCost * sizeConfig.CostMutiplier;
+            return Mathf.Max(1, Mathf.RoundToInt(cost));
+        }
+        
+        private static float NextGaussian(float mean = 0.0f, float standardDeviation = 1.0f)
+        {
+            float v1, v2, s;
+            do
+            {
+                // Генерируем две случайные точки в единичном круге
+                v1 = 2.0f * Random.Range(0f, 1f) - 1.0f;
+                v2 = 2.0f * Random.Range(0f, 1f) - 1.0f;
+                s = v1 * v1 + v2 * v2;
+            } 
+            while (s >= 1.0f || s == 0f);
+
+            s = Mathf.Sqrt((-2.0f * Mathf.Log(s)) / s);
+
+            return mean + v1 * s * standardDeviation;
         }
     }
 }

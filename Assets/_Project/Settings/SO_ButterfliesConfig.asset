@@ -26,3 +26,69 @@ MonoBehaviour:
   - {fileID: 4582561791465638650, guid: 861db56c88537e1419d88f8e23fd8ac2, type: 3}
   - {fileID: 8386550997903024968, guid: c43e52198c59b264fbc83febd23b7bc2, type: 3}
   - {fileID: 8443972001449706708, guid: 2e906b63e07438f45a737f8da5779f16, type: 3}
+  _sizeConfigs:
+  - _prefix:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _averageSizeMultiplierRange: {x: 0, y: 0.4}
+    _costMutiplier: 1.5
+  - _prefix:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _averageSizeMultiplierRange: {x: 0.4, y: 1.2}
+    _costMutiplier: 1
+  - _prefix:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _averageSizeMultiplierRange: {x: 1.2, y: 2}
+    _costMutiplier: 1.5
+  - _prefix:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _averageSizeMultiplierRange: {x: 2, y: 3.2}
+    _costMutiplier: 2.5
+  - _prefix:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _averageSizeMultiplierRange: {x: 3.2, y: 3.5}
+    _costMutiplier: 4.25
+  _minSizeMultiplier: 0.3
+  _maxSizeMultiplier: 3.5
+  _sizeMeanMultiplier: 1
+  _sizeDeviationMultiplier: 0.35
+  _flowersCountRange: {x: 1, y: 200}
+  _flowersMeanMultiplierRange: {x: 0.7, y: 1.2}
+  _sizeToScaleRemap: 0.15
+  references:
+    version: 2
+    RefIds: []
