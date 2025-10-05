@@ -1,21 +1,17 @@
-﻿using Scripts.Game.Currency;
-
-namespace Scripts.Game.Butterflies
+﻿namespace Scripts.Game.Butterflies
 {
     public class ButterfliesCatcher
     {
-        private readonly ButterfliesConfig _config;
-        private readonly Wallet _wallet;
+        private readonly ButterfliesJournal.ButterfliesJournal _butterfliesJournal;
         
-        public ButterfliesCatcher(ButterfliesConfig config, Wallet wallet)
+        public ButterfliesCatcher(ButterfliesJournal.ButterfliesJournal butterfliesJournal)
         {
-            _config = config;
-            _wallet = wallet;
+            _butterfliesJournal = butterfliesJournal;
         }
 
         public void Catch(ButterflyView butterfly)
         {
-            _wallet.Earn(ButterfliesUtils.CalculateCost(_config, butterfly.Config, butterfly.Size));
+            _butterfliesJournal.PostButterfly(butterfly);
         }
     }
 }

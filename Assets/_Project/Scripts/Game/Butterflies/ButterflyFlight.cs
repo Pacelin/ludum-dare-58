@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Core.Lifetime;
+using UnityEngine;
 
 namespace Scripts.Game.Butterflies
 {
@@ -49,6 +50,8 @@ namespace Scripts.Game.Butterflies
 
         void Update()
         {
+            if (ApplicationState.IsPaused.CurrentValue)
+                return;
             UpdateTimers();
             UpdateDirection();
             UpdateWingFlap();

@@ -11,6 +11,7 @@ namespace Scripts.Game.Butterflies
 
         public float AverageSize => _averageSize;
         public int AverageCost => _averageCost;
+        public LocalizedString Name => _name;
         
         [Header("Info")] 
         [SerializeField] private int _specialIndex;

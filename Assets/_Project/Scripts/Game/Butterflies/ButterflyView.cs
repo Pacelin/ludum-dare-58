@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using Scripts.Core.InspectorCustomization;
+using Scripts.Game.Butterflies.ButterfliesJournal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,10 +8,11 @@ namespace Scripts.Game.Butterflies
 {
     public class ButterflyView : MonoBehaviour, IPointerClickHandler
     {
-        public int Id => _id;
-        public float Size => _size;
         public ButterflyConfig Config => _config;
         
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
+        
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         [Header("Spawn")]
         [SerializeField] private float _startHeight;
         [SerializeField] private float _endHeight;
@@ -25,6 +27,12 @@ namespace Scripts.Game.Butterflies
         private int _id;
         private ButterfliesCatcher _catcher;
         private float _size;
+
+        public ButterfliesJournalEntry CreateJournalEntry() => new ButterfliesJournalEntry()
+        {
+            Id = _id,
+            Size = _size
+        };
         
         public void Initialize(ButterfliesConfig butterfliesConfig,
             int id, ButterfliesCatcher catcher, Vector2 position, float size)

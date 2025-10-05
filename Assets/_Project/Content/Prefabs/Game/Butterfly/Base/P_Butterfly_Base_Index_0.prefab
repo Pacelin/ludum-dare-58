@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7626665217539673020, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Base_Index_0 Variant
+      value: P_Butterfly_Base_Index_0
       objectReference: {fileID: 0}
     - target: {fileID: 8273290405143487322, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: m_LocalPosition.x

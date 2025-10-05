@@ -37,6 +37,13 @@ namespace Scripts.Game.Butterflies
                 config.GetButterfly(firstId);
         }
 
+        public static string GetButterflyName(ButterfliesConfig config, ButterflyView butterfly, float size)
+        {
+            var sizeConfig = config.GetButterflySizeConfig(butterfly.Config, size);
+            var formatString = sizeConfig.NameFormatString.GetLocalizedString();
+            return string.Format(formatString, butterfly.Config.Name.GetLocalizedString());
+        }
+
         public static float CalculateSize(ButterfliesConfig generalConfig, ButterflyConfig config, int flowersCount)
         {
             var flowersMeanMultiplier = generalConfig.GetFlowerMeanMultiplier(flowersCount);

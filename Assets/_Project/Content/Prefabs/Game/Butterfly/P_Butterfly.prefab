@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a7e1d273cb453dbf43c46bef1021d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1383439140892550933}
   _startHeight: 0.2
   _endHeight: 0.6
   _spawnDuration: 0.2
@@ -181,9 +182,9 @@ MonoBehaviour:
     _requiredFlowers: 00000000
     _name:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 355086625660928
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0

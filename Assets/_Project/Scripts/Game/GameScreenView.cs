@@ -9,10 +9,12 @@ namespace Scripts.Game
     public class GameScreenView : ScreenView
     {
         public Button PauseButton => _pauseButton;
+        public Button JournalButton => _journalButton;
         public WalletView WalletView => _walletView;
         public Hotbar Hotbar => _hotbar;
         
         [SerializeField] private Button _pauseButton;
+        [SerializeField] private Button _journalButton;
         [SerializeField] private WalletView _walletView;
         [SerializeField] private Hotbar _hotbar;
     }

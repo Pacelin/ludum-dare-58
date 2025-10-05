@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnCooldownRange: {x: 2, y: 10}
   _flowersFindRadius: 0.5
-  _doubleFlowerChance: 0.4
+  _doubleFlowerChance: 0.5
   _specialWeights:
-  - 50
-  - 25
-  - 12.5
-  - 12.5
+  - 80
+  - 10
+  - 5
+  - 5
   _butterflies:
   - {fileID: 9046405117352582853, guid: a62036e5bc47c8d4d9962d12ccef687d, type: 3}
   - {fileID: 1822828975082236898, guid: 2f57a4ad7df3c05449929940ea5d4794, type: 3}
@@ -66,55 +66,55 @@ MonoBehaviour:
   - {fileID: 5137453581981204283, guid: 52aca79f32393114ab2f690a768bf404, type: 3}
   - {fileID: 5228157801889770703, guid: 7715ae56db83e044caf2c3d28eace0ce, type: 3}
   _sizeConfigs:
-  - _prefix:
+  - _nameFormatString:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 1018836009607168
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     _averageSizeMultiplierRange: {x: 0, y: 0.4}
     _costMutiplier: 1.5
-  - _prefix:
+  - _nameFormatString:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 1018836009607168
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     _averageSizeMultiplierRange: {x: 0.4, y: 1.2}
     _costMutiplier: 1
-  - _prefix:
+  - _nameFormatString:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 1018836009607168
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     _averageSizeMultiplierRange: {x: 1.2, y: 2}
     _costMutiplier: 1.5
-  - _prefix:
+  - _nameFormatString:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 1018836009607168
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     _averageSizeMultiplierRange: {x: 2, y: 3.2}
     _costMutiplier: 2.5
-  - _prefix:
+  - _nameFormatString:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 1018836009607168
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0

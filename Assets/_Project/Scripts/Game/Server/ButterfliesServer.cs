@@ -19,15 +19,16 @@ namespace Scripts.Game.Server
         private const string GET_URL = URL + "api/get-butterflies";
         private static ButterflyData[] _cached;
         private static DateTime _lastUpdate;
+
+        private static bool _isProcessing = false;
         
-        public static async UniTask PostButterfly(int id, float size, int sizeindex)
+        public static async UniTask PostButterfly(int id, float size)
         {
             var data = new ButterflyData 
             {
                 id = id,
                 size = size, 
                 username = UserDataManager.GetString("username"), 
-                sizeindex = sizeindex
             };
             var json = JsonUtility.ToJson(data);
             Debug.Log("Отправляемый JSON: " + json);
@@ -50,6 +51,7 @@ namespace Scripts.Game.Server
                 }
                 else
                 {
+                    _lastUpdate = DateTime.MinValue;
                     Debug.Log("Запрос успешен!");
                     Debug.Log("Ответ: " + request.downloadHandler.text);
                 }
@@ -60,27 +62,45 @@ namespace Scripts.Game.Server
         {
             if (DateTime.Now - _lastUpdate < TimeSpan.FromSeconds(10))
                 return _cached;
+
+            if (_isProcessing)
+            {
+                await UniTask.WaitWhile(() => _isProcessing,
+                    cancellationToken: ApplicationState.ExitCancellationToken);
+                if (_cached == null)
+                    throw new Exception("Ошибка получения данных с сервера");
+                return _cached;
+            }
             
+            _isProcessing = true;
             using (UnityWebRequest request = UnityWebRequest.Get(GET_URL))
             {
-                await request.SendWebRequest()
-                    .ToUniTask(cancellationToken: ApplicationState.ExitCancellationToken);
+                try
+                {
+                    await request.SendWebRequest()
+                        .ToUniTask(cancellationToken: ApplicationState.ExitCancellationToken);
+                }
+                catch
+                {
+                    _isProcessing = false;
+                    throw;
+                }
             
                 if (request.result == UnityWebRequest.Result.Success)
                 {
                     string jsonResponse = request.downloadHandler.text;
                     var result = JsonUtility.FromJson<TableData>(jsonResponse);
                     foreach (var row in result.data)
-                        Debug.Log($"ID: {row.id}, Size: {row.size}, User: {row.username}, SizeIndex: {row.sizeindex}");
+                        Debug.Log($"ID: {row.id}, Size: {row.size}, User: {row.username}");
                     _cached = result.data;
                     _lastUpdate = DateTime.Now;
+                    _isProcessing = false;
                     return result.data;
                 }
-                else
-                {
-                    Debug.LogError($"Ошибка: {request.error}");
-                    return null;
-                }
+                
+                Debug.LogError($"Ошибка: {request.error}");
+                _isProcessing = false;
+                return null;
             }
         }
     }

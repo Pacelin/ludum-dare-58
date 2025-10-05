@@ -59,6 +59,8 @@ namespace Scripts.Game.Butterflies
         public float GetScale(float size) => size * _sizeToScaleRemap;
         public ButterflySizeConfig GetButterflySizeConfig(int index) => _sizeConfigs[index];
         
+        public ButterflyView GetButterflyById(int id) => _butterflies[id];
+        
         public ButterflyView GetButterfly(params int[] flowerIds)
         {
             var successButterflies = new List<ButterflyView>();
