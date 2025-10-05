@@ -8,11 +8,8 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal.Legend
         [SerializeField] private RectTransform _elementsContainer;
         [SerializeField] private ButterfliesLegendElement _legendElementPrefab;
 
-        public void PostButterfly(ButterfliesConfig generalConfig, ButterflyView butterfly)
-        {
-            //var element = Instantiate(_legendElementPrefab, _elementsContainer);
-            //element.Initialize(this, generalConfig, butterfly);
-        }
+        public ButterfliesLegendElement CreateLegendElement() =>
+            Instantiate(_legendElementPrefab, _elementsContainer);
         
         public void UpdateLayout() => LayoutRebuilder.ForceRebuildLayoutImmediate(_elementsContainer);
     }
