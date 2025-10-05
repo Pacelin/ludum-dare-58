@@ -51,7 +51,8 @@ namespace Scripts.Game.Butterflies
         public static int CalculateCost(ButterfliesConfig generalConfig, ButterflyConfig config, float size)
         {
             var sizeConfig = generalConfig.GetButterflySizeConfig(config, size);
-            var cost = config.AverageCost * sizeConfig.CostMutiplier;
+            var bySizeMultipler = size / config.AverageSize;
+            var cost = config.AverageCost * (bySizeMultipler * 0.5f + sizeConfig.CostMutiplier);
             return Mathf.Max(1, Mathf.RoundToInt(cost));
         }
         
