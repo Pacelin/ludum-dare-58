@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageCost
-      value: 4
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageSize
