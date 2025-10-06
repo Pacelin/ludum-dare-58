@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "com.mixpanel.unity": "https://github.com/mixpanel/mixpanel-unity.git#master",
     "com.cysharp.messagepipe": "https://github.com/Cysharp/MessagePipe.git?path=src/MessagePipe.Unity/Assets/Plugins/MessagePipe",
     "com.cysharp.messagepipe.vcontainer": "https://github.com/Cysharp/MessagePipe.git?path=src/MessagePipe.Unity/Assets/Plugins/MessagePipe.VContainer",
     "com.cysharp.r3": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity",
+    "com.mixpanel.unity": "https://github.com/mixpanel/mixpanel-unity.git#master",
     "com.unity.addressables": "2.3.16",
     "com.unity.collab-proxy": "2.9.3",
     "com.unity.feature.2d": "2.0.1",

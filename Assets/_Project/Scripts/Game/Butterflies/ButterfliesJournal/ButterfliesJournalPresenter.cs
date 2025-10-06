@@ -38,14 +38,14 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             
             foreach (var filter in _view.Filters)
             {
-                filter.UpdateSelection(false);
+                filter.ResetSelection(false);
                 foreach (var page in filter.Pages)
                 {
                     page.gameObject.SetActive(false);
                     foreach (var entry in page.Entries)
                         entry.gameObject.SetActive(false);
                 }
-                filter.Button.OnClickAsObservable()
+                filter.Click
                     .Subscribe(_ => UpdateFilter(filter))
                     .AddTo(_disposables);
             }
