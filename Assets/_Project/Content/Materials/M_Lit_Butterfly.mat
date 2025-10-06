@@ -33,15 +33,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _PetrifiedOverlay:
-        m_Texture: {fileID: 2800000, guid: 24b5904676082fc479d555322fd5f898, type: 3}
+        m_Texture: {fileID: 2800000, guid: 23c082264bfc98d4b94cfc7c096707cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RestoredOverlay:
-        m_Texture: {fileID: 2800000, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
+        m_Texture: {fileID: 2800000, guid: 66ce21523c062224f945ad3d55fd45fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpotOverlay:
-        m_Texture: {fileID: 2800000, guid: 8da095e39e9b4df488dfd436f81116d6, type: 3}
+        m_Texture: {fileID: 2800000, guid: ea3988ce5ac747b43887ed82c96e0fb2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -71,7 +71,7 @@ Material:
     - _Holo_Height_2: -5
     - _Sway_Time: 0.3925
     m_Colors:
-    - _MousePosition: {r: 0.6922118, g: 8.537426, b: -10, a: 0}
+    - _MousePosition: {r: 0.91196275, g: -1.5491004, b: -10, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4806305337131355324
