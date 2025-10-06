@@ -30,16 +30,20 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         
         public Observable<int> ObserveOpen() => _openSubject;
 
+        private void OnEnable()
+        {
+            ApplicationState.SetPauseGameplay(true);
+        }
+
         private void OnDisable()
         {
+            ApplicationState.SetPauseGameplay(false);
             _scaleRoot.DOKill();
             _block.DOKill();
-            ApplicationState.SetPauseGameplay(false);
         } 
 
         public void Open(int butterflyId)
         {
-            ApplicationState.SetPauseGameplay(true);
             _openSubject.OnNext(butterflyId);
             _block.DOFade(0.8f, 0.2f).From(0);
             _scaleRoot.DOScale(1, 0.2f)

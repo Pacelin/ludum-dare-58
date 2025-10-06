@@ -26,7 +26,7 @@ namespace Scripts.Audio
 			    set
 			    {
 				    _masterBus.setVolume(value);
-				    PlayerPrefs.SetFloat("master_volume", value);
+				    UserDataManager.SetFloat("master_volume", value);
 			    }
 		    }
 
@@ -40,7 +40,7 @@ namespace Scripts.Audio
 		    {
 			    _buses[index].setVolume(volume);
 			    _buses[index].getID(out var id);
-			    PlayerPrefs.SetFloat("volume_of_" + id, volume);
+			    UserDataManager.SetFloat("volume_of_" + id, volume);
 		    }
 	    }
 	    
@@ -78,14 +78,14 @@ namespace Scripts.Audio
             await UniTask.WaitWhile(FMODUnity.RuntimeManager.AnySampleDataLoading);
             
             _masterBus = FMODUnity.RuntimeManager.GetBus(volumes.MasterBusPath);
-            _masterBus.setVolume(PlayerPrefs.GetFloat("master_volume", volumes.DefaultMasterVolume));
+            _masterBus.setVolume(UserDataManager.GetFloat("master_volume", volumes.DefaultMasterVolume));
 
             _buses = new FMOD.Studio.Bus[volumes.BusesPaths.Length];
             for (int i = 0; i < _buses.Length; i++)
             {
 	            _buses[i] = FMODUnity.RuntimeManager.GetBus(volumes.BusesPaths[i]);
 	            _buses[i].getID(out var busId);
-	            _buses[i].setVolume(PlayerPrefs.GetFloat("volume_of_" + busId, volumes.DefaultVolume));
+	            _buses[i].setVolume(UserDataManager.GetFloat("volume_of_" + busId, volumes.DefaultVolume));
             }
         }
     }

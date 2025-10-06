@@ -67,7 +67,7 @@ namespace Scripts.Game.Flowers
             
             _wallet.Balance.Subscribe(_ => UpdateDrawState()).AddTo(_disposables);
             
-            ApplicationState.IsPaused.Subscribe(isPaused =>
+            ApplicationState.IsPaused.DistinctUntilChanged().Subscribe(isPaused =>
             {
                 if (isPaused)
                 {
