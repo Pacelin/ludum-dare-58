@@ -1,13 +1,14 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
 
 namespace Scripts.Game.Butterflies.ButterfliesJournal
 {
     public class ButterfliesJournalEntryView : MonoBehaviour
     {
         public ButterflyView Butterfly => _butterfly;
+        public GameObject QuestionMark => _questionMark;
         
+        [SerializeField] private GameObject _questionMark;
         [SerializeField] private ButterflyView _butterfly;
         [Space]
         [SerializeField] private RectTransform _butterflyContainer;
