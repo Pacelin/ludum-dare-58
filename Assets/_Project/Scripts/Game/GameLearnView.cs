@@ -28,6 +28,11 @@ namespace Scripts.Game
         [SerializeField] private Button _secondContinueButton;
         [SerializeField] private Button _thirdContinueButton;
         [SerializeField] private Button _fourthContinueButton;
+        [Space]
+        [SerializeField] private CanvasGroup _firstContinueButtonGroup;
+        [SerializeField] private CanvasGroup _secondContinueButtonGroup;
+        [SerializeField] private CanvasGroup _thirdContinueButtonGroup;
+        [SerializeField] private CanvasGroup _fourthContinueButtonGroup;
         [Space] 
         [SerializeField] private Button _skipButton;
 
@@ -40,6 +45,7 @@ namespace Scripts.Game
             {
                 if (_canvasGroup)
                     _canvasGroup.DOFade(0, 0.2f)
+                        .SetTarget(gameObject)
                         .OnComplete(() => gameObject.SetActive(false));
             });
             
@@ -77,28 +83,32 @@ namespace Scripts.Game
             
             await _black.DOFade(0.9f, 0.3f).From(0)
                 .SetTarget(gameObject)
-                .ToUniTask(cancellationToken: _cts.Token, tweenCancelBehaviour: TweenCancelBehaviour.KillAndCancelAwait);
+                .ToUniTask(cancellationToken: _cts.Token, tweenCancelBehaviour: TweenCancelBehaviour.KillAndCancelAwait)
+                .SuppressCancellationThrow();
             if (_cts.IsCancellationRequested)
                 return;
             
-            await ShowPart(_firstMask, _firstText, _firstContinueButton);
+            await ShowPart(_firstMask, _firstText, _firstContinueButton, _firstContinueButtonGroup);
             if (_cts.IsCancellationRequested)
                 return;
-            await ShowPart(_secondMask, _secondText, _secondContinueButton);
+            await ShowPart(_secondMask, _secondText, _secondContinueButton, _secondContinueButtonGroup);
             if (_cts.IsCancellationRequested)
                 return;
-            await ShowPart(_thirdMask, _thirdText, _thirdContinueButton);
+            await ShowPart(_thirdMask, _thirdText, _thirdContinueButton, _thirdContinueButtonGroup);
             if (_cts.IsCancellationRequested)
                 return;
-            await ShowPart(_fourthMask, _fourthText, _fourthContinueButton);
+            await ShowPart(_fourthMask, _fourthText, _fourthContinueButton, _fourthContinueButtonGroup);
             if (_cts.IsCancellationRequested)
                 return;
             
             await _canvasGroup.DOFade(0, 0.2f)
-                .OnComplete(() => gameObject.SetActive(false));
+                .SetTarget(gameObject)
+                .OnComplete(() => gameObject.SetActive(false))
+                .ToUniTask(cancellationToken: _cts.Token, tweenCancelBehaviour: TweenCancelBehaviour.KillAndCancelAwait)
+                .SuppressCancellationThrow();
         }
 
-        private async UniTask ShowPart(RectTransform mask, TMP_Text text, Button continueButton)
+        private async UniTask ShowPart(RectTransform mask, TMP_Text text, Button continueButton, CanvasGroup buttonCanvas)
         {
             await mask.DOScale(1, 0.5f).From(0)
                 .OnStart(() => mask.gameObject.SetActive(true))
@@ -118,12 +128,18 @@ namespace Scripts.Game
             
             if (_cts.IsCancellationRequested)
                 return;
-            await UniTask.Delay(TimeSpan.FromSeconds(1.5f), cancellationToken: _cts.Token)
+            await UniTask.Delay(TimeSpan.FromSeconds(0.3f), cancellationToken: _cts.Token)
                 .SuppressCancellationThrow();
             if (_cts.IsCancellationRequested)
                 return;
-
-            continueButton.gameObject.SetActive(true);
+            
+            await buttonCanvas.DOFade(1, 0.3f).From(0)
+                .OnStart(() => continueButton.gameObject.SetActive(true))
+                .SetTarget(gameObject)
+                .ToUniTask(cancellationToken: _cts.Token, tweenCancelBehaviour: TweenCancelBehaviour.KillAndCancelAwait)
+                .SuppressCancellationThrow();
+            if (_cts.IsCancellationRequested)
+                return;
             await continueButton.OnClickAsync();
             if (_cts.IsCancellationRequested)
                 return;

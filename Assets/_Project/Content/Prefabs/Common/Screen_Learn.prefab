@@ -1522,6 +1522,7 @@ GameObject:
   - component: {fileID: 114820344031915732}
   - component: {fileID: 7570671307151874649}
   - component: {fileID: 880909839884164478}
+  - component: {fileID: 1649094770779541560}
   m_Layer: 5
   m_Name: P_LearnButton (1)
   m_TagString: Untagged
@@ -1656,6 +1657,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4552794a43eb4b1d8dab53b2fc14e31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1649094770779541560
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761493796509087429}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5799327756958012440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,6 +2265,7 @@ GameObject:
   - component: {fileID: 974346066076691934}
   - component: {fileID: 5026132614335952712}
   - component: {fileID: 2645147717661229264}
+  - component: {fileID: 9147029513765260311}
   m_Layer: 5
   m_Name: P_LearnButton (3)
   m_TagString: Untagged
@@ -2386,6 +2400,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4552794a43eb4b1d8dab53b2fc14e31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &9147029513765260311
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957319177515515428}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7187909508441898690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2820,7 @@ GameObject:
   - component: {fileID: 4949172757411119029}
   - component: {fileID: 8748685911724122975}
   - component: {fileID: 8203110603510627752}
+  - component: {fileID: 8988688046677533135}
   m_Layer: 5
   m_Name: P_LearnButton
   m_TagString: Untagged
@@ -2928,6 +2955,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4552794a43eb4b1d8dab53b2fc14e31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &8988688046677533135
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892385530659452893}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9087012189268822401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,6 +2981,7 @@ GameObject:
   - component: {fileID: 5782883883504618795}
   - component: {fileID: 7151762014884459397}
   - component: {fileID: 5656769846625076913}
+  - component: {fileID: 6923887174794698407}
   m_Layer: 5
   m_Name: P_LearnButton (2)
   m_TagString: Untagged
@@ -3076,6 +3116,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4552794a43eb4b1d8dab53b2fc14e31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &6923887174794698407
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087012189268822401}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9180647452526688337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3212,6 +3264,10 @@ MonoBehaviour:
   _secondContinueButton: {fileID: 114820344031915732}
   _thirdContinueButton: {fileID: 5782883883504618795}
   _fourthContinueButton: {fileID: 974346066076691934}
+  _firstContinueButtonGroup: {fileID: 8988688046677533135}
+  _secondContinueButtonGroup: {fileID: 1649094770779541560}
+  _thirdContinueButtonGroup: {fileID: 6923887174794698407}
+  _fourthContinueButtonGroup: {fileID: 9147029513765260311}
   _skipButton: {fileID: 8326826463963727248}
 --- !u!225 &7442296731353244635
 CanvasGroup:
