@@ -14,10 +14,6 @@ namespace Scripts.Game.Butterflies
         {
             var drawnFlowers = drawFacade.GetDrawnObjects<Flower>(flower.transform.position,
                 config.FlowersFindRadius).ToList();
-            foreach (var drawnFlower in drawnFlowers)
-            {
-                Debug.Log("flowerforbutterfly: " + drawnFlower.GetId(time), drawnFlower);
-            }
             flowersCount = drawnFlowers.Count;
             if (drawnFlowers.Count == 0) return null;
             if (drawnFlowers.Count == 1) return config.GetButterfly(drawnFlowers[0].GetId(time));

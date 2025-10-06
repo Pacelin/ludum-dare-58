@@ -168,8 +168,8 @@ MonoBehaviour:
     _costMutiplier: 4.25
   _minSizeMultiplier: 0.5
   _maxSizeMultiplier: 10
-  _sizeMeanMultiplier: 1
-  _sizeDeviationMultiplier: 0.4
+  _sizeMeanMultiplier: 1.1
+  _sizeDeviationMultiplier: 0.5
   _flowersCountRange: {x: 1, y: 200}
   _flowersMeanMultiplierRange: {x: 0.7, y: 1.2}
   _sizeToScaleRemap: 0.2

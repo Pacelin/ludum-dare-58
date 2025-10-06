@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using R3;
+using Scripts.Core.Lifetime;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -56,7 +57,8 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                 .Subscribe(_ => MovePage(1))
                 .AddTo(_disposables);
             _view.CloseButton.OnClickAsObservable()
-                .Subscribe(_ => _view.Close())
+                .Subscribe(_ =>
+                    _view.Close())
                 .AddTo(_disposables);
         }
 
