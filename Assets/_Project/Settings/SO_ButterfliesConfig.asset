@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_ButterfliesConfig
   m_EditorClassIdentifier: 
   _spawnCooldownRange: {x: 2, y: 10}
-  _flowersFindRadius: 0.5
+  _flowersFindRadius: 1
   _doubleFlowerChance: 0.5
   _specialWeights:
   - 80
@@ -174,7 +174,7 @@ MonoBehaviour:
   _maxSizeMultiplier: 5
   _sizeMeanMultiplier: 1.2
   _sizeDeviationMultiplier: 0.6
-  _flowersCountRange: {x: 1, y: 15}
+  _flowersCountRange: {x: 1, y: 20}
   _flowersMeanMultiplierRange: {x: 0.7, y: 1.2}
   _butterflySizeRange: {x: 1.4, y: 45}
   _journalScaleRange: {x: 3, y: 8}

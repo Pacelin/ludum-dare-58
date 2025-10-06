@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{514ac608-e819-4483-b73d-18724425926f}">
+		<property name="assetPath">
+			<value>417862__olver__butterflies.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>12.736530612244898</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4385e37e-d18a-4fc6-b18d-f4d0fbb9c24a}</destination>
+		</relationship>
+	</object>
+</objects>

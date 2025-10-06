@@ -1,4 +1,5 @@
-﻿using Scripts.Core.Lifetime;
+﻿using Scripts.Audio;
+using Scripts.Core.Lifetime;
 using Scripts.Game.Flowers;
 using UnityEngine;
 using VContainer.Unity;
@@ -49,6 +50,7 @@ namespace Scripts.Game.Butterflies
             var id = _config.GetButterflyID(randomButterfly);
             var butterfly = Object.Instantiate(randomButterfly);
             butterfly.Initialize(_config, id, _catcher, randomFlower.transform.position, size);
+            AudioSystem.Game_Butterfly.PlayOneShot();
         }
         
         private void ResetCountdown()

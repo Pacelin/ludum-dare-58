@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Scripts.Core.Lifetime;
 using UnityEngine;
 
 namespace Scripts.Game.Flowers
@@ -29,6 +30,8 @@ namespace Scripts.Game.Flowers
 
         private void Update()
         {
+            if (ApplicationState.IsPaused.CurrentValue)
+                return;
             if (!_camera)
                 _camera = Camera.main;
             var mousePos = Input.mousePosition;
