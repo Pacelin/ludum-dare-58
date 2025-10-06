@@ -64,6 +64,7 @@ namespace Scripts.Audio
 		public static SoundEvent_Journal_NewNote Journal_NewNote { get; } = new();
 		public static SoundEvent_Game_UnlockFlower Game_UnlockFlower { get; } = new();
 		public static SoundEvent_Game_Butterfly Game_Butterfly { get; } = new();
+		public static SoundEvent_Game_Catch Game_Catch { get; } = new();
 		
 		private static FMOD.Studio.Bus _masterBus;
 		private static FMOD.Studio.Bus[] _buses;
@@ -410,6 +411,27 @@ namespace Scripts.Audio
 		public float Length => 5000;
 
 		private static readonly FMOD.GUID _guid = new FMOD.GUID() { Data1 = 1517831283, Data2 = 1136543127, Data3 = 965832580, Data4 = -889852680 };
+
+		public void PlayOneShot() => RuntimeManager.PlayOneShot(_guid);
+		public void PlayOneShotAttached(GameObject attachTo) => RuntimeManager.PlayOneShotAttached(_guid, attachTo);
+		public void PlayOneShotInPoint(Vector3 point) => RuntimeManager.PlayOneShot(_guid, point);
+
+		public Instance CreateInstance() => new Instance(RuntimeManager.CreateInstance(_guid));
+		ISoundEventInstance ISoundEvent.CreateInstance() => CreateInstance();
+
+		public class Instance : SoundEventInstance
+		{
+			public Instance(FMOD.Studio.EventInstance eventInstance) : base(eventInstance) { }
+
+		}
+	}
+
+	public class SoundEvent_Game_Catch : ISoundEvent
+	{
+		public bool IsOneShot => true;
+		public float Length => 449;
+
+		private static readonly FMOD.GUID _guid = new FMOD.GUID() { Data1 = 233737477, Data2 = 1132038974, Data3 = -1234253905, Data4 = 1002245338 };
 
 		public void PlayOneShot() => RuntimeManager.PlayOneShot(_guid);
 		public void PlayOneShotAttached(GameObject attachTo) => RuntimeManager.PlayOneShotAttached(_guid, attachTo);

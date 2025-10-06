@@ -81,6 +81,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                     _butterfliesSizesMap[entry.Id] = entry.Size;
             }
             
+            AudioSystem.Game_Catch.PlayOneShot();
             if (entry.IsNewEntry || isLocalRecord)
                 AudioSystem.Journal_NewNote.PlayOneShot();
             

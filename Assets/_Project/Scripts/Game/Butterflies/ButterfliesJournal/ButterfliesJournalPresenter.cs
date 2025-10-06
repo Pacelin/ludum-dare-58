@@ -43,7 +43,10 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                 {
                     page.gameObject.SetActive(false);
                     foreach (var entry in page.Entries)
+                    {
                         entry.gameObject.SetActive(false);
+                        entry.QuestionMark.SetActive(false);
+                    }
                 }
                 filter.Click
                     .Subscribe(_ => UpdateFilter(filter))
@@ -85,11 +88,13 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             {
                 Debug.Log("Butterfly entry found", entry);
                 entry.gameObject.SetActive(true);
+                entry.QuestionMark.SetActive(false);
             }
             else
             {
                 Debug.Log("Butterfly entry not found", entry);
                 entry.gameObject.SetActive(false);
+                entry.QuestionMark.SetActive(true);
                 return;
             }
             
