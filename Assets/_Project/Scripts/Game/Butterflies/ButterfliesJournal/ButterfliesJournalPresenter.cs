@@ -137,6 +137,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             var minIndex = 0;
             var maxIndex = (_currentFilter.Pages.Length - 1) / 2;
             _pageIndex = Mathf.Clamp(_pageIndex + offset, minIndex, maxIndex);
+            UpdatePages();
         }
 
         private int FindPage(int butterflyId)

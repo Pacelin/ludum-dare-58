@@ -295,6 +295,38 @@ MonoBehaviour:
     m_Key: journal.butterfly.feature.restored.feminine
     m_Metadata:
       m_Items: []
+  - m_Id: 1400324777566208
+    m_Key: TITLE.LEARN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1400324827897856
+    m_Key: learn.step1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1400324827897857
+    m_Key: learn.step2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1400324827897858
+    m_Key: learn.step3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1400324827897859
+    m_Key: learn.step4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1400324827897860
+    m_Key: learn.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1400324827897861
+    m_Key: learn.play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1400324827897862
+    m_Key: learn.skip
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

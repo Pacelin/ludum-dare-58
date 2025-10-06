@@ -158,6 +158,7 @@ MonoBehaviour:
   _drawFieldPrefab: {fileID: 5364417054341511619, guid: d6b42abfa9c2f794ca54c810edaeba0c, type: 3}
   _butterfliesConfig: {fileID: 11400000, guid: 3633688c4188745429d36c7676564c86, type: 2}
   _journalViewPrefab: {fileID: 894480529909644040, guid: dcabfacc8dd21aa4bbe15e2ce28ed0ec, type: 3}
+  _learnViewPrefab: {fileID: 2616302423291174029, guid: 6781b24c083bcbc4aa66058d3e12b1a9, type: 3}
   _initialWalletAmount: 10
   _gameTimeConfig:
     SecondsPerCycle: 120
@@ -232,7 +233,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
