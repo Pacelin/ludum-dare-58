@@ -11,8 +11,8 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         [SerializeField] private ButterflyView _butterfly;
         [Space]
         [SerializeField] private RectTransform _butterflyContainer;
-        [SerializeField] private float _minButterflyContainerScale;
-        [SerializeField] private float _maxButterflyContainerScale;
+        [SerializeField] private float _scaleAdapter = 1f;
+        [SerializeField] private float _scaleOffset = 0f;
         [Space] 
         [SerializeField] private GameObject _worldInfo;
         [Space]
@@ -26,8 +26,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         public void SetData(ButterfliesConfig butterfliesConfig,
             float mySize, int myCost)
         {
-            var scale = Mathf.Clamp(butterfliesConfig.GetScale(mySize), 
-                _minButterflyContainerScale, _maxButterflyContainerScale);
+            var scale = butterfliesConfig.GetScaleForJournal(mySize) * _scaleAdapter + _scaleOffset;
             _butterflyContainer.localScale = Vector3.one * scale;
             _nameText.text = ButterfliesUtils.GetButterflyName(butterfliesConfig, _butterfly, mySize);
             _mySizeText.text = mySize.ToString("F2") + " mm";
