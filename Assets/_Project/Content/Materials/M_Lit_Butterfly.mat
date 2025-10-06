@@ -12,7 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _FEATURE_NONE
+  - _FEATURE_HOLOGRAPHIC
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -62,14 +62,15 @@ Material:
     - _Add_Hue_From: 0.35
     - _Add_Hue_To: 0.65
     - _ColorMask: 15
-    - _FEATURE: 0
-    - _Height: 10
+    - _FEATURE: 5
+    - _Height: 0
     - _Holo_Amount_1: 1
-    - _Holo_Amount_2: 0.5
+    - _Holo_Amount_2: 0.18
     - _Holo_Blend: 0.709
     - _Holo_Height: 2
-    - _Holo_Height_1: 0.1
-    - _Holo_Height_2: -5
+    - _Holo_Height_1: 75
+    - _Holo_Height_2: 120
+    - _Mouse_Multiplier: 1920
     - _Restored_Height: 1
     - _Specular_Power: -50
     - _Stencil: 0
@@ -82,7 +83,7 @@ Material:
     - _UIMaskSoftnessY: 1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _MousePosition: {r: 0.91196275, g: -1.5491004, b: -10, a: 0}
+    - _MousePosition: {r: 0.53575134, g: 1, b: 0, a: 0}
     - _Specular_Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
