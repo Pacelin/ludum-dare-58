@@ -64,7 +64,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             entry.Cost = ButterfliesUtils.CalculateCost(_generalConfig, butterfly.Config, entry.Size);
             entry.RecordType = recordInfoReactive;
             entry.Icon = butterfly.SpriteRenderer.sprite;
-            entry.Name = ButterfliesUtils.GetButterflyName(_generalConfig, butterfly, entry.Size);
+            entry.Name = ButterfliesUtils.GetButterflyName(_generalConfig, butterfly.Config, entry.Size);
             entry.IsNewEntry = !_butterfliesSizesMap.ContainsKey(entry.Id);
             bool isLocalRecord = false;
             _wallet.Earn(entry.Cost);

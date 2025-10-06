@@ -72,6 +72,7 @@ namespace Scripts.Game.Butterflies
         
         public ButterflySizeConfig GetButterflySizeConfig(int index) => _sizeConfigs[index];
         
+        public ButterflyView GetRandomButterfly() => _butterflies[Random.Range(0, _butterflies.Length)];
         public ButterflyView GetButterflyById(int id) => _butterflies[id];
         
         public ButterflyView GetButterfly(params int[] flowerIds)

@@ -33,14 +33,14 @@ namespace Scripts.Game.Butterflies
                 config.GetButterfly(firstId);
         }
 
-        public static string GetButterflyName(ButterfliesConfig config, ButterflyView butterfly, float size)
+        public static string GetButterflyName(ButterfliesConfig config, ButterflyConfig butterfly, float size)
         {
-            var sizeConfig = config.GetButterflySizeConfig(butterfly.Config, size);
-            var sizeString = butterfly.Config.IsFemale ?
+            var sizeConfig = config.GetButterflySizeConfig(butterfly, size);
+            var sizeString = butterfly.IsFemale ?
                 sizeConfig.SizeStringFemale.GetLocalizedString() :
                 sizeConfig.SizeString.GetLocalizedString();
-            var avgString = butterfly.Config.Prefix.GetLocalizedString();
-            var nameString = butterfly.Config.Name.GetLocalizedString();
+            var avgString = butterfly.Prefix.GetLocalizedString();
+            var nameString = butterfly.Name.GetLocalizedString();
             return sizeString + " " + avgString + " " + nameString;
         }
 
