@@ -60,8 +60,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                 .Subscribe(_ => MovePage(1))
                 .AddTo(_disposables);
             _view.CloseButton.OnClickAsObservable()
-                .Subscribe(_ =>
-                    _view.Close())
+                .Subscribe(_ => _view.Close())
                 .AddTo(_disposables);
         }
 
@@ -72,12 +71,6 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
 
         private void OnOpen(int butterflyId)
         {
-            var entries = _view.Filters
-                .SelectMany(f => f.Pages)
-                .SelectMany(p => p.Entries)
-                .Distinct();
-            foreach (var entry in entries)
-                entry.gameObject.SetActive(false);
             UpdateFilter(_view.Filters[0], FindPage(butterflyId));
         }
 
@@ -86,13 +79,11 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             var butterflyId = _generalConfig.GetButterflyID(entry.Butterfly);
             if (_journal.HasButterfly(butterflyId))
             {
-                Debug.Log("Butterfly entry found", entry);
                 entry.gameObject.SetActive(true);
                 entry.QuestionMark.SetActive(false);
             }
             else
             {
-                Debug.Log("Butterfly entry not found", entry);
                 entry.gameObject.SetActive(false);
                 entry.QuestionMark.SetActive(true);
                 return;
@@ -110,9 +101,9 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                 _currentFilter.UpdateSelection(false);
             _currentFilter = filter;
             _currentFilter.UpdateSelection(true);
-            
+
             _pageIndex = pageIndex;
-            UpdatePages();
+            UpdatePages();          
         }
 
         private void UpdatePages()
