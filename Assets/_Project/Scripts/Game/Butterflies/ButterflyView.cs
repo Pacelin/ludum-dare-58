@@ -43,7 +43,7 @@ namespace Scripts.Game.Butterflies
             _id = id;
             _catcher = catcher;
             _size = size;
-            var scale = butterfliesConfig.GetScale(size);
+            var scale = butterfliesConfig.GetScaleForWorld(size);
             Debug.Log($"Butterfly {id} spawned with size {size:F}");
             var startPosition = new Vector3(position.x, position.y + _startHeight, 0);
             var endPosition = new Vector3(position.x, position.y + _endHeight, 0);

@@ -30,7 +30,9 @@ namespace Scripts.Game.Butterflies
         [SerializeField] private float _sizeDeviationMultiplier;
         [SerializeField] private Vector2 _flowersCountRange;
         [SerializeField] private Vector2 _flowersMeanMultiplierRange;
-        [SerializeField] private float _sizeToScaleRemap;
+        [SerializeField] private Vector2 _butterflySizeRange;
+        [SerializeField] private Vector2 _journalScaleRange;
+        [SerializeField] private Vector2 _worldScaleRange;
 
         public float GetFlowerMeanMultiplier(int flowersCount)
         {
@@ -56,7 +58,18 @@ namespace Scripts.Game.Butterflies
             return _sizeConfigs[0];
         }
 
-        public float GetScale(float size) => size * _sizeToScaleRemap;
+        public float GetScaleForJournal(float size)
+        {
+            var t = Mathf.InverseLerp(_butterflySizeRange.x, _butterflySizeRange.y, size);
+            return Mathf.Lerp(_journalScaleRange.x, _journalScaleRange.y, Mathf.Clamp01(t));
+        }
+
+        public float GetScaleForWorld(float size)
+        {
+            var t = Mathf.InverseLerp(_butterflySizeRange.x, _butterflySizeRange.y, size);
+            return Mathf.Lerp(_worldScaleRange.x, _worldScaleRange.y, Mathf.Clamp01(t));
+        }
+        
         public ButterflySizeConfig GetButterflySizeConfig(int index) => _sizeConfigs[index];
         
         public ButterflyView GetButterflyById(int id) => _butterflies[id];
