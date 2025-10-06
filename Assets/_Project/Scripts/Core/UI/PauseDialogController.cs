@@ -1,7 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using mixpanel;
 using R3;
 using Scripts.Core.Lifetime;
 using Scripts.Core.SceneManagement;
@@ -25,7 +24,8 @@ namespace Scripts.Core.UI
         
         public void Initialize()
         {
-            ApplicationState.IsPausedByUser.Subscribe(isPaused =>
+            _pauseDialogView.gameObject.SetActive(false);
+            ApplicationState.IsPausedByUser.Skip(1).DistinctUntilChanged().Subscribe(isPaused =>
             {
                 if (isPaused)
                     _pauseDialogView.Open(ApplicationState.ExitCancellationToken).Forget();

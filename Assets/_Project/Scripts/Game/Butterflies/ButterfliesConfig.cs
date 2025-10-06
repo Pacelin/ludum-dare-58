@@ -99,7 +99,6 @@ namespace Scripts.Game.Butterflies
             if (successButterflies.Count > 0)
                 return successButterflies[0];
             
-            Debug.LogError("No butterfly found for flower ids: " + string.Join(", ", flowerIds));
             return GetButterfly(flowerIds[0]);
         }
         public int GetButterflyID(ButterflyView prefab) => System.Array.IndexOf(_butterflies, prefab);

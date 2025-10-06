@@ -81,7 +81,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                     _butterfliesSizesMap[entry.Id] = entry.Size;
             }
             
-            AudioSystem.Game_Catch.PlayOneShot();
+            AudioSystem.Journal_NewNote.PlayOneShot();
             if (entry.IsNewEntry || isLocalRecord)
                 AudioSystem.Journal_NewNote.PlayOneShot();
             
@@ -117,7 +117,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         private void Load()
         {
             _butterfliesSizesMap.Clear();
-            var loadData = UserDataManager.GetString("journal_data", null);
+            var loadData = PlayerPrefs.GetString("journal_data", null);
             if (string.IsNullOrEmpty(loadData)) 
                 return;
             var fromJson = JsonUtility.FromJson<ButterfliesJournalData>(loadData);
@@ -136,7 +136,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                     })
                     .ToArray()
             };
-            UserDataManager.SetString("journal_data", JsonUtility.ToJson(data));
+            PlayerPrefs.SetString("journal_data", JsonUtility.ToJson(data));
         }
     }
 }

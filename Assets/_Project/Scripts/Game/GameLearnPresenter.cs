@@ -1,6 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using R3;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace Scripts.Game
@@ -28,11 +29,11 @@ namespace Scripts.Game
                 })
                 .AddTo(_disposables);
 
-            var alreadyComplete = UserDataManager.GetInt("learned", 0) == 1;
+            var alreadyComplete = PlayerPrefs.GetInt("learned", 0) == 1;
             _learnView.gameObject.SetActive(!alreadyComplete);
             if (!alreadyComplete)
             {
-                UserDataManager.SetInt("learned", 1);
+                PlayerPrefs.SetInt("learned", 1);
                 _learnView.StartLearn(false).Forget();
             }
         }

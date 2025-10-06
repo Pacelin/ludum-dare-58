@@ -32,7 +32,8 @@ namespace Scripts.Game
         public void Initialize()
         {
             _screen.PauseButton.OnClickAsObservable()
-                .Subscribe(_ => ApplicationState.SetPause(true)).AddTo(_disposables);
+                .Subscribe(_ => ApplicationState.SetPause(true))
+                .AddTo(_disposables);
             _screen.JournalButton.OnClickAsObservable()
                 .Subscribe(_ => _butterfliesJournalView.Open(0))
                 .AddTo(_disposables);

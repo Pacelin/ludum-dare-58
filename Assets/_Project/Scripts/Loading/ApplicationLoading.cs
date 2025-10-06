@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Scripts.Core.SceneManagement;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace Scripts.Loading
@@ -10,7 +11,7 @@ namespace Scripts.Loading
     {
         public void Initialize()
         {
-            if (string.IsNullOrEmpty(UserDataManager.GetString("username", null)))
+            if (string.IsNullOrEmpty(PlayerPrefs.GetString("username", null)))
                 SceneManager.LoadScene(SceneManager.Database.EnterNickname).Forget();
             else
                 SceneManager.LoadScene(SceneManager.Database.MainMenu).Forget();
