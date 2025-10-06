@@ -1,7 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using mixpanel;
 using R3;
 using Scripts.Core.Lifetime;
 using Scripts.Core.SceneManagement;

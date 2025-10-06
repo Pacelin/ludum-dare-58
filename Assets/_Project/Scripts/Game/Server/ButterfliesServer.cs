@@ -28,7 +28,7 @@ namespace Scripts.Game.Server
             {
                 id = id,
                 size = size, 
-                username = UserDataManager.GetString("username"), 
+                username = PlayerPrefs.GetString("username"), 
             };
             var json = JsonUtility.ToJson(data);
             Debug.Log("Отправляемый JSON: " + json);
