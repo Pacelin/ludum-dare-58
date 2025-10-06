@@ -200,6 +200,8 @@ GameObject:
   - component: {fileID: 3806599230074779373}
   - component: {fileID: 2236905299108838691}
   - component: {fileID: 4568219181725666491}
+  - component: {fileID: 4958425396649033063}
+  - component: {fileID: 7967586432155292620}
   m_Layer: 5
   m_Name: P_JournalFilter_Base
   m_TagString: Untagged
@@ -289,6 +291,46 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4958425396649033063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112419553909725422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21996397005b4cf38daa5587dc670a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    _eventRef:
+      Guid:
+        Data1: -2145088236
+        Data2: 1284667434
+        Data3: 623237291
+        Data4: -1118006707
+      Path: event:/Journal/Tab
+--- !u!114 &7967586432155292620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112419553909725422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633942074ffb4f5d8f006f573bf68c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    _eventRef:
+      Guid:
+        Data1: -411965667
+        Data2: 1163783608
+        Data3: 773201809
+        Data4: -630037517
+      Path: event:/Journal/TabHover
 --- !u!1 &8123515211273093195
 GameObject:
   m_ObjectHideFlags: 0
