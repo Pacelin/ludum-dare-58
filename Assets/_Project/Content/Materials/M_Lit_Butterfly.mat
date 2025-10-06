@@ -63,7 +63,7 @@ Material:
     - _Add_Hue_To: 0.65
     - _ColorMask: 15
     - _FEATURE: 0
-    - _Height: 10
+    - _Height: 100
     - _Holo_Amount_1: 1
     - _Holo_Amount_2: 0.5
     - _Holo_Blend: 0.709

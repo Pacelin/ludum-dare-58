@@ -40,6 +40,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _FEATURE: 5
+    - _Height: 117.61
+    - _Holo_Amount_1: 1
+    - _Holo_Amount_2: 0.5
+    - _Holo_Height_1: 1
+    - _Holo_Height_2: -10
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

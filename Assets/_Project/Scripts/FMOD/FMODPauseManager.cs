@@ -14,7 +14,7 @@ namespace Scripts.Audio
         
         public void Initialize()
         {
-            _focusDisposable = ApplicationState.HasFocus.Skip(1).Subscribe(hasFocus => {
+            _focusDisposable = ApplicationState.HasFocus.Skip(1).DistinctUntilChanged().Subscribe(hasFocus => {
                 if (RuntimeManager.StudioSystem.isValid())
                 {
                     RuntimeManager.PauseAllEvents(!hasFocus);
