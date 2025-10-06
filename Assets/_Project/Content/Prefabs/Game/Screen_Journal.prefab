@@ -448,7 +448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c626195f0c8d3c745b12fffd68c6878a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6cd37cc29fbd36045a984eeeebf81685, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c626195f0c8d3c745b12fffd68c6878a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bd8b9e7a513cf64db58aae383680f13, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1854,7 +1854,7 @@ PrefabInstance:
     - target: {fileID: 2676260232775357577, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c626195f0c8d3c745b12fffd68c6878a, type: 3}
+      objectReference: {fileID: 21300000, guid: 6cd37cc29fbd36045a984eeeebf81685, type: 3}
     - target: {fileID: 3315547475892371249, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_Name
       value: Button_Right
@@ -1909,7 +1909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3947933148916085471, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3947933148916085471, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1917,7 +1917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3947933148916085471, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3947933148916085471, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1937,7 +1937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3947933148916085471, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3947933148916085471, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -6269,7 +6269,7 @@ PrefabInstance:
     - target: {fileID: 2676260232775357577, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c626195f0c8d3c745b12fffd68c6878a, type: 3}
+      objectReference: {fileID: 21300000, guid: 5bd8b9e7a513cf64db58aae383680f13, type: 3}
     - target: {fileID: 3315547475892371249, guid: d83ed85a03f0ff648b9070f5cbd2d92d, type: 3}
       propertyPath: m_Name
       value: Button_Left
