@@ -37,8 +37,8 @@ namespace Scripts.MainMenu
                 return;
             _destroyed = true;
             DOTween.Sequence(transform)
-                .Append(transform.DOScale(transform.localScale.x + 0.2f, 0.05f))
-                .Append(transform.DOScale(0f, 0.05f))
+                .Append(transform.DOScale(transform.localScale.x + 0.3f, 0.15f))
+                .Append(transform.DOScale(0f, 0.1f))
                 .OnComplete(() => Destroy(gameObject));
             _spawn.Spawn();
         }
