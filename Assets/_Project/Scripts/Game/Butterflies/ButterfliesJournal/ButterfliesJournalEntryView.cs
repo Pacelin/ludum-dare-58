@@ -22,7 +22,6 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         [SerializeField] private TMP_Text _worldSizeText;
         [SerializeField] private TMP_Text _worldCostText;
         [SerializeField] private TMP_Text _worldNicknameText;
-        [SerializeField] private LocalizedString _worldNicknameString;
 
         public void SetData(ButterfliesConfig butterfliesConfig,
             float mySize, int myCost)
@@ -42,7 +41,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             _worldInfo.SetActive(true);
             _worldSizeText.text = worldSize.ToString("F2") + " mm";
             _worldCostText.text = worldCost.ToString();
-            _worldNicknameText.text = string.Format(_worldNicknameString.GetLocalizedString(), worldNickname);
+            _worldNicknameText.text = worldNickname;
         }
     }
 }
