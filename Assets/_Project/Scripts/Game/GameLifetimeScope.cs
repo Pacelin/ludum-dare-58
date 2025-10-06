@@ -17,6 +17,7 @@ namespace Scripts.Game
         [SerializeField] private DrawCollider _drawFieldPrefab;
         [SerializeField] private ButterfliesConfig _butterfliesConfig;
         [SerializeField] private ButterfliesJournalView _journalViewPrefab;
+        [SerializeField] private GameLearnView _learnViewPrefab;
         [SerializeField] private int _initialWalletAmount = 10;
         [SerializeField] private GameTime.Config _gameTimeConfig;
         
@@ -27,6 +28,7 @@ namespace Scripts.Game
             builder.RegisterComponentInNewPrefab(_gameScreenViewPrefab, Lifetime.Singleton);
             builder.RegisterComponentInNewPrefab(_drawFieldPrefab, Lifetime.Singleton);
             builder.RegisterComponentInNewPrefab(_journalViewPrefab, Lifetime.Singleton);
+            builder.RegisterComponentInNewPrefab(_learnViewPrefab, Lifetime.Singleton);
             
             builder.RegisterInstance<ButterfliesConfig>(_butterfliesConfig);
             builder.RegisterInstance<GameTime.Config>(_gameTimeConfig);
@@ -40,6 +42,7 @@ namespace Scripts.Game
             builder.RegisterEntryPoint<GameTime>().AsSelf();
             builder.RegisterEntryPoint<ButterfliesSpawner>();
             builder.RegisterEntryPoint<ButterfliesJournalPresenter>();
+            builder.RegisterEntryPoint<GameLearnPresenter>();
             builder.Register<ButterfliesCatcher>(Lifetime.Singleton);
         }
     }
