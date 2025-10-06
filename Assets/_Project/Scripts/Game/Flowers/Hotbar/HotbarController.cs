@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using R3;
+using Scripts.Audio;
 using Scripts.Core.Lifetime;
 using Scripts.Game.Currency;
 using VContainer.Unity;
@@ -48,6 +49,7 @@ namespace Scripts.Game.Flowers
                         .Subscribe(_ =>
                         {
                             _wallet.Spend(flowerElement.Flower.UnlockPrice);
+                            AudioSystem.Game_UnlockFlower.PlayOneShot();
                             _unlockedFlowers[flowerElement] = true;
                             UpdateFlowerElement(flowerElement);
                         }).AddTo(_disposables);

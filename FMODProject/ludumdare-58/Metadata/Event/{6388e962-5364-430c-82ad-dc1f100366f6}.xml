@@ -72,7 +72,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{498dc981-f4d1-4f6e-8524-7716cd721f60}">
 		<property name="volume">
-			<value>-7</value>
+			<value>-8.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{8e3bfb55-997a-43e7-95a3-67346c01e136}</destination>

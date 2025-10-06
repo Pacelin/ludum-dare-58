@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using R3;
+using Scripts.Audio;
 using Scripts.Game.Currency;
 using Scripts.Game.Server;
 using UnityEngine;
@@ -79,6 +80,9 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                 if (isLocalRecord)
                     _butterfliesSizesMap[entry.Id] = entry.Size;
             }
+            
+            if (entry.IsNewEntry || isLocalRecord)
+                AudioSystem.Journal_NewNote.PlayOneShot();
             
             UniTask.Void(async () =>
             {
