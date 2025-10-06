@@ -77,7 +77,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                 .SelectMany(p => p.Entries)
                 .Distinct();
             foreach (var entry in entries)
-                InitEntry(entry);
+                entry.gameObject.SetActive(false);
             UpdateFilter(_view.Filters[0], FindPage(butterflyId));
         }
 
@@ -126,10 +126,14 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             var rightPageIndex = leftPageIndex + 1;
             _leftPage = _currentFilter.Pages[leftPageIndex];
             _leftPage.Assign(_view.FirstPageContainer);
+            foreach (var entry in _leftPage.Entries)
+                InitEntry(entry);
             if (rightPageIndex < _currentFilter.Pages.Length)
             {
                 _rightPage = _currentFilter.Pages[rightPageIndex];
                 _rightPage.Assign(_view.SecondPageContainer);
+                foreach (var entry in _rightPage.Entries)
+                    InitEntry(entry);
             }
             else
             {
