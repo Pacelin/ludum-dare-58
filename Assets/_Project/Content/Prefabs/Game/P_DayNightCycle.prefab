@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3964947164339715654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4603148840580081632}
+  - component: {fileID: 7356256307618768296}
+  - component: {fileID: 5647288713667077350}
+  m_Layer: 0
+  m_Name: P_DayNightCycle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4603148840580081632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964947164339715654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4422075363589785732}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7356256307618768296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964947164339715654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c918258a32f0b8346b33d19deccdd6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 5208735670310514964}
+  lutBlendMaterial: {fileID: 2100000, guid: e686784fcb7a54d4a8c74b37725dc3f1, type: 2}
+  setStartingLutFromVolume: 0
+  startingLut: {fileID: 2800000, guid: 7ffc757469975cb45824ca36690989bc, type: 3}
+  noEffectLut: {fileID: 2800000, guid: 8c46eba0531869f4fad74adcaa319f82, type: 3}
+--- !u!114 &5647288713667077350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964947164339715654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bdc538e7da856f4392c45561d187273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: {fileID: 5208735670310514964}
+  _luts:
+  - {fileID: 2800000, guid: 7ffc757469975cb45824ca36690989bc, type: 3}
+  - {fileID: 2800000, guid: 8c46eba0531869f4fad74adcaa319f82, type: 3}
+  - {fileID: 2800000, guid: c4c6484352316494c86fedf9c0dcee78, type: 3}
+  - {fileID: 2800000, guid: cdd716e23759ccf45bba74297c0fe2ed, type: 3}
+  - {fileID: 2800000, guid: cb521687d4912ce41b9cdb3ea3825698, type: 3}
+  - {fileID: 2800000, guid: 7ffc757469975cb45824ca36690989bc, type: 3}
+  _dayCycleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.99999994
+      outSlope: 0.99999994
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49805483
+      value: 0.4980548
+      inSlope: 0.31087032
+      outSlope: 0.31087032
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.98041534
+    - serializedVersion: 3
+      time: 0.57240766
+      value: 0.61490107
+      inSlope: 2.9903126
+      outSlope: 2.9903126
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.083817534
+    - serializedVersion: 3
+      time: 0.86277807
+      value: 0.83111876
+      inSlope: 0.18331705
+      outSlope: 0.18331705
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.31442747
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2.6479843
+      outSlope: 2.6479843
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.30051404
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _fullDayNightTime: 20
+  _debugInterpolate: 0
+  _useUnityTime: 1
+  _debugTime: 0
+  _blender: {fileID: 7356256307618768296}
+--- !u!1 &5266445459226884625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4422075363589785732}
+  - component: {fileID: 5208735670310514964}
+  m_Layer: 0
+  m_Name: Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4422075363589785732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266445459226884625}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4603148840580081632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5208735670310514964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5266445459226884625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 8a6fba6026e3e9c4798f17a302d0058c, type: 2}
