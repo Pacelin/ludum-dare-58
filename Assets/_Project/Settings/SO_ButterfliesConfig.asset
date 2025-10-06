@@ -88,7 +88,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    _averageSizeMultiplierRange: {x: 0, y: 0.5}
+    _averageSizeMultiplierRange: {x: 0, y: 0.4}
     _costMutiplier: 1.5
   - _sizeString:
       m_TableReference:
@@ -108,7 +108,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    _averageSizeMultiplierRange: {x: 0.5, y: 1}
+    _averageSizeMultiplierRange: {x: 0.4, y: 1}
     _costMutiplier: 1
   - _sizeString:
       m_TableReference:
@@ -128,7 +128,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    _averageSizeMultiplierRange: {x: 1, y: 1.7}
+    _averageSizeMultiplierRange: {x: 1, y: 2.1}
     _costMutiplier: 1.5
   - _sizeString:
       m_TableReference:
@@ -148,7 +148,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    _averageSizeMultiplierRange: {x: 1.7, y: 4}
+    _averageSizeMultiplierRange: {x: 2.1, y: 2.7}
     _costMutiplier: 2.5
   - _sizeString:
       m_TableReference:
@@ -168,17 +168,17 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    _averageSizeMultiplierRange: {x: 4, y: 5}
+    _averageSizeMultiplierRange: {x: 2.7, y: 5}
     _costMutiplier: 7.25
   _minSizeMultiplier: 0.2
   _maxSizeMultiplier: 5
   _sizeMeanMultiplier: 1.2
   _sizeDeviationMultiplier: 0.6
-  _flowersCountRange: {x: 1, y: 200}
+  _flowersCountRange: {x: 1, y: 15}
   _flowersMeanMultiplierRange: {x: 0.7, y: 1.2}
-  _butterflySizeRange: {x: 1.4, y: 60}
-  _journalScaleRange: {x: 3, y: 7.5}
-  _worldScaleRange: {x: 0.3, y: 4}
+  _butterflySizeRange: {x: 1.4, y: 45}
+  _journalScaleRange: {x: 3, y: 8}
+  _worldScaleRange: {x: 0.3, y: 6}
   references:
     version: 2
     RefIds: []

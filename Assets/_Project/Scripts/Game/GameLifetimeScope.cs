@@ -30,6 +30,15 @@ namespace Scripts.Game
             builder.RegisterComponentInNewPrefab(_journalViewPrefab, Lifetime.Singleton);
             builder.RegisterComponentInNewPrefab(_learnViewPrefab, Lifetime.Singleton);
             
+#if UNITY_EDITOR
+            builder.RegisterBuildCallback(r =>
+            {
+                var config = r.Resolve<ButterfliesConfig>();
+                var go = new GameObject("Cheats");
+                go.AddComponent<Cheats>().Construct(config);
+            });
+#endif
+            
             builder.RegisterInstance<ButterfliesConfig>(_butterfliesConfig);
             builder.RegisterInstance<GameTime.Config>(_gameTimeConfig);
             builder.Register<DrawFacade>(Lifetime.Singleton);
