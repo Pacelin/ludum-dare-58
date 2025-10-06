@@ -25,7 +25,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: 8a6eb2783b6fb4e46953587dbbdda45f, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _FEATURE_DAMAGED
+  - _FEATURE_SPOTTED
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,7 +38,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _FEATURE: 3
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
