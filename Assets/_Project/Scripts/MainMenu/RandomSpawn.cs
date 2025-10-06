@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.MainMenu
 {
@@ -11,6 +10,17 @@ namespace Scripts.MainMenu
 
         private float _cooldown;
 
+        public void Spawn()
+        {
+            var prefab = _prefabs[UnityEngine.Random.Range(0, _prefabs.Length)];
+            var xPos = UnityEngine.Random.Range(_bounds.min.x, _bounds.max.x);
+            var yPos = UnityEngine.Random.Range(_bounds.min.y, _bounds.max.y);
+            var pos = new Vector3(xPos, yPos);
+            var obj = Instantiate(prefab, pos, Quaternion.identity);
+            if (obj.TryGetComponent<ISpawnCallback>(out var callback))
+                callback.OnSpawn(this);
+        }
+        
         private void Awake()
         {
             _cooldown = UnityEngine.Random.Range(_cooldownRange.x, _cooldownRange.y);
@@ -21,11 +31,7 @@ namespace Scripts.MainMenu
             _cooldown -= Time.deltaTime;
             if (_cooldown <= 0)
             {
-                var prefab = _prefabs[UnityEngine.Random.Range(0, _prefabs.Length)];
-                var xPos = UnityEngine.Random.Range(_bounds.min.x, _bounds.max.x);
-                var yPos = UnityEngine.Random.Range(_bounds.min.y, _bounds.max.y);
-                var pos = new Vector3(xPos, yPos);
-                Instantiate(prefab, pos, Quaternion.identity);
+                Spawn();
                 _cooldown = UnityEngine.Random.Range(_cooldownRange.x, _cooldownRange.y);
             }
         }
