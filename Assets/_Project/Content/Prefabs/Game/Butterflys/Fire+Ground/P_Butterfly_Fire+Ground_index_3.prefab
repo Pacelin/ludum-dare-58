@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8587143242257729350, guid: 5daec0a919741844c873c15b18536815, type: 3}
       propertyPath: _config._prefix.m_TableEntryReference.m_KeyId
-      value: 1102759783817260
+      value: 1102759783817272
       objectReference: {fileID: 0}
     - target: {fileID: 8587143242257729350, guid: 5daec0a919741844c873c15b18536815, type: 3}
       propertyPath: _config._prefix.m_TableReference.m_TableCollectionName

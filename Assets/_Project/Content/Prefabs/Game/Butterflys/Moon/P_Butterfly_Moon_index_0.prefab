@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5324991088812408348, guid: fb76aaa5d495f73429958043d1e7ace2, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Moon_index_0 Variant
+      value: P_Butterfly_Moon_index_0
       objectReference: {fileID: 0}
     - target: {fileID: 5972284924440778490, guid: fb76aaa5d495f73429958043d1e7ace2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51,6 +51,14 @@ PrefabInstance:
     - target: {fileID: 5972284924440778490, guid: fb76aaa5d495f73429958043d1e7ace2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088260201695314960, guid: fb76aaa5d495f73429958043d1e7ace2, type: 3}
+      propertyPath: _config._prefix.m_TableEntryReference.m_KeyId
+      value: 1102759783817267
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088260201695314960, guid: fb76aaa5d495f73429958043d1e7ace2, type: 3}
+      propertyPath: _config._prefix.m_TableReference.m_TableCollectionName
+      value: GUID:1ea9012205bfad0428feabfc37064e55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

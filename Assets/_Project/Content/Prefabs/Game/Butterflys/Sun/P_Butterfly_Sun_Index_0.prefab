@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7626665217539673020, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: m_Name
-      value: P_Butterfly_Base_Index_0
+      value: P_Butterfly_Sun_Index_0
       objectReference: {fileID: 0}
     - target: {fileID: 8273290405143487322, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53,8 +53,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8380258619525804464, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
+      propertyPath: _config._name.m_TableEntryReference.m_KeyId
+      value: 1102759783817233
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380258619525804464, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: _config._prefix.m_TableEntryReference.m_KeyId
-      value: 1102759783817267
+      value: 1102759783817260
       objectReference: {fileID: 0}
     - target: {fileID: 8380258619525804464, guid: 0ac4a30911b946748b6b782200adc773, type: 3}
       propertyPath: _config._prefix.m_TableReference.m_TableCollectionName

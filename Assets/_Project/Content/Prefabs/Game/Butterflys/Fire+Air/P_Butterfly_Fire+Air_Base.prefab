@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e3d4ef44a82efe747886d5d29b548f17, type: 3}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._isFemale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7661408853374645837, guid: a1b8b6367e8cde24c850b04b65dee283, type: 3}
       propertyPath: _config._averageCost

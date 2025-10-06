@@ -63,10 +63,8 @@ MonoBehaviour:
     m_Key: menu.settings.button.confirm
     m_Metadata:
       m_Items: []
-  - m_Id: 1102759783817216
-    m_Key: 'TITLE.PAUSE
-
-'
+  - m_Id: 1371634123399168
+    m_Key: TITLE.PAUSE
     m_Metadata:
       m_Items: []
   - m_Id: 1102759783817217
@@ -89,7 +87,7 @@ MonoBehaviour:
     m_Key: TITLE.BUTTERFLY
     m_Metadata:
       m_Items: []
-  - m_Id: 1102759783817222
+  - m_Id: 1371634173730816
     m_Key: butterfly.no-element
     m_Metadata:
       m_Items: []
