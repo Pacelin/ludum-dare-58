@@ -68,7 +68,7 @@ namespace Scripts.Game.Server
                 await UniTask.WaitWhile(() => _isProcessing,
                     cancellationToken: ApplicationState.ExitCancellationToken);
                 if (_cached == null)
-                    throw new Exception("Ошибка получения данных с сервера");
+                    return Array.Empty<ButterflyData>();
                 return _cached;
             }
             
@@ -90,17 +90,14 @@ namespace Scripts.Game.Server
                 {
                     string jsonResponse = request.downloadHandler.text;
                     var result = JsonUtility.FromJson<TableData>(jsonResponse);
-                    foreach (var row in result.data)
-                        Debug.Log($"ID: {row.id}, Size: {row.size}, User: {row.username}");
                     _cached = result.data;
                     _lastUpdate = DateTime.Now;
                     _isProcessing = false;
                     return result.data;
                 }
                 
-                Debug.LogError($"Ошибка: {request.error}");
                 _isProcessing = false;
-                return null;
+                return Array.Empty<ButterflyData>();
             }
         }
     }
