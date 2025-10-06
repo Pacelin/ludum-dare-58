@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Scripts.Core.Lifetime;
 using UnityEngine;
@@ -14,13 +15,21 @@ namespace Scripts.Game.Server
             public ButterflyData[] data;
         }
         
-        private const string URL = "https://api.thespinningsofa.ru/";
-        private const string POST_URL = URL + "api/post-butterfly";
-        private const string GET_URL = URL + "api/get-butterflies";
-        private static ButterflyData[] _cached;
+        private const string BASE_URL = "https://api.thespinningsofa.ru/";
+        private const string POST_URL = BASE_URL + "api/post-butterfly";
+        private const string GET_URL = BASE_URL + "api/get-butterflies";
+        private const int CACHE_DURATION_SECONDS = 10;
+        
+        private static ButterflyData[] _cachedData;
         private static DateTime _lastUpdate;
+        private static readonly AsyncLazy<ButterflyData[]> _currentRequest;
+        private static CancellationTokenSource _requestCancellation;
 
-        private static bool _isProcessing = false;
+        static ButterfliesServer()
+        {
+            _requestCancellation = new CancellationTokenSource();
+            _currentRequest = new AsyncLazy<ButterflyData[]>(FetchButterfliesData);
+        }
         
         public static async UniTask PostButterfly(int id, float size)
         {
@@ -30,75 +39,113 @@ namespace Scripts.Game.Server
                 size = size, 
                 username = PlayerPrefs.GetString("username"), 
             };
-            var json = JsonUtility.ToJson(data);
-            Debug.Log("Отправляемый JSON: " + json);
             
-            using (UnityWebRequest request = UnityWebRequest.PostWwwForm(POST_URL, ""))
+            var json = JsonUtility.ToJson(data);
+            Debug.Log($"Отправляемый JSON: {json}");
+            
+            using var request = CreatePostRequest(json);
+            
+            try
             {
-                request.method = "POST";
-                byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
-                request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-                request.downloadHandler = new DownloadHandlerBuffer();
-                request.SetRequestHeader("Content-Type", "application/json");
-
-                await request.SendWebRequest().ToUniTask(cancellationToken: ApplicationState.ExitCancellationToken);
-
-                if (request.result == UnityWebRequest.Result.ConnectionError || 
-                    request.result == UnityWebRequest.Result.ProtocolError)
+                await request.SendWebRequest()
+                    .ToUniTask(cancellationToken: GetCancellationToken());
+                
+                if (request.IsError())
                 {
-                    Debug.LogError("Ошибка: " + request.error);
-                    Debug.LogError("Ответ сервера: " + request.downloadHandler?.text);
+                    Debug.LogError($"Ошибка: {request.error}\nОтвет сервера: {request.downloadHandler?.text}");
+                    return;
                 }
-                else
-                {
-                    _lastUpdate = DateTime.MinValue;
-                    Debug.Log("Запрос успешен!");
-                    Debug.Log("Ответ: " + request.downloadHandler.text);
-                }
+                
+                InvalidateCache();
+                Debug.Log($"Запрос успешен! Ответ: {request.downloadHandler.text}");
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log("Запрос отменен");
             }
         }
 
         public static async UniTask<ButterflyData[]> GetButterflies()
         {
-            if (DateTime.Now - _lastUpdate < TimeSpan.FromSeconds(10))
-                return _cached;
+            if (IsCacheValid())
+                return _cachedData;
 
-            if (_isProcessing)
+            try
             {
-                await UniTask.WaitWhile(() => _isProcessing,
-                    cancellationToken: ApplicationState.ExitCancellationToken);
-                if (_cached == null)
-                    return Array.Empty<ButterflyData>();
-                return _cached;
+                return await _currentRequest.Task;
             }
-            
-            _isProcessing = true;
-            using (UnityWebRequest request = UnityWebRequest.Get(GET_URL))
+            catch (OperationCanceledException)
             {
-                try
-                {
-                    await request.SendWebRequest()
-                        .ToUniTask(cancellationToken: ApplicationState.ExitCancellationToken);
-                }
-                catch
-                {
-                    _isProcessing = false;
-                    throw;
-                }
-            
-                if (request.result == UnityWebRequest.Result.Success)
-                {
-                    string jsonResponse = request.downloadHandler.text;
-                    var result = JsonUtility.FromJson<TableData>(jsonResponse);
-                    _cached = result.data;
-                    _lastUpdate = DateTime.Now;
-                    _isProcessing = false;
-                    return result.data;
-                }
-                
-                _isProcessing = false;
                 return Array.Empty<ButterflyData>();
             }
+        }
+
+        private static UnityWebRequest CreatePostRequest(string json)
+        {
+            var request = new UnityWebRequest(POST_URL, "POST")
+            {
+                uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json)),
+                downloadHandler = new DownloadHandlerBuffer()
+            };
+            request.SetRequestHeader("Content-Type", "application/json");
+            return request;
+        }
+
+        private static async UniTask<ButterflyData[]> FetchButterfliesData()
+        {
+            using var request = UnityWebRequest.Get(GET_URL);
+            
+            await request.SendWebRequest().ToUniTask(cancellationToken: GetCancellationToken());
+            
+            if (!request.IsSuccess())
+                return Array.Empty<ButterflyData>();
+
+            var jsonResponse = request.downloadHandler.text;
+            var result = JsonUtility.FromJson<TableData>(jsonResponse);
+            
+            UpdateCache(result.data);
+            return result.data;
+        }
+
+        private static bool IsCacheValid()
+        {
+            return _cachedData != null && 
+                   (DateTime.Now - _lastUpdate).TotalSeconds < CACHE_DURATION_SECONDS;
+        }
+
+        private static void UpdateCache(ButterflyData[] data)
+        {
+            _cachedData = data;
+            _lastUpdate = DateTime.Now;
+        }
+
+        private static void InvalidateCache()
+        {
+            _lastUpdate = DateTime.MinValue;
+            _cachedData = null;
+        }
+
+        private static bool IsError(this UnityWebRequest request)
+        {
+            return request.result == UnityWebRequest.Result.ConnectionError || 
+                   request.result == UnityWebRequest.Result.ProtocolError;
+        }
+
+        private static bool IsSuccess(this UnityWebRequest request)
+        {
+            return request.result == UnityWebRequest.Result.Success;
+        }
+
+        private static CancellationToken GetCancellationToken()
+        {
+            return ApplicationState.ExitCancellationToken;
+        }
+
+        public static void Dispose()
+        {
+            _requestCancellation?.Cancel();
+            _requestCancellation?.Dispose();
+            _requestCancellation = null;
         }
     }
 }

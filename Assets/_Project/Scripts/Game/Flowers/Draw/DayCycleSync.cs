@@ -60,6 +60,11 @@ namespace Scripts.Game.Flowers
             _disposables.Dispose();
             _musicInstance.Stop(true);
             _musicInstance.Release();
+            if (_pauseInstance != null)
+            {
+                _pauseInstance.Stop(true);
+                _pauseInstance.Release();
+            }
         }
     }
 }
