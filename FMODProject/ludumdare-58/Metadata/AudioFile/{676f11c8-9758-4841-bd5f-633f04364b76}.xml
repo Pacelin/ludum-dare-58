@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{676f11c8-9758-4841-bd5f-633f04364b76}">
+		<property name="assetPath">
+			<value>LD-58_Night.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>122.88</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4385e37e-d18a-4fc6-b18d-f4d0fbb9c24a}</destination>
+		</relationship>
+	</object>
+</objects>

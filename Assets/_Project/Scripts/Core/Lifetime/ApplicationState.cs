@@ -9,6 +9,7 @@ namespace Scripts.Core.Lifetime
         public static CancellationToken ExitCancellationToken => Application.exitCancellationToken;
         public static ReadOnlyReactiveProperty<bool> IsPaused => _monoProvider.IsPaused;
         public static ReadOnlyReactiveProperty<bool> IsPausedByUser => _monoProvider.IsPausedByUser;
+        public static ReadOnlyReactiveProperty<bool> HasFocus => _monoProvider.HasFocus;
 
         private static ApplicationMonoProvider _monoProvider;
         

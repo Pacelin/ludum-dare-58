@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Game.Environment;
 using R3;
+using Scripts.Audio;
 using Scripts.Game.Flowers.Spatial;
 using UnityEngine;
 
@@ -8,7 +10,10 @@ namespace Scripts.Game.Flowers
 {
     public class DrawField : MonoBehaviour
     {
+        public DayCycleSystem DayCycleSystem => _dayCycleSystem;
+        
         [SerializeField] private SpatialGridContainer _gridContainer;
+        [SerializeField] private DayCycleSystem _dayCycleSystem;
 
         private readonly Subject<DrawableObject> _onDraw = new();
         private readonly Subject<DrawableObject> _onErase = new();
@@ -47,6 +52,9 @@ namespace Scripts.Game.Flowers
         
         public void Draw(Vector2 position, float drawRadius, DrawableObject prefab)
         {
+            if (!_canDraw) return;
+            
+            AudioSystem.Game_Plant.PlayOneShot();
             var drawPoints = _gridContainer.SpatialGrid.GetPointsInCircle(position, drawRadius);
             foreach (var point in drawPoints)
                 DrawPoint(point, prefab);
@@ -54,6 +62,9 @@ namespace Scripts.Game.Flowers
 
         public void Erase(Vector2 position, float drawRadius)
         {
+            if (!_canErase) return;
+            
+            AudioSystem.Game_Dig.PlayOneShot();
             var erasePoints = _gridContainer.SpatialGrid.GetPointsInCircle(position, drawRadius);
             foreach (var point in erasePoints)
                 ErasePoint(point);

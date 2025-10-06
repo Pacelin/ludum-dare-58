@@ -10,7 +10,8 @@ namespace Scripts.Core.Lifetime
             (p1, p2, p3) => !p1 || p2 || p3)
             .ToReadOnlyReactiveProperty();
         public ReadOnlyReactiveProperty<bool> IsPausedByUser => _isPaused;
-
+        public ReadOnlyReactiveProperty<bool> HasFocus => _hasFocus;
+        
         private readonly ReactiveProperty<bool> _hasFocus = new(true);
         private readonly ReactiveProperty<bool> _isPaused = new(false);
         private readonly ReactiveProperty<bool> _pauseGameplay = new(false);

@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using R3;
+using Scripts.Audio;
 using Scripts.Core.Lifetime;
 using Scripts.Core.SceneManagement;
 using Scripts.Core.UI;
@@ -17,6 +18,8 @@ namespace Scripts.MainMenu
         private readonly SettingsDialogView _settingsDialog;
         private readonly CompositeDisposable _disposables;
 
+        private SoundEventInstance _music;
+
         public MainMenuScreenPresenter(MainMenuScreenView screen, SettingsDialogView settingsDialog)
         {
             _screen = screen;
@@ -26,6 +29,9 @@ namespace Scripts.MainMenu
         
         public void Initialize()
         {
+            _music = AudioSystem.Game_MainMenuMusic.CreateInstance();
+            _music.Start();
+            
             _screen.PlayButton.OnClickAsObservable()
                 .Subscribe(_ => SceneManager.LoadScene(SceneManager.Database.Game).Forget())
                 .AddTo(_disposables);
@@ -50,6 +56,8 @@ namespace Scripts.MainMenu
 
         public void Dispose()
         {
+            _music.Stop(true);
+            _music.Release();
             _disposables.Dispose();
         }
     }

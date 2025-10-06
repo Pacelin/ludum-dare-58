@@ -14,15 +14,15 @@ namespace Scripts.Audio
         
         public void Initialize()
         {
-            _focusDisposable = ApplicationState.IsPaused.Subscribe(isPaused => {
+            _focusDisposable = ApplicationState.HasFocus.Skip(1).Subscribe(hasFocus => {
                 if (RuntimeManager.StudioSystem.isValid())
                 {
-                    RuntimeManager.PauseAllEvents(isPaused);
+                    RuntimeManager.PauseAllEvents(!hasFocus);
                     
-                    if (isPaused)
-                        RuntimeManager.CoreSystem.mixerSuspend();
-                    else
+                    if (hasFocus)
                         RuntimeManager.CoreSystem.mixerResume();
+                    else
+                        RuntimeManager.CoreSystem.mixerSuspend();
                 }
             });
         }

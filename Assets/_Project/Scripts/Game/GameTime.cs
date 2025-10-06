@@ -6,11 +6,8 @@ namespace Scripts.Game
 {
     public class GameTime : ITickable
     {
-        public float SecondsPerCycle => _secondsPerCycle;
-        public float SecondsPerDay => _secondsPerCycle / 2;
         public ReadOnlyReactiveProperty<float> Seconds => _seconds;
-        public bool IsNight => _seconds.Value <= SecondsPerDay;
-        public bool IsDay => _seconds.Value > SecondsPerDay;
+        public bool IsNight => _seconds.Value > _secondsPerCycle / 2;
 
         [System.Serializable] 
         public struct Config

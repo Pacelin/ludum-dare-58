@@ -52,6 +52,7 @@ namespace Scripts.Game
             builder.RegisterEntryPoint<ButterfliesSpawner>();
             builder.RegisterEntryPoint<ButterfliesJournalPresenter>();
             builder.RegisterEntryPoint<GameLearnPresenter>();
+            builder.RegisterEntryPoint<DayCycleSync>();
             builder.Register<ButterfliesCatcher>(Lifetime.Singleton);
         }
     }

@@ -161,7 +161,7 @@ MonoBehaviour:
   _learnViewPrefab: {fileID: 2616302423291174029, guid: 6781b24c083bcbc4aa66058d3e12b1a9, type: 3}
   _initialWalletAmount: 10
   _gameTimeConfig:
-    SecondsPerCycle: 120
+    SecondsPerCycle: 245.76
     InitialTime: 0
 --- !u!4 &299334978
 Transform:
@@ -301,7 +301,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
