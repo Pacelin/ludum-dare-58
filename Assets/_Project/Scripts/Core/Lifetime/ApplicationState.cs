@@ -15,5 +15,6 @@ namespace Scripts.Core.Lifetime
         internal static void Initialize(ApplicationMonoProvider monoProvider) => _monoProvider = monoProvider;
         
         public static void SetPause(bool pause) => _monoProvider.SetPause(pause);
+        public static void SetPauseGameplay(bool pause) => _monoProvider.SetPauseGameplay(pause);
     }
 }

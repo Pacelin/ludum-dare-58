@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using R3;
 using Scripts.Game.Flowers.Spatial;
 using UnityEngine;
@@ -19,8 +20,18 @@ namespace Scripts.Game.Flowers
         
         public Observable<DrawableObject> ObserveErase() => _onErase;
         public Observable<DrawableObject> ObserveDraw() => _onDraw;
-        public bool SetCanDraw(bool canDraw) => _canDraw = canDraw;
-        public bool SetCanErase(bool canErase) => _canErase = canErase;
+        public void SetCanDraw(bool canDraw) => _canDraw = canDraw;
+        public void SetCanErase(bool canErase) => _canErase = canErase;
+        
+        public T GetRandomDrawnObject<T>() where T : DrawableObject
+        {
+            var drawnFlowers = _drawnObjects.Values.Select(drawn => drawn as T)
+                .Where(f => f != null)
+                .ToArray();
+            if (drawnFlowers.Length == 0) 
+                return null;
+            return drawnFlowers[Random.Range(0, drawnFlowers.Length)];
+        }
         
         public T[] GetDrawnObjects<T>(Vector2 point, float radius)
             where T : DrawableObject
@@ -71,6 +82,7 @@ namespace Scripts.Game.Flowers
                     return;
                 obj.OnErase();
                 _drawObjectsPool[obj.DrawId].Enqueue(obj);
+                _drawnObjects.Remove(point);
                 _onErase.OnNext(obj);
             }
             

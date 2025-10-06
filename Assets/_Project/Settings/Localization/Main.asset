@@ -16,8 +16,43 @@ MonoBehaviour:
   m_Tables:
   - {fileID: 11400000, guid: 8b41b8f583513534599cfc0b3f74daed, type: 2}
   - {fileID: 11400000, guid: bf3d2a0ec74a7e244ae6b2384a8c1bf0, type: 2}
-  m_Extensions: []
+  m_Extensions:
+  - rid: 271550902940205136
   m_Group: String Table
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 271550902940205136
+      type: {class: CsvExtension, ns: UnityEditor.Localization.Plugins.CSV, asm: Unity.Localization.Editor}
+      data:
+        m_Collection: {fileID: 11400000}
+        m_ColumnsList:
+        - rid: 271550902940205137
+        - rid: 271550902940205138
+        - rid: 271550902940205139
+        m_ConnectedFile: "C:/Users/lopat/Downloads/LD 58 _ \u041B\u043E\u043A\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F
+          - \u041B\u043E\u043A\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F.csv"
+    - rid: 271550902940205137
+      type: {class: KeyIdColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_IncludeId: 1
+        m_IncludeSharedComments: 1
+        m_KeyFieldName: Key
+        m_IdFieldName: Id
+        m_CommentFieldName: Shared Comments
+    - rid: 271550902940205138
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: en
+        m_FieldName: en
+        m_CommentFieldName: English(en) Comments
+        m_IncludeComments: 1
+    - rid: 271550902940205139
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: ru
+        m_FieldName: ru
+        m_CommentFieldName: Russian(ru) Comments
+        m_IncludeComments: 1

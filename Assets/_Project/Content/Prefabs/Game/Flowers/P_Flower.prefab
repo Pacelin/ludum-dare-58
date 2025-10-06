@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &334512697664528373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,3 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _drawId: asd
+  _drawPrice: 0
+  _eraseReward: 0
+  _unlockPrice: 0
+  _id: 0

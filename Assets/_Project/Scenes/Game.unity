@@ -156,7 +156,12 @@ MonoBehaviour:
   _settingsDialogViewPrefab: {fileID: 3014112345137719593, guid: 996d4dbe2c53c5b4f9a9b881e84c8f66, type: 3}
   _gameScreenViewPrefab: {fileID: 4100673194740837892, guid: 24198ddd8985800429af7daf64e4c40c, type: 3}
   _drawFieldPrefab: {fileID: 5364417054341511619, guid: d6b42abfa9c2f794ca54c810edaeba0c, type: 3}
+  _butterfliesConfig: {fileID: 11400000, guid: 3633688c4188745429d36c7676564c86, type: 2}
+  _journalViewPrefab: {fileID: 894480529909644040, guid: dcabfacc8dd21aa4bbe15e2ce28ed0ec, type: 3}
   _initialWalletAmount: 10
+  _gameTimeConfig:
+    SecondsPerCycle: 120
+    InitialTime: 0
 --- !u!4 &299334978
 Transform:
   m_ObjectHideFlags: 0
@@ -184,6 +189,7 @@ GameObject:
   - component: {fileID: 1847209491}
   - component: {fileID: 1847209494}
   - component: {fileID: 1847209493}
+  - component: {fileID: 1847209495}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -315,6 +321,22 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1847209495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847209489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
