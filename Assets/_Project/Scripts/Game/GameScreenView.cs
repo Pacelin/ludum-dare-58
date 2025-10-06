@@ -11,12 +11,14 @@ namespace Scripts.Game
     {
         public Button PauseButton => _pauseButton;
         public Button JournalButton => _journalButton;
+        public Button LearnButton => _learnButton;
         public WalletView WalletView => _walletView;
         public Hotbar Hotbar => _hotbar;
         public ButterfliesLegend Legend => _legend;
         
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _journalButton;
+        [SerializeField] private Button _learnButton;
         [SerializeField] private WalletView _walletView;
         [SerializeField] private Hotbar _hotbar;
         [SerializeField] private ButterfliesLegend _legend;
