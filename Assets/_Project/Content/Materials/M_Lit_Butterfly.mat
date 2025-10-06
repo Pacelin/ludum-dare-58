@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 7229d4b361153d649a9e830c878307ec, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _FEATURE_DAMAGED
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,8 +24,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DamagedMask:
+        m_Texture: {fileID: 2800000, guid: b7c8bd566f971b648a7f0913fa847efd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PetrifiedOverlay:
+        m_Texture: {fileID: 2800000, guid: 24b5904676082fc479d555322fd5f898, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RestoredOverlay:
+        m_Texture: {fileID: 2800000, guid: 3ac8b30df68dcde478261d8e0591e736, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpotOverlay:
+        m_Texture: {fileID: 2800000, guid: 8da095e39e9b4df488dfd436f81116d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,10 +58,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Height: 10.39
-    - _Holo_Height: -3.6
+    - _Add_Hue: 0.5
+    - _Add_Hue_From: 0.35
+    - _Add_Hue_To: 0.65
+    - _FEATURE: 1
+    - _Height: 10
+    - _Holo_Amount_1: 1
+    - _Holo_Amount_2: 0.5
+    - _Holo_Blend: 0.709
+    - _Holo_Height: 2
+    - _Holo_Height_1: 0.1
+    - _Holo_Height_2: -5
+    - _Sway_Time: 0.3925
     m_Colors:
-    - _MousePosition: {r: -0.38461527, g: 6.7264957, b: -10, a: 0}
+    - _MousePosition: {r: 0.6922118, g: 8.537426, b: -10, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4806305337131355324
