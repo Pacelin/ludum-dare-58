@@ -71,7 +71,7 @@ Material:
     - _Holo_Height_1: 75
     - _Holo_Height_2: 120
     - _Mouse_Multiplier: 1920
-    - _Restored_Height: 1
+    - _Restored_Height: 75
     - _Specular_Power: -50
     - _Stencil: 0
     - _StencilComp: 8
@@ -83,7 +83,7 @@ Material:
     - _UIMaskSoftnessY: 1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _MousePosition: {r: 0.54093266, g: 1, b: 0, a: 0}
+    - _MousePosition: {r: 0.47990474, g: 1, b: 0, a: 0}
     - _Specular_Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
