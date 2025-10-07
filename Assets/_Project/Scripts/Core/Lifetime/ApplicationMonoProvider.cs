@@ -6,10 +6,8 @@ namespace Scripts.Core.Lifetime
 {
     internal class ApplicationMonoProvider : MonoBehaviour
     {
-        public ReadOnlyReactiveProperty<bool> IsPaused => _hasFocus
-            .CombineLatest(_isPaused, _pauseGameplay,
-            (p1, p2, p3) => !p1 || p2 || p3)
-            .ToReadOnlyReactiveProperty();
+        private ReadOnlyReactiveProperty<bool> _isPausedParent;
+        public ReadOnlyReactiveProperty<bool> IsPaused => _isPausedParent;
         public ReadOnlyReactiveProperty<bool> IsPausedByUser => _isPaused;
         public ReadOnlyReactiveProperty<bool> HasFocus => _hasFocus;
 
@@ -17,7 +15,16 @@ namespace Scripts.Core.Lifetime
         private readonly ReactiveProperty<bool> _isPaused = new(false);
         private readonly ReactiveProperty<bool> _pauseGameplay = new(false);
 
-        private void Awake() => _hasFocus.Value = Application.isFocused;
+        private void Awake()
+        {
+            _isPausedParent = _hasFocus
+                .CombineLatest(_isPaused, _pauseGameplay,
+                    (p1, p2, p3) => !p1 || p2 || p3)
+                .ToReadOnlyReactiveProperty();
+
+            _hasFocus.Value = Application.isFocused;
+        }
+
         public void SetPause(bool pause) => _isPaused.Value = pause;
         public void SetPauseGameplay(bool pause)
         {
