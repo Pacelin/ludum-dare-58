@@ -2,6 +2,7 @@
 using Scripts.Core.Lifetime;
 using Scripts.Game.Flowers;
 using UnityEngine;
+using UnityEngine.Profiling;
 using VContainer.Unity;
 
 namespace Scripts.Game.Butterflies
@@ -12,10 +13,10 @@ namespace Scripts.Game.Butterflies
         private readonly DrawFacade _drawFacade;
         private readonly ButterfliesCatcher _catcher;
         private readonly GameTime _time;
-        
+
         private float _countdown;
-        
-        public ButterfliesSpawner(ButterfliesConfig config, DrawFacade drawFacade, 
+
+        public ButterfliesSpawner(ButterfliesConfig config, DrawFacade drawFacade,
             ButterfliesCatcher catcher, GameTime time)
         {
             _config = config;
@@ -24,17 +25,22 @@ namespace Scripts.Game.Butterflies
             _time = time;
             ResetCountdown();
         }
-        
+
         public void Tick()
         {
+            Profiler.BeginSample("ButterfliesSpawner.Tick");
             if (ApplicationState.IsPaused.CurrentValue)
+            {
+                Profiler.EndSample();
                 return;
+            }
             _countdown -= Time.deltaTime;
             if (_countdown <= 0)
             {
                 TrySpawn();
                 ResetCountdown();
             }
+            Profiler.EndSample();
         }
 
         private void TrySpawn()
@@ -52,7 +58,7 @@ namespace Scripts.Game.Butterflies
             butterfly.Initialize(_config, id, _catcher, randomFlower.transform.position, size);
             AudioSystem.Game_Butterfly.PlayOneShot();
         }
-        
+
         private void ResetCountdown()
         {
             _countdown = Random.Range(_config.SpawnCooldownRange.x, _config.SpawnCooldownRange.y);
