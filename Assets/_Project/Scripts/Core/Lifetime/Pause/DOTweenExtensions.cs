@@ -2,6 +2,7 @@
 using DG.Tweening;
 using JetBrains.Annotations;
 using R3;
+using UnityEngine.Profiling;
 
 namespace Scripts.Core.Lifetime.Impl
 {
@@ -14,10 +15,12 @@ namespace Scripts.Core.Lifetime.Impl
                 return tween;
             var subscription = ApplicationState.IsPaused.Subscribe(isPaused =>
             {
+                Profiler.BeginSample("DOTweenExtensions.IsPaused Changed");
                 if (isPaused)
                     tween.Pause();
                 else
                     tween.Play();
+                Profiler.EndSample();
             });
             tween.OnKill(() =>
             {

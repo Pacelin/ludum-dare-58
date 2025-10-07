@@ -2,6 +2,7 @@
 using R3;
 using Scripts.Audio;
 using Scripts.Core.Lifetime;
+using UnityEngine.Profiling;
 using VContainer.Unity;
 
 namespace Scripts.Game.Flowers
@@ -11,10 +12,10 @@ namespace Scripts.Game.Flowers
         private readonly DrawCollider _drawCollider;
         private readonly GameTime _gameTime;
         private readonly CompositeDisposable _disposables;
-        
+
         private SoundEvent_Game_GameMusic.Instance _musicInstance;
         private SoundEventInstance _pauseInstance;
-        
+
         public DayCycleSync(DrawCollider drawCollider, GameTime gameTime)
         {
             _drawCollider = drawCollider;
@@ -31,9 +32,10 @@ namespace Scripts.Game.Flowers
         {
             _musicInstance = AudioSystem.Game_GameMusic.CreateInstance();
             _musicInstance.Start();
-            
+
             ApplicationState.IsPaused.DistinctUntilChanged().Subscribe(isPaused =>
             {
+                Profiler.BeginSample("DayCycleSync.IsPaused Changed");
                 _musicInstance.SetPaused(isPaused);
                 if (isPaused)
                 {
@@ -52,6 +54,7 @@ namespace Scripts.Game.Flowers
                         _pauseInstance = null;
                     }
                 }
+                Profiler.EndSample();
             }).AddTo(_disposables);
         }
 
