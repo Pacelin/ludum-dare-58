@@ -5,7 +5,7 @@ public class MouseTracker : MonoBehaviour
     private static readonly int MOUSE_POSITION_KEY = Shader.PropertyToID("_MousePosition");
 
     [SerializeField] private Camera _camera;
-    [SerializeField] private Material _material;
+    [SerializeField] private Material[] _materials;
 
     private void Update()
     {
@@ -18,6 +18,7 @@ public class MouseTracker : MonoBehaviour
         point.x = Mathf.Clamp01(point.x);
         point.y = Mathf.Clamp01(point.y);
 
-        _material.SetVector(MOUSE_POSITION_KEY, point);
+        foreach (Material material in _materials)
+            material.SetVector(MOUSE_POSITION_KEY, point);
     }
 }

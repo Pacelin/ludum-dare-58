@@ -2,6 +2,7 @@
 using R3;
 using Scripts.Audio;
 using Scripts.Core.Lifetime;
+using UnityEngine;
 using UnityEngine.Profiling;
 using VContainer.Unity;
 
@@ -37,6 +38,7 @@ namespace Scripts.Game.Flowers
             {
                 Profiler.BeginSample("DayCycleSync.IsPaused Changed");
                 _musicInstance.SetPaused(isPaused);
+                
                 if (isPaused)
                 {
                     if (_gameTime.IsNight)
@@ -53,6 +55,10 @@ namespace Scripts.Game.Flowers
                         _pauseInstance.Release();
                         _pauseInstance = null;
                     }
+
+                    var t = _gameTime.NormalizedTime;
+                    var position = (int) (AudioSystem.Game_GameMusic.Length * t);
+                    _musicInstance.SetTimelinePosition(position);
                 }
                 Profiler.EndSample();
             }).AddTo(_disposables);

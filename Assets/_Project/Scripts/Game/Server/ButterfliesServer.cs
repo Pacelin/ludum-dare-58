@@ -22,15 +22,9 @@ namespace Scripts.Game.Server
         
         private static ButterflyData[] _cachedData;
         private static DateTime _lastUpdate;
-        private static readonly AsyncLazy<ButterflyData[]> _currentRequest;
-        private static CancellationTokenSource _requestCancellation;
+        private static UniTaskCompletionSource _request;
 
-        static ButterfliesServer()
-        {
-            _requestCancellation = new CancellationTokenSource();
-            _currentRequest = new AsyncLazy<ButterflyData[]>(FetchButterfliesData);
-        }
-        
+
         public static async UniTask PostButterfly(int id, float size)
         {
             var data = new ButterflyData 
@@ -69,15 +63,8 @@ namespace Scripts.Game.Server
         {
             if (IsCacheValid())
                 return _cachedData;
-
-            try
-            {
-                return await _currentRequest.Task;
-            }
-            catch (OperationCanceledException)
-            {
-                return Array.Empty<ButterflyData>();
-            }
+            await FetchButterfliesData();
+            return _cachedData;
         }
 
         private static UnityWebRequest CreatePostRequest(string json)
@@ -91,20 +78,33 @@ namespace Scripts.Game.Server
             return request;
         }
 
-        private static async UniTask<ButterflyData[]> FetchButterfliesData()
+        private static async UniTask FetchButterfliesData()
         {
-            using var request = UnityWebRequest.Get(GET_URL);
+            if (_request != null)
+            {
+                await _request.Task;
+                return;
+            }
             
+            _request = new UniTaskCompletionSource();
+            
+            using var request = UnityWebRequest.Get(GET_URL);
             await request.SendWebRequest().ToUniTask(cancellationToken: GetCancellationToken());
             
-            if (!request.IsSuccess())
-                return Array.Empty<ButterflyData>();
+            if (GetCancellationToken().IsCancellationRequested ||
+                !request.IsSuccess())
+            {
+                UpdateCache(Array.Empty<ButterflyData>());
+                _request.TrySetResult();
+                _request = null;
+                return;
+            }
 
             var jsonResponse = request.downloadHandler.text;
             var result = JsonUtility.FromJson<TableData>(jsonResponse);
-            
             UpdateCache(result.data);
-            return result.data;
+            _request.TrySetResult();
+            _request = null;
         }
 
         private static bool IsCacheValid()
@@ -139,13 +139,6 @@ namespace Scripts.Game.Server
         private static CancellationToken GetCancellationToken()
         {
             return ApplicationState.ExitCancellationToken;
-        }
-
-        public static void Dispose()
-        {
-            _requestCancellation?.Cancel();
-            _requestCancellation?.Dispose();
-            _requestCancellation = null;
         }
     }
 }

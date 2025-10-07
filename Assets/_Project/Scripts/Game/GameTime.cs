@@ -1,4 +1,5 @@
 ﻿using R3;
+using Scripts.Core.Lifetime;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -7,6 +8,7 @@ namespace Scripts.Game
     public class GameTime : ITickable
     {
         public ReadOnlyReactiveProperty<float> Seconds => _seconds;
+        public float NormalizedTime => _seconds.Value / _secondsPerCycle;
         public bool IsNight => _seconds.Value > _secondsPerCycle / 2;
 
         [System.Serializable] 
@@ -27,6 +29,8 @@ namespace Scripts.Game
 
         public void Tick()
         {
+            if (ApplicationState.IsPaused.CurrentValue)
+                return;
             var newSeconds = _seconds.Value + Time.deltaTime;
             if (newSeconds >= _secondsPerCycle)
                 newSeconds -= _secondsPerCycle;

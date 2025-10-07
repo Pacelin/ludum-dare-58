@@ -208,7 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1847209491}
-  _material: {fileID: 2100000, guid: 8a6eb2783b6fb4e46953587dbbdda45f, type: 2}
+  _materials:
+  - {fileID: 2100000, guid: b2fa74650c4fd9f40ae529741c2d7f18, type: 2}
+  - {fileID: 2100000, guid: 4df3f8a88984cde4fbee31ff5cb37355, type: 2}
 --- !u!4 &670620755
 Transform:
   m_ObjectHideFlags: 0
