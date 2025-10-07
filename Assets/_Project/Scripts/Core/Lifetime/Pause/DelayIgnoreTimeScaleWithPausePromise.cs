@@ -2,6 +2,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Scripts.Core.Lifetime.Impl
 {
@@ -100,9 +101,11 @@ namespace Scripts.Core.Lifetime.Impl
 
         public bool MoveNext()
         {
+            Profiler.BeginSample("DelayIgnoreTimeScaleWithPausePromise.MoveNext");
             if (cancellationToken.IsCancellationRequested)
             {
                 core.TrySetCanceled(cancellationToken);
+                Profiler.EndSample();
                 return false;
             }
 
@@ -110,20 +113,26 @@ namespace Scripts.Core.Lifetime.Impl
             {
                 if (initialFrame == Time.frameCount)
                 {
+                    Profiler.EndSample();
                     return true;
                 }
             }
 
             if (ApplicationState.IsPaused.CurrentValue)
+            {
+                Profiler.EndSample();
                 return true;
+            }
 
             elapsed += Time.unscaledDeltaTime;
             if (elapsed >= delayFrameTimeSpan)
             {
                 core.TrySetResult(null);
+                Profiler.EndSample();
                 return false;
             }
 
+            Profiler.EndSample();
             return true;
         }
 

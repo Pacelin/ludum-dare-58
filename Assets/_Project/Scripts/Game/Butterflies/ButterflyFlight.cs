@@ -1,5 +1,6 @@
 ﻿using Scripts.Core.Lifetime;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Scripts.Game.Butterflies
 {
@@ -8,16 +9,16 @@ namespace Scripts.Game.Butterflies
         [Header("Основные настройки")]
         public float baseSpeed = 1.5f;
         public float speedVariation = 0.5f;
-    
+
         [Header("Крылья")]
         public float wingFlapFrequency = 5f;
         public float wingFlapAmplitude = 30f;
-    
+
         [Header("Траектория полета")]
         public float directionChangeFrequency = 2f;
         public float maxTurnAngle = 45f;
         public float altitudeChangeSpeed = 0.5f;
-    
+
         [Header("Случайные движения")]
         public float randomMovementFrequency = 3f;
         public float randomMovementStrength = 0.3f;
@@ -44,19 +45,24 @@ namespace Scripts.Game.Butterflies
                 Random.Range(-0.5f, 0.5f),
                 0
             ).normalized;
-        
+
             currentSpeed = baseSpeed + Random.Range(-speedVariation, speedVariation);
         }
 
         void Update()
         {
+            Profiler.BeginSample("ButterflyFlight.Update");
             if (ApplicationState.IsPaused.CurrentValue)
+            {
+                Profiler.EndSample();
                 return;
+            }
             UpdateTimers();
             UpdateDirection();
             UpdateWingFlap();
             UpdateRandomMovement();
             ApplyMovement();
+            Profiler.EndSample();
         }
 
         void UpdateTimers()
@@ -78,10 +84,10 @@ namespace Scripts.Game.Butterflies
                 ).normalized;
 
                 currentDirection = Vector3.Slerp(currentDirection, newDirection, 0.1f);
-            
+
                 // Изменение скорости
                 currentSpeed = baseSpeed + Random.Range(-speedVariation, speedVariation);
-            
+
                 directionChangeTimer = 0f;
             }
 
@@ -112,7 +118,7 @@ namespace Scripts.Game.Butterflies
                     Random.Range(-1f, 1f),
                     0
                 ) * randomMovementStrength;
-            
+
                 randomMovementTimer = 0f;
             }
         }
@@ -122,11 +128,11 @@ namespace Scripts.Game.Butterflies
             // Плавное изменение высоты
             float currentY = transform.position.y;
             float newY = Mathf.Lerp(currentY, targetAltitude, Time.deltaTime * altitudeChangeSpeed);
-        
+
             // Основное движение + случайные отклонения
             Vector3 movement = (currentDirection * currentSpeed + randomMovementOffset) * Time.deltaTime;
             movement.y = newY - currentY;
-        
+
             transform.position += movement;
         }
 

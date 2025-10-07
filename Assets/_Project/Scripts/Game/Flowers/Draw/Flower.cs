@@ -1,22 +1,21 @@
-﻿using System;
-using DG.Tweening;
-using Scripts.Core.Lifetime;
+﻿using Scripts.Core.Lifetime;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Scripts.Game.Flowers
 {
     public class Flower : DrawableObject
     {
         public int UnlockPrice => _unlockPrice;
-        
+
         [SerializeField] private int _unlockPrice;
         [SerializeField] private int _id;
 
         private static Camera _camera;
         private float _targetScale;
-        
+
         public virtual int GetId(GameTime time) => _id;
-        
+
         public override void OnDraw(Vector2 point)
         {
             gameObject.transform.position = point;
@@ -30,8 +29,12 @@ namespace Scripts.Game.Flowers
 
         private void Update()
         {
+            Profiler.BeginSample("Flower.Update");
             if (ApplicationState.IsPaused.CurrentValue)
+            {
+                Profiler.EndSample();
                 return;
+            }
             if (!_camera)
                 _camera = Camera.main;
             var mousePos = Input.mousePosition;
@@ -39,12 +42,13 @@ namespace Scripts.Game.Flowers
             var pos = _camera.ScreenToWorldPoint(mousePos);
             if (Vector2.Distance(pos, transform.position) < 0.5f)
                 _targetScale = 0.75f;
-            else 
+            else
                 _targetScale = 1f;
-            
+
             var curScale = transform.localScale;
             curScale.y = Mathf.MoveTowards(curScale.y, _targetScale, Time.deltaTime *10);
             transform.localScale = curScale;
+            Profiler.EndSample();
         }
     }
 }

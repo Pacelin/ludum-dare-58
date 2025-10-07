@@ -4,6 +4,7 @@ using R3;
 using Scripts.Audio;
 using Scripts.Core.Lifetime;
 using Scripts.Game.Currency;
+using UnityEngine.Profiling;
 using VContainer.Unity;
 
 namespace Scripts.Game.Flowers
@@ -18,7 +19,7 @@ namespace Scripts.Game.Flowers
 
         private HotbarElement _selectedElement;
         private DrawableObject _selectedDrawable;
-        
+
         public HotbarController(DrawFacade drawFacade, Hotbar hotbar, Wallet wallet)
         {
             _drawFacade = drawFacade;
@@ -64,11 +65,12 @@ namespace Scripts.Game.Flowers
             _drawFacade.DrawField.ObserveErase()
                 .Subscribe(d => _wallet.Earn(d.EraseReward))
                 .AddTo(_disposables);
-            
+
             _wallet.Balance.Subscribe(_ => UpdateDrawState()).AddTo(_disposables);
-            
+
             ApplicationState.IsPaused.DistinctUntilChanged().Subscribe(isPaused =>
             {
+                Profiler.BeginSample("HotbarController.IsPaused Changed");
                 if (isPaused)
                 {
                     _drawFacade.SetCanDraw(false);
@@ -79,6 +81,7 @@ namespace Scripts.Game.Flowers
                     _drawFacade.SetCanErase(true);
                     UpdateDrawState();
                 }
+                Profiler.EndSample();
             }).AddTo(_disposables);
         }
 
@@ -93,21 +96,21 @@ namespace Scripts.Game.Flowers
                 element.SetState(true, true);
             else
                 element.SetState(false, _wallet.HasEnough(element.Flower.UnlockPrice));
-            
+
         }
-        
+
         public void Accept(EraseHotbarElement _)
         {
             _selectedDrawable = null;
             _drawFacade.SetDrawObject(null);
-        } 
+        }
 
         public void Accept(FlowersHotbarElement element)
         {
             _selectedDrawable = element.Flower;
             _drawFacade.SetDrawObject(_selectedDrawable);
-        } 
-        
+        }
+
         private void UpdateDrawState()
         {
             if (!_selectedDrawable)
@@ -115,10 +118,10 @@ namespace Scripts.Game.Flowers
             else
                 _drawFacade.SetCanDraw(_wallet.HasEnough(_selectedDrawable.DrawPrice));
         }
-        
+
         private void SelectElement(HotbarElement element)
         {
-            if (_selectedElement == element) 
+            if (_selectedElement == element)
                 return;
             if (_selectedElement)
                 _selectedElement.UpdateSelection(false);
