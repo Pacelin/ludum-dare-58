@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using R3;
 using Scripts.Core.Lifetime;
 using UnityEngine;
@@ -30,6 +31,16 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         
         public Observable<int> ObserveOpen() => _openSubject;
 
+        public Material GetButterflyMaterial(ButterfliesConfig config, int butterflyId)
+        {
+            var all = _filters[0];
+            foreach (var page in all.Pages)
+            foreach (var entry in page.Entries)
+                if (config.GetButterflyID(entry.Butterfly) == butterflyId) 
+                    return entry.GetMaterial();
+            return null;
+        }
+        
         private void OnEnable()
         {
             ApplicationState.SetPauseGameplay(true);

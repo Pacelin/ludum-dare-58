@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scripts.Game.Butterflies.ButterfliesJournal
 {
@@ -24,6 +25,8 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         [SerializeField] private TMP_Text _worldCostText;
         [SerializeField] private TMP_Text _worldNicknameText;
 
+        private Image _image;
+        
         public void SetData(ButterfliesConfig butterfliesConfig,
             float mySize, int myCost)
         {
@@ -34,6 +37,13 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             _myCostText.text = myCost.ToString();
         }
 
+        public Material GetMaterial()
+        {
+            if (!_image) 
+                _image = _butterflyContainer.GetComponent<Image>();
+            return _image.material;
+        } 
+        
         public void ResetWorld() => _worldInfo.SetActive(false);
 
         public void SetWorldData(float worldSize, int worldCost, string worldNickname)

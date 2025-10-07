@@ -1,6 +1,7 @@
 ﻿using System;
 using R3;
 using Scripts.Core.Lifetime;
+using Scripts.Game.Butterflies;
 using Scripts.Game.Butterflies.ButterfliesJournal;
 using Scripts.Game.Butterflies.ButterfliesJournal.Legend;
 using Scripts.Game.Currency;
@@ -19,13 +20,13 @@ namespace Scripts.Game
         private readonly CompositeDisposable _disposables;
         
         public GameScreenPresenter(GameScreenView screen, DrawFacade drawFacade, Wallet wallet,
-            ButterfliesJournalView journalView, ButterfliesJournal journal)
+            ButterfliesJournalView journalView, ButterfliesJournal journal, ButterfliesConfig butterfliesConfig)
         {
             _screen = screen;
             _butterfliesJournalView = journalView;
             _walletPresenter = new WalletPresenter(screen.WalletView, wallet);
             _hotbarController = new HotbarController(drawFacade, screen.Hotbar, wallet);
-            _legendPresenter = new ButterfliesLegendPresenter(_screen.Legend, journal, journalView);
+            _legendPresenter = new ButterfliesLegendPresenter(butterfliesConfig, _screen.Legend, journal, journalView);
             _disposables = new CompositeDisposable();
         }
 

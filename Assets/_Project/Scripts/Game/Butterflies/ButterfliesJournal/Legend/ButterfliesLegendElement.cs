@@ -21,9 +21,10 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal.Legend
 
         private CompositeDisposable _disposables;
         
-        public void Initialize(ButterfliesLegend legend, ButterfliesJournalView journalView, ButterfliesJournalEntry entry)
+        public void Initialize(ButterfliesConfig butterfliesConfig, ButterfliesLegend legend, ButterfliesJournalView journalView, ButterfliesJournalEntry entry)
         {
             _butterflyIcon.sprite = entry.Icon;
+            _butterflyIcon.material = journalView.GetButterflyMaterial(butterfliesConfig, entry.Id);
             _sizeText.text = $"{entry.Size:F} mm";
             _nameText.text = entry.Name;
             _costText.text = $"{entry.Cost}";

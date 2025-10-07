@@ -6,14 +6,16 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal.Legend
 {
     public class ButterfliesLegendPresenter : IInitializable, IDisposable
     {
+        private readonly ButterfliesConfig _butterfliesConfig;
         private readonly ButterfliesLegend _view;
         private readonly ButterfliesJournal _journal;
         private readonly ButterfliesJournalView _journalView;
         private readonly CompositeDisposable _disposables;
         
-        public ButterfliesLegendPresenter(ButterfliesLegend view, ButterfliesJournal journal,
+        public ButterfliesLegendPresenter(ButterfliesConfig butterfliesConfig, ButterfliesLegend view, ButterfliesJournal journal,
             ButterfliesJournalView journalView)
         {
+            _butterfliesConfig = butterfliesConfig;
             _view = view;
             _journal = journal;
             _journalView = journalView;
@@ -26,7 +28,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal.Legend
                 .Subscribe(entry =>
                 {
                     var element = _view.CreateLegendElement();
-                    element.Initialize(_view, _journalView, entry);
+                    element.Initialize(_butterfliesConfig, _view, _journalView, entry);
                 }).AddTo(_disposables);
         }
 
