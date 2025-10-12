@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Scripts.Game.Butterflies;
+using Scripts.Game.Butterflies.ButterfliesJournal;
 using UnityEngine;
 
 namespace Scripts.Game
@@ -10,10 +11,12 @@ namespace Scripts.Game
         [SerializeField] private ButterflyView _butterfly;
 
         private ButterfliesConfig _generalConfig;
+        private ButterfliesJournal _journal;
         
-        public void Construct(ButterfliesConfig generalConfig)
+        public void Construct(ButterfliesConfig generalConfig, ButterfliesJournal journal)
         {
             _generalConfig = generalConfig;
+            _journal = journal;
         }
 
         private void Update()
@@ -23,7 +26,9 @@ namespace Scripts.Game
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                var maxSize = 0f;
+                for (int i = 0; i < _generalConfig.GetButterfliesCount(); i++)
+                    _journal.CheatButterfly(i);
+                /*var maxSize = 0f;
                 
                 for (int i = 0; i < _countToGenerate; i++)
                 {
@@ -35,7 +40,7 @@ namespace Scripts.Game
                         break;
                 }
                 var maxName = ButterfliesUtils.GetButterflyName(_generalConfig, _butterfly.Config, maxSize);
-                Debug.LogWarning($"Max size: {maxSize:F} mm, name: {maxName}");
+                Debug.LogWarning($"Max size: {maxSize:F} mm, name: {maxName}");*/
             }
         }
     }

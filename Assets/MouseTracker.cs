@@ -11,9 +11,10 @@ public class MouseTracker : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = 0f;
-        Vector3 point = _camera.ScreenToViewportPoint(mousePosition);
+        mousePosition.y = Screen.height - mousePosition.y;
+        //Vector3 point = _camera.ScreenToViewportPoint(mousePosition);
 
         foreach (Material material in _materials)
-            material.SetVector(MOUSE_POSITION_KEY, point);
+            material.SetVector(MOUSE_POSITION_KEY, mousePosition);
     }
 }

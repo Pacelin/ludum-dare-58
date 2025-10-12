@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: -2862733877846039245, guid: 2119acba271a9d140bcba0c811374f5d, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -24,7 +25,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _FaceDilate: 0.1
+    - _OutlineSoftness: 0
+    - _OutlineWidth: 0.058
+    - _ScaleRatioA: 0.85714287
+    - _ScaleRatioB: 0.6107143
+    - _ScaleRatioC: 0.6107143
+    - _UnderlayDilate: -0.52
+    - _UnderlayOffsetX: 0
+    - _UnderlayOffsetY: 0
+    - _UnderlaySoftness: 1
+    m_Colors:
+    - _OutlineColor: {r: 0.69803923, g: 0.545098, b: 0.30588233, a: 0.1882353}
+    - _UnderlayColor: {r: 0.6981132, g: 0.54627085, b: 0.30427194, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

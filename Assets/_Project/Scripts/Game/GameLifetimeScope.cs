@@ -34,8 +34,9 @@ namespace Scripts.Game
             builder.RegisterBuildCallback(r =>
             {
                 var config = r.Resolve<ButterfliesConfig>();
+                var journal = r.Resolve<ButterfliesJournal>();
                 var go = new GameObject("Cheats");
-                go.AddComponent<Cheats>().Construct(config);
+                go.AddComponent<Cheats>().Construct(config, journal);
             });
 #endif
             

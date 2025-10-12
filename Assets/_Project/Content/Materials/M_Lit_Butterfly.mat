@@ -63,16 +63,23 @@ Material:
     - _Add_Hue_To: 0.65
     - _ColorMask: 15
     - _FEATURE: 5
-    - _Height: 0
-    - _Holo_Amount_1: 1
-    - _Holo_Amount_2: 0.18
+    - _Height: 5
+    - _Holo_Amount_1: 0.8
+    - _Holo_Amount_2: 0.2
     - _Holo_Blend: 0.709
+    - _Holo_Fade_Height: 500
+    - _Holo_Fade_Height_1: 200
+    - _Holo_Fade_Height_2: 100
     - _Holo_Height: 2
-    - _Holo_Height_1: 75
-    - _Holo_Height_2: 120
+    - _Holo_Height_1: 1
+    - _Holo_Height_2: 1
+    - _Holo_Power_1: 1
+    - _Holo_Power_2: 2
     - _Mouse_Multiplier: 1920
-    - _Restored_Height: 75
-    - _Specular_Power: -50
+    - _PetrifiedSaturation: 0.313
+    - _Restored_Height: 4
+    - _Specular_Power: 2
+    - _SpotHueOffset: 0.554
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -84,7 +91,9 @@ Material:
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _MousePosition: {r: 0.47990474, g: 1, b: 0, a: 0}
-    - _Specular_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Specular_Color: {r: 2.9960787, g: 2.9960787, b: 2.9960787, a: 1}
+    - _SpotTiling: {r: 4, g: 4, b: 0, a: 0}
+    - _SpotTint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4806305337131355324

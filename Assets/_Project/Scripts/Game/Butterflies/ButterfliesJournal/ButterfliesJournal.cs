@@ -57,7 +57,22 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
                 _generalConfig.GetButterflyById(butterflyId).Config, size);
             return (size, cost);
         }
-
+#if UNITY_EDITOR
+        public void CheatButterfly(int butterflyId)
+        {
+            _butterfliesSizesMap[butterflyId] = 10;
+            _entryAddSubject.OnNext(new ButterfliesJournalEntry()
+            {
+                Cost = 100,
+                Icon = null,
+                Id = butterflyId,
+                IsNewEntry = true,
+                Name = "New Butterfly",
+                RecordType = new ReactiveProperty<ERecordType>(ERecordType.LocalRecord),
+                Size = 10
+            });
+        }
+#endif
         public void PostButterfly(ButterflyView butterfly)
         {
             var recordInfoReactive = new ReactiveProperty<ERecordType>();
