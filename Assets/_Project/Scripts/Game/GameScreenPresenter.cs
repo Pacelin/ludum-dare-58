@@ -17,6 +17,7 @@ namespace Scripts.Game
         private readonly HotbarController _hotbarController;
         private readonly ButterfliesLegendPresenter _legendPresenter;
         private readonly ButterfliesJournalView _butterfliesJournalView;
+        private readonly ButterfliesJournal _journal;
         private readonly CompositeDisposable _disposables;
         
         public GameScreenPresenter(GameScreenView screen, DrawFacade drawFacade, Wallet wallet,
@@ -24,6 +25,7 @@ namespace Scripts.Game
         {
             _screen = screen;
             _butterfliesJournalView = journalView;
+            _journal = journal;
             _walletPresenter = new WalletPresenter(screen.WalletView, wallet);
             _hotbarController = new HotbarController(drawFacade, screen.Hotbar, wallet);
             _legendPresenter = new ButterfliesLegendPresenter(butterfliesConfig, _screen.Legend, journal, journalView);
@@ -38,6 +40,11 @@ namespace Scripts.Game
             _screen.JournalButton.OnClickAsObservable()
                 .Subscribe(_ => _butterfliesJournalView.Open(0))
                 .AddTo(_disposables);
+            
+            _journal.ObserveEntries().Where(entry => entry.IsNewEntry)
+                .Subscribe(_ => UpdateJournalButtonText()).AddTo(_disposables);
+            UpdateJournalButtonText();
+            
             _walletPresenter.Initialize();
             _hotbarController.Initialize();
             _legendPresenter.Initialize();
@@ -49,6 +56,13 @@ namespace Scripts.Game
             _hotbarController.Dispose();
             _legendPresenter.Dispose();
             _disposables.Dispose();
+        }
+
+        private void UpdateJournalButtonText()
+        {
+            var currentCount = _journal.GetUserButterfliesCount();
+            var allCount = _journal.GetAllButterfliesCount();
+            _screen.JournalButtonText.text = $"{currentCount}/{allCount}";
         }
     }
 }

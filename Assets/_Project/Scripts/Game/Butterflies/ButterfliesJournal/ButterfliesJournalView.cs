@@ -13,6 +13,8 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         public RectTransform SecondPageContainer => _secondPageContainer;
         public Button LeftArrow => _leftArrow;
         public Button RightArrow => _rightArrow;
+        public GameObject LeftButtonGhost => _leftButtonGhost;
+        public GameObject RightButtonGhost => _rightButtonGhost;
         public Button CloseButton => _closeButton;
         
         public ButterfliesJournalFilterView[] Filters => _filters;
@@ -24,6 +26,8 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         [SerializeField] private RectTransform _secondPageContainer;
         [SerializeField] private Button _leftArrow;
         [SerializeField] private Button _rightArrow;
+        [SerializeField] private GameObject _leftButtonGhost;
+        [SerializeField] private GameObject _rightButtonGhost;
         [SerializeField] private Button _closeButton;
         [SerializeField] private ButterfliesJournalFilterView[] _filters;
         

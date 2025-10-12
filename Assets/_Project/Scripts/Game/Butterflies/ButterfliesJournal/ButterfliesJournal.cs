@@ -138,5 +138,8 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             };
             PlayerPrefs.SetString("journal_data", JsonUtility.ToJson(data));
         }
+
+        public int GetUserButterfliesCount() => _butterfliesSizesMap.Count;
+        public int GetAllButterfliesCount() => _generalConfig.GetButterfliesCount();
     }
 }

@@ -2,6 +2,7 @@
 using Scripts.Game.Butterflies.ButterfliesJournal.Legend;
 using Scripts.Game.Currency;
 using Scripts.Game.Flowers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace Scripts.Game
     {
         public Button PauseButton => _pauseButton;
         public Button JournalButton => _journalButton;
+        public TMP_Text JournalButtonText => _journalButtonText;
         public Button LearnButton => _learnButton;
         public WalletView WalletView => _walletView;
         public Hotbar Hotbar => _hotbar;
@@ -18,6 +20,7 @@ namespace Scripts.Game
         
         [SerializeField] private Button _pauseButton;
         [SerializeField] private Button _journalButton;
+        [SerializeField] private TMP_Text _journalButtonText;
         [SerializeField] private Button _learnButton;
         [SerializeField] private WalletView _walletView;
         [SerializeField] private Hotbar _hotbar;

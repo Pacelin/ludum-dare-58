@@ -179,6 +179,13 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
             {
                 _rightPage = null;
             }
+
+            var rightPageIsLast = rightPageIndex >= _currentFilter.Pages.Length - 1;
+            _view.RightArrow.gameObject.SetActive(!rightPageIsLast);
+            _view.RightButtonGhost.SetActive(rightPageIsLast);
+            var leftPageIsFirst = leftPageIndex == 0;
+            _view.LeftArrow.gameObject.SetActive(!leftPageIsFirst);
+            _view.LeftButtonGhost.SetActive(leftPageIsFirst);
         }
 
         private void InitializePageEntries(ButterfliesJournalPageView page)

@@ -102,5 +102,6 @@ namespace Scripts.Game.Butterflies
             return GetButterfly(flowerIds[0]);
         }
         public int GetButterflyID(ButterflyView prefab) => System.Array.IndexOf(_butterflies, prefab);
+        public int GetButterfliesCount() => _butterflies.Length;
     }
 }

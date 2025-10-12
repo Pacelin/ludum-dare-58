@@ -46,13 +46,13 @@ namespace Scripts.Game.Flowers
                         .AddTo(_disposables);
                     if (!_unlockedFlowers[flowerElement])
                     {
-                        flowerElement.UnlockButton.OnClickAsObservable()
-                        .Subscribe(_ =>
+                        flowerElement.UnlockButton.OnClickAsObservable().Subscribe(_ =>
                         {
                             _wallet.Spend(flowerElement.Flower.UnlockPrice);
                             AudioSystem.Game_UnlockFlower.PlayOneShot();
                             _unlockedFlowers[flowerElement] = true;
                             UpdateFlowerElement(flowerElement);
+                            SelectElement(flowerElement);
                         }).AddTo(_disposables);
                     }
                 }
@@ -70,7 +70,6 @@ namespace Scripts.Game.Flowers
 
             ApplicationState.IsPaused.DistinctUntilChanged().Subscribe(isPaused =>
             {
-                Profiler.BeginSample("HotbarController.IsPaused Changed");
                 if (isPaused)
                 {
                     _drawFacade.SetCanDraw(false);
@@ -81,7 +80,6 @@ namespace Scripts.Game.Flowers
                     _drawFacade.SetCanErase(true);
                     UpdateDrawState();
                 }
-                Profiler.EndSample();
             }).AddTo(_disposables);
         }
 
@@ -96,7 +94,6 @@ namespace Scripts.Game.Flowers
                 element.SetState(true, true);
             else
                 element.SetState(false, _wallet.HasEnough(element.Flower.UnlockPrice));
-
         }
 
         public void Accept(EraseHotbarElement _)
