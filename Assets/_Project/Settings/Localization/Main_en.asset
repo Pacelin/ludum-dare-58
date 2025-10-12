@@ -339,6 +339,13 @@ MonoBehaviour:
     m_Localized: Gigantic
     m_Metadata:
       m_Items: []
+  - m_Id: 3648978661924864
+    m_Localized: 'NOTE: Version 1.0.5 (Post-Jam).
+
+      If you want the original
+      Jam version, download it separately.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

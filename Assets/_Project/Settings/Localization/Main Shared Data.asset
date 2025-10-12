@@ -335,6 +335,10 @@ MonoBehaviour:
     m_Key: journal.label.name.giant.feminite
     m_Metadata:
       m_Items: []
+  - m_Id: 3648978661924864
+    m_Key: caution.postjam
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
