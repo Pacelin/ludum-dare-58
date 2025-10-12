@@ -327,6 +327,14 @@ MonoBehaviour:
     m_Key: learn.skip
     m_Metadata:
       m_Items: []
+  - m_Id: 3618364164399104
+    m_Key: journal.label.name.giant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3618547518398464
+    m_Key: journal.label.name.giant.feminite
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

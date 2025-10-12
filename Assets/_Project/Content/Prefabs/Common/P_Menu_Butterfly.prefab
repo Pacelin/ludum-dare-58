@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifetime: 10
+  _cursor: {fileID: 2800000, guid: ca6ada1c3ea6f88499f7dda707747312, type: 3}
 --- !u!1 &6736175608299760021
 GameObject:
   m_ObjectHideFlags: 0

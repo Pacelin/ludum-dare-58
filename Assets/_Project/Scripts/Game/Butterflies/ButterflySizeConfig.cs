@@ -11,11 +11,15 @@ namespace Scripts.Game.Butterflies
         public LocalizedString SizeStringFemale => _sizeStringFemale;
         public Vector2 AverageSizeMultiplierRange => _averageSizeMultiplierRange;
         public float CostMutiplier => _costMutiplier;
+        public float ScaleInJournalMultiplier => _scaleInJournalMultiplier;
+        public float ScaleInWorldMultiplier => _scaleInWorldMultiplier;
         
         [SerializeField] private LocalizedString _sizeString;
         [SerializeField] private LocalizedString _sizeStringFemale;
         [SerializeField] private Vector2 _averageSizeMultiplierRange;
         [SerializeField] private float _costMutiplier;
+        [SerializeField] private float _scaleInJournalMultiplier;
+        [SerializeField] private float _scaleInWorldMultiplier;
 
         public bool Equals(ButterflySizeConfig other) => _sizeString == other._sizeString;
 

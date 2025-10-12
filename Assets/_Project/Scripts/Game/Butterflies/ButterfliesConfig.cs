@@ -15,7 +15,11 @@ namespace Scripts.Game.Butterflies
         public float SizeDeviationMultiplier => _sizeDeviationMultiplier;
         public float MinSizeMultiplier => _minSizeMultiplier;
         public float MaxSizeMultiplier => _maxSizeMultiplier;
+        public Texture2D CursorCatch => _cursorCatch;
+        public Texture2D DefaultCursor => _defaultCursor;
         
+        [SerializeField] private Texture2D _cursorCatch;
+        [SerializeField] private Texture2D _defaultCursor;
         [SerializeField] private Vector2 _spawnCooldownRange;
         [SerializeField] private float _flowersFindRadius;
         [SerializeField] private float _doubleFlowerChance;
@@ -58,15 +62,19 @@ namespace Scripts.Game.Butterflies
             return _sizeConfigs[0];
         }
 
-        public float GetScaleForJournal(float size)
+        public float GetScaleForJournal(ButterflyConfig butterflyConfig, float size)
         {
-            var t = Mathf.InverseLerp(_butterflySizeRange.x, _butterflySizeRange.y, size);
+            var sizeConfig = GetButterflySizeConfig(butterflyConfig, size);
+            var t = Mathf.InverseLerp(_butterflySizeRange.x, _butterflySizeRange.y, 
+                size * sizeConfig.ScaleInJournalMultiplier);
             return Mathf.Lerp(_journalScaleRange.x, _journalScaleRange.y, Mathf.Clamp01(t));
         }
 
-        public float GetScaleForWorld(float size)
+        public float GetScaleForWorld(ButterflyConfig butterflyConfig, float size)
         {
-            var t = Mathf.InverseLerp(_butterflySizeRange.x, _butterflySizeRange.y, size);
+            var sizeConfig = GetButterflySizeConfig(butterflyConfig, size);
+            var t = Mathf.InverseLerp(_butterflySizeRange.x, _butterflySizeRange.y, 
+                size * sizeConfig.ScaleInWorldMultiplier);
             return Mathf.Lerp(_worldScaleRange.x, _worldScaleRange.y, Mathf.Clamp01(t));
         }
         

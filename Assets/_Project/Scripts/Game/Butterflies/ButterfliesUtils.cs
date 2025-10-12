@@ -51,8 +51,7 @@ namespace Scripts.Game.Butterflies
             var deviation = config.AverageSize * generalConfig.SizeDeviationMultiplier;
             var size = Mathf.Round(NextGaussian(mean, deviation) * 100f) / 100f;
             var minSize = generalConfig.MinSizeMultiplier * config.AverageSize;
-            var maxSize = generalConfig.MaxSizeMultiplier * config.AverageSize;
-            return Mathf.Clamp(size, minSize, maxSize);
+            return Mathf.Max(size, minSize);
         }
         
         public static int CalculateCost(ButterfliesConfig generalConfig, ButterflyConfig config, float size)

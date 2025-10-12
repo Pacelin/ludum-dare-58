@@ -26,9 +26,7 @@ namespace Scripts.Game
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                for (int i = 0; i < _generalConfig.GetButterfliesCount(); i++)
-                    _journal.CheatButterfly(i);
-                /*var maxSize = 0f;
+                var maxSize = 0f;
                 
                 for (int i = 0; i < _countToGenerate; i++)
                 {
@@ -40,7 +38,12 @@ namespace Scripts.Game
                         break;
                 }
                 var maxName = ButterfliesUtils.GetButterflyName(_generalConfig, _butterfly.Config, maxSize);
-                Debug.LogWarning($"Max size: {maxSize:F} mm, name: {maxName}");*/
+                var maxScaleForJournal = _generalConfig.GetScaleForJournal(_butterfly.Config, maxSize);
+                var maxScaleForWorld = _generalConfig.GetScaleForWorld(_butterfly.Config, maxSize);
+                Debug.LogWarning($"Max size: {maxSize:F} mm;\n" +
+                                 $"name: {maxName};\n" +
+                                 $"scale for journal: {maxScaleForJournal};\n" +
+                                 $"scale for world: {maxScaleForWorld}");
             }
         }
     }

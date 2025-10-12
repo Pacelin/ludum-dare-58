@@ -30,7 +30,7 @@ namespace Scripts.Game.Butterflies.ButterfliesJournal
         public void SetData(ButterfliesConfig butterfliesConfig,
             float mySize, int myCost)
         {
-            var scale = butterfliesConfig.GetScaleForJournal(mySize) * _scaleAdapter + _scaleOffset;
+            var scale = butterfliesConfig.GetScaleForJournal(_butterfly.Config, mySize) * _scaleAdapter + _scaleOffset;
             _butterflyContainer.localScale = Vector3.one * scale;
             _nameText.text = ButterfliesUtils.GetButterflyName(butterfliesConfig, _butterfly.Config, mySize);
             _mySizeText.text = mySize.ToString("F2") + " mm";
