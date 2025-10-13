@@ -28,19 +28,14 @@ namespace Scripts.Game.Butterflies
 
         public void Tick()
         {
-            Profiler.BeginSample("ButterfliesSpawner.Tick");
             if (ApplicationState.IsPaused.CurrentValue)
-            {
-                Profiler.EndSample();
                 return;
-            }
             _countdown -= Time.deltaTime;
             if (_countdown <= 0)
             {
                 TrySpawn();
                 ResetCountdown();
             }
-            Profiler.EndSample();
         }
 
         private void TrySpawn()

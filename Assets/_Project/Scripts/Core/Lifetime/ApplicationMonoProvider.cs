@@ -28,9 +28,7 @@ namespace Scripts.Core.Lifetime
         public void SetPause(bool pause) => _isPaused.Value = pause;
         public void SetPauseGameplay(bool pause)
         {
-            Profiler.BeginSample("ApplicationMonoProvider.SetPauseGameplay");
             _pauseGameplay.Value = pause;
-            Profiler.EndSample();
         }
 
         private void OnApplicationFocus(bool hasFocus) => _hasFocus.Value = hasFocus;

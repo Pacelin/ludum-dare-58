@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cursorCatch: {fileID: 2800000, guid: ca6ada1c3ea6f88499f7dda707747312, type: 3}
   _defaultCursor: {fileID: 2800000, guid: 23ae5c56281db1a44be7274a9573ffb5, type: 3}
-  _spawnCooldownRange: {x: 2, y: 7}
+  _spawnCooldownRange: {x: 2, y: 8}
   _flowersFindRadius: 1
   _doubleFlowerChance: 0.5
   _specialWeights:
@@ -93,7 +93,7 @@ MonoBehaviour:
     _averageSizeMultiplierRange: {x: 0, y: 0.4}
     _costMutiplier: 1.5
     _scaleInJournalMultiplier: 0.8
-    _scaleInWorldMultiplier: 0.8
+    _scaleInWorldMultiplier: 0.6
   - _sizeString:
       m_TableReference:
         m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
@@ -114,8 +114,8 @@ MonoBehaviour:
       m_LocalVariables: []
     _averageSizeMultiplierRange: {x: 0.4, y: 1}
     _costMutiplier: 1
-    _scaleInJournalMultiplier: 0.85
-    _scaleInWorldMultiplier: 0.85
+    _scaleInJournalMultiplier: 0.8
+    _scaleInWorldMultiplier: 0.6
   - _sizeString:
       m_TableReference:
         m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
@@ -136,8 +136,8 @@ MonoBehaviour:
       m_LocalVariables: []
     _averageSizeMultiplierRange: {x: 1, y: 2.1}
     _costMutiplier: 1.5
-    _scaleInJournalMultiplier: 0.85
-    _scaleInWorldMultiplier: 0.85
+    _scaleInJournalMultiplier: 0.8
+    _scaleInWorldMultiplier: 0.6
   - _sizeString:
       m_TableReference:
         m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
@@ -159,7 +159,7 @@ MonoBehaviour:
     _averageSizeMultiplierRange: {x: 2.1, y: 2.7}
     _costMutiplier: 2.5
     _scaleInJournalMultiplier: 0.85
-    _scaleInWorldMultiplier: 0.85
+    _scaleInWorldMultiplier: 0.6
   - _sizeString:
       m_TableReference:
         m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
@@ -180,8 +180,8 @@ MonoBehaviour:
       m_LocalVariables: []
     _averageSizeMultiplierRange: {x: 2.7, y: 4}
     _costMutiplier: 7.25
-    _scaleInJournalMultiplier: 0.85
-    _scaleInWorldMultiplier: 0.85
+    _scaleInJournalMultiplier: 0.9
+    _scaleInWorldMultiplier: 0.6
   - _sizeString:
       m_TableReference:
         m_TableCollectionName: GUID:1ea9012205bfad0428feabfc37064e55
@@ -210,8 +210,8 @@ MonoBehaviour:
   _sizeDeviationMultiplier: 0.6
   _flowersCountRange: {x: 1, y: 20}
   _flowersMeanMultiplierRange: {x: 0.7, y: 1.2}
-  _butterflySizeRange: {x: 1.4, y: 45}
-  _journalScaleRange: {x: 3, y: 8.5}
+  _butterflySizeRange: {x: 1.4, y: 50}
+  _journalScaleRange: {x: 2.5, y: 8.5}
   _worldScaleRange: {x: 0.3, y: 10}
   references:
     version: 2

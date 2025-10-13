@@ -106,9 +106,9 @@ namespace Scripts.Game.Butterflies
         private void UpdateCursor()
         {
             if (HoverButterflies > 0)
-                Cursor.SetCursor(_butterfliesConfig.CursorCatch, Vector2.zero, CursorMode.ForceSoftware);
+                Cursor.SetCursor(_butterfliesConfig.CursorCatch, Vector2.zero, CursorMode.Auto);
             else
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 }

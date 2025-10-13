@@ -19,9 +19,7 @@ namespace Scripts.Core.Lifetime
         public static void SetPause(bool pause) => _monoProvider.SetPause(pause);
         public static void SetPauseGameplay(bool pause)
         {
-            Profiler.BeginSample("ApplicationState.SetPauseGameplay");
             _monoProvider.SetPauseGameplay(pause);
-            Profiler.EndSample();
         }
     }
 }

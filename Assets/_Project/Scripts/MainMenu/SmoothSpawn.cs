@@ -72,9 +72,9 @@ namespace Scripts.MainMenu
         private void UpdateCursor()
         {
             if (HoverButterflies > 0)
-                Cursor.SetCursor(_cursor, Vector2.zero, CursorMode.ForceSoftware);
+                Cursor.SetCursor(_cursor, Vector2.zero, CursorMode.Auto);
             else
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 }

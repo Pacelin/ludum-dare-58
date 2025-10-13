@@ -17,6 +17,7 @@ namespace Scripts.Game
             _gameScreenView = gameScreenView;
             _learnView = learnView;
             _disposables = new CompositeDisposable();
+            _learnView.gameObject.SetActive(false);
         }
         
         public void Initialize()
