@@ -1,8 +1,8 @@
 # Butterfly Gathering – Ludum Dare 58 Project
 
 **Butterfly Gathering** – это игра, разработанная за 48 часов в рамках Ludum Dare 58. Проект создан на Unity и демонстрирует эффективное использование современных инструментов и подходов для быстрой разработки.
-Ссылка на проект: https://thespinningsofa.itch.io/butterfly-gathering
-Ссылка на все мои проекты: https://pacelin.itch.io
+- Ссылка на проект: https://thespinningsofa.itch.io/butterfly-gathering
+- Ссылка на все мои проекты: https://pacelin.itch.io
 
 ---
 
